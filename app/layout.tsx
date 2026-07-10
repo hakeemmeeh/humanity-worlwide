@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     siteName: organization.name,
     title: "Humanity Worldwide",
     description: organization.mission,
+    images: [{ url: "/logo.png", width: 498, height: 154, alt: "Humanity Worldwide logo" }],
   },
   twitter: {
     card: "summary_large_image",

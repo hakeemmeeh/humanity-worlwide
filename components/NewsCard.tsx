@@ -30,7 +30,7 @@ export function NewsCard({ article }: NewsCardProps) {
           sizes="(max-width: 768px) 100vw, 33vw"
         />
         {article.category && (
-          <span className="absolute left-4 top-4 rounded-full bg-navy/90 px-3 py-1 text-xs font-semibold text-white">
+          <span className="absolute left-4 top-4 rounded-full bg-coral px-3.5 py-1 text-xs font-semibold text-white uppercase tracking-wider shadow-sm">
             {article.category}
           </span>
         )}
@@ -46,7 +46,9 @@ export function NewsCard({ article }: NewsCardProps) {
           {article.excerpt}
         </p>
         <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal-text">
-          Read more
+          <span className="relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-teal-text after:transition-all after:duration-300 group-hover:after:w-full">
+            Read more
+          </span>
           <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
         </span>
       </div>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { HandsMark } from "@/components/HandsMark";
+import { Logo } from "@/components/Logo";
 import { Button } from "@/components/Button";
 import { organization, navLinks, socialLinks } from "@/data/content";
 
@@ -30,22 +31,26 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-navy-deep text-white">
+      {/* Wave SVG divider */}
+      <svg
+        className="absolute left-0 top-[-1px] w-full"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 70"
+        preserveAspectRatio="none"
+        style={{ height: "70px" }}
+      >
+        <path
+          d="M0,0 C360,70 1080,0 1440,50 L1440,0 L0,0 Z"
+          fill="#FFFFFF"
+        />
+      </svg>
+
       <HandsMark className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 text-white opacity-[0.04]" />
 
       <div className="container-content section-padding relative">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-3">
-              <HandsMark className="h-10 w-10 text-teal" />
-              <div>
-                <p className="font-display text-lg font-semibold">
-                  {organization.name}
-                </p>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">
-                  {organization.tagline}
-                </p>
-              </div>
-            </div>
+            <Logo height={36} onDark />
             <p className="mt-4 text-sm leading-relaxed text-white/70">
               {organization.mission}
             </p>
@@ -57,7 +62,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-teal hover:text-teal"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all duration-300 hover:scale-110 hover:border-teal hover:text-teal hover:shadow-[0_0_12px_rgba(0,204,180,0.4)]"
                 >
                   {socialIcons[social.label]}
                 </a>

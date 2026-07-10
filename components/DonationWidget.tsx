@@ -31,7 +31,7 @@ export function DonationWidget({ compact = false }: { compact?: boolean }) {
 
   return (
     <div
-      className={`rounded-2xl bg-white shadow-card ${
+      className={`rounded-2xl bg-white shadow-card shadow-lg ${
         compact ? "p-6" : "p-8 md:p-10"
       }`}
     >
@@ -53,8 +53,8 @@ export function DonationWidget({ compact = false }: { compact?: boolean }) {
             }}
             className={`rounded-full py-2.5 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 ${
               selected === amt && !custom
-                ? "bg-coral text-white"
-                : "bg-sand text-navy hover:bg-sand-deep"
+                ? "border border-coral bg-coral text-white"
+                : "border border-sand-deep bg-white text-navy hover:border-coral hover:text-coral"
             }`}
           >
             ${amt}
@@ -85,7 +85,7 @@ export function DonationWidget({ compact = false }: { compact?: boolean }) {
       <Button
         onClick={handleDonate}
         disabled={amount <= 0}
-        className="mt-6 w-full"
+        className="mt-6 w-full bg-amber-500 hover:bg-amber-600 text-white"
       >
         Donate ${amount > 0 ? amount : "—"} Now
       </Button>

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { footerCta } from "@/data/content";
@@ -11,11 +12,26 @@ export function CTAStripe({ variant = "coral" }: CTAStripeProps) {
 
   return (
     <section
-      className={`section-padding ${
-        isCoral ? "bg-coral" : "bg-navy"
+      className={`relative overflow-hidden section-padding ${
+        isCoral ? "" : "bg-navy"
       }`}
     >
-      <div className="container-content text-center">
+      {/* Background image for coral variant */}
+      {isCoral && (
+        <>
+          <Image
+            src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1920&q=80"
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-coral/90" />
+        </>
+      )}
+
+      <div className="container-content relative text-center">
         <Reveal>
           <h2
             className={`font-display text-3xl font-semibold md:text-4xl ${

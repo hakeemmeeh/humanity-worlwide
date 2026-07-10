@@ -2,59 +2,47 @@
 
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/Button";
-import { HandsMark } from "@/components/HandsMark";
+import { Logo } from "@/components/Logo";
 import { navLinks, organization } from "@/data/content";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header>
-      <div className="bg-navy-deep text-white">
-        <div className="container-content flex flex-wrap items-center justify-between gap-2 px-6 py-2 text-xs md:px-8">
-          <span className="hidden sm:inline">{organization.contact.address}</span>
-          <div className="flex flex-wrap items-center gap-4">
-            <a
-              href={`mailto:${organization.contact.email}`}
-              className="transition-colors hover:text-teal"
-            >
-              {organization.contact.email}
-            </a>
-            <a
-              href={`tel:${organization.contact.phone.replace(/\s/g, "")}`}
-              className="hidden transition-colors hover:text-teal md:inline"
-            >
-              {organization.contact.phone}
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <nav
-        className="sticky top-0 z-50 border-b border-sand-deep/50 bg-white/95 backdrop-blur-md"
-        aria-label="Main navigation"
-      >
+    <header
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "border-b border-sand-deep/50 bg-white/95 shadow-sm backdrop-blur-md"
+          : "bg-transparent"
+      }`}
+    >
+      <nav aria-label="Main navigation">
         <div className="container-content flex items-center justify-between gap-3 px-6 py-4 md:px-8">
-          <Link href="/" className="flex min-w-0 items-center gap-3">
-            <HandsMark className="h-9 w-9 shrink-0 text-teal sm:h-10 sm:w-10" />
-            <div className="min-w-0">
-              <span className="block truncate font-display text-base font-semibold text-navy sm:text-lg">
-                Humanity Worldwide
-              </span>
-              <span className="block text-[10px] uppercase tracking-[0.2em] text-ink/50">
-                {organization.tagline}
-              </span>
-            </div>
-          </Link>
+          <Logo height={44} className="min-w-0 max-w-[200px] sm:max-w-none" />
 
           <div className="hidden items-center gap-1 xl:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-ink/80 transition-colors hover:bg-sand hover:text-navy"
+                className={`nav-link rounded-lg ${
+                  isScrolled
+                    ? "text-ink/80 after:bg-navy hover:text-navy"
+                    : "text-white/90 after:bg-white hover:text-white"
+                }`}
               >
                 {link.label}
               </Link>
@@ -68,7 +56,9 @@ export function Header() {
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="rounded-lg p-2 text-navy xl:hidden"
+              className={`rounded-lg p-2 xl:hidden transition-colors duration-300 ${
+                isScrolled ? "text-navy" : "text-white"
+              }`}
               aria-expanded={mobileOpen}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
