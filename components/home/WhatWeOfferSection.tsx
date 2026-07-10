@@ -30,7 +30,7 @@ const galleryItems: GalleryItem[] = [
     alt: "Waving happy children",
   },
   {
-    image: "https://images.unsplash.com/photo-1546984575-75774c6c09e6?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80",
     widthClass: "w-[300px]",
     heightClass: "h-[300px]",
     aspectClass: "aspect-square",
