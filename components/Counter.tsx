@@ -25,14 +25,19 @@ export function Counter({
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
   const prefersReducedMotion = useReducedMotion();
-  const [display, setDisplay] = useState(prefersReducedMotion ? value : 0);
+  
+  const [display, setDisplay] = useState(value);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      setDisplay(value);
-      return;
+    setIsMounted(true);
+    if (!prefersReducedMotion) {
+      setDisplay(0);
     }
+  }, [prefersReducedMotion]);
 
+  useEffect(() => {
+    if (!isMounted || prefersReducedMotion) return;
     if (!isInView) return;
 
     let startTime: number | null = null;
@@ -52,7 +57,7 @@ export function Counter({
 
     rafId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafId);
-  }, [isInView, value, duration, prefersReducedMotion]);
+  }, [isInView, value, duration, prefersReducedMotion, isMounted]);
 
   const formatted = display.toLocaleString();
 

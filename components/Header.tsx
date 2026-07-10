@@ -2,47 +2,28 @@
 
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/Button";
 import { Logo } from "@/components/Logo";
 import { navLinks, organization } from "@/data/content";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "border-b border-sand-deep/50 bg-white/95 shadow-sm backdrop-blur-md"
-          : "bg-transparent"
-      }`}
+      className="absolute left-0 right-0 top-0 z-50 bg-transparent transition-all duration-300"
     >
       <nav aria-label="Main navigation">
         <div className="container-content flex items-center justify-between gap-3 px-6 py-4 md:px-8">
-          <Logo height={44} className="min-w-0 max-w-[200px] sm:max-w-none" />
+          <Logo height={44} onDark className="min-w-0 max-w-[200px] sm:max-w-none" />
 
           <div className="hidden items-center gap-1 xl:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`nav-link rounded-lg ${
-                  isScrolled
-                    ? "text-ink/80 after:bg-navy hover:text-navy"
-                    : "text-white/90 after:bg-white hover:text-white"
-                }`}
+                className="nav-link rounded-lg text-white/90 after:bg-white hover:text-white"
               >
                 {link.label}
               </Link>
@@ -56,11 +37,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`rounded-lg p-2 xl:hidden transition-colors duration-300 ${
-                isScrolled ? "text-navy" : "text-white"
-              }`}
-              aria-expanded={mobileOpen}
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              className="rounded-lg p-2 xl:hidden transition-colors duration-300 text-white"
             >
               {mobileOpen ? (
                 <X className="h-6 w-6" />
