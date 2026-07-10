@@ -50,7 +50,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
             {/* Wrap in white background since the logo text itself is white */}
-            <Logo height={36} onDark />
+            <Logo height={52} onDark />
             <p className="mt-4 text-sm leading-relaxed text-[#4A6B65]">
               {organization.mission}
             </p>

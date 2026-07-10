@@ -13,7 +13,7 @@ export function ShapeDivider({
 
   return (
     <div
-      className={`pointer-events-none absolute left-0 right-0 z-[1] leading-[0] ${
+      className={`pointer-events-none absolute left-0 right-0 z-10 leading-[0] ${
         isTop ? "top-0" : "bottom-0"
       } ${className}`}
       aria-hidden="true"
@@ -21,12 +21,12 @@ export function ShapeDivider({
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 100"
+        viewBox="0 0 1440 120"
         preserveAspectRatio="none"
-        className="block h-[50px] w-full md:h-[80px]"
+        className="block h-[60px] w-full md:h-[120px]"
       >
         <path
-          d="M0,40 C360,100 720,0 1080,60 C1260,90 1380,30 1440,50 L1440,100 L0,100 Z"
+          d="M0,120 C480,10 960,10 1440,120 L1440,120 L0,120 Z"
           fill={color}
         />
       </svg>

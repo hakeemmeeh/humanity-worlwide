@@ -39,18 +39,18 @@ export function Header() {
 
   return (
     <header
-      className="absolute left-0 right-0 top-0 z-50 bg-transparent transition-all duration-300"
+      className="sticky top-0 z-50 bg-white border-b border-sand-deep/30 shadow-sm transition-all duration-300"
     >
       <nav aria-label="Main navigation">
-        <div className="container-content flex items-center justify-between gap-3 px-6 py-4 md:px-8">
-          <Logo height={44} onDark className="min-w-0 max-w-[200px] sm:max-w-none" />
+        <div className="container-content flex items-center justify-between gap-3 px-6 py-3.5 md:px-8">
+          <Logo height={60} className="min-w-0 max-w-[240px] sm:max-w-none" />
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-6 xl:flex">
             {navigationStructure.map((nav) => (
               nav.dropdownItems ? (
                 <div key={nav.label} className="relative group py-2">
-                  <button className="nav-link flex items-center gap-1 text-white/90 after:bg-white hover:text-white focus:outline-none">
+                  <button className="nav-link flex items-center gap-1 text-[#1E3E39]/80 after:bg-teal hover:text-navy focus:outline-none">
                     {nav.label}
                     <ChevronDown className="h-4 w-4 transition-transform duration-250 group-hover:rotate-180" />
                   </button>
@@ -74,7 +74,7 @@ export function Header() {
                 <Link
                   key={nav.label}
                   href={nav.href}
-                  className="nav-link rounded-lg text-white/90 after:bg-white hover:text-white"
+                  className="nav-link rounded-lg text-[#1E3E39]/80 after:bg-teal hover:text-navy"
                 >
                   {nav.label}
                 </Link>
@@ -89,7 +89,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="rounded-lg p-2 xl:hidden transition-colors duration-300 text-white"
+              className="rounded-lg p-2 xl:hidden transition-colors duration-300 text-[#1E3E39]"
             >
               {mobileOpen ? (
                 <X className="h-6 w-6" />

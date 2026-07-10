@@ -12,6 +12,8 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
+import { ShapeDivider } from "@/components/ShapeDivider";
+
 export function HeroSection() {
   const prefersReducedMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
@@ -34,114 +36,113 @@ export function HeroSection() {
   }, [prefersReducedMotion]);
 
   return (
-    <section className="relative w-full bg-white pt-4 pb-8 md:pt-6 md:pb-12">
-      <div className="container-content relative">
-        <div
-          ref={sectionRef}
-          className="relative flex min-h-[580px] md:h-[660px] items-center overflow-hidden rounded-[24px] md:rounded-[32px] shadow-2xl w-full"
-        >
-          {heroSlides.map((s, i) => (
-            <Image
-              key={s.headline}
-              src={s.image}
-              alt={s.imageAlt}
-              fill
-              priority={i === 0}
-              className={`object-cover transition-opacity duration-1000 ${
-                i === activeIndex ? "opacity-100" : "opacity-0"
-              }`}
-              sizes="(max-width: 1200px) 100vw, 1200px"
-            />
-          ))}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy/70 to-navy/40" />
+    <section
+      ref={sectionRef}
+      className="relative flex h-[75vh] min-h-[580px] max-h-[780px] w-full items-center overflow-hidden bg-navy"
+    >
+      {heroSlides.map((s, i) => (
+        <Image
+          key={s.headline}
+          src={s.image}
+          alt={s.imageAlt}
+          fill
+          priority={i === 0}
+          className={`object-cover transition-opacity duration-1000 ${
+            i === activeIndex ? "opacity-100" : "opacity-0"
+          }`}
+          sizes="100vw"
+        />
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy/60 to-transparent z-[1]" />
 
-          <div className="relative w-full px-8 py-20 md:px-16 md:py-24">
-            <div className="flex items-center justify-between gap-8">
+      <div className="container-content relative w-full px-6 py-20 md:px-8 z-[2]">
+        <div className="flex items-center justify-between gap-8">
+          <motion.div
+            style={prefersReducedMotion ? undefined : { y: textY }}
+            className="flex-1"
+          >
+            <motion.div
+              key={slide.headline}
+              initial={prefersReducedMotion ? false : "hidden"}
+              animate="visible"
+              variants={{
+                visible: {
+                  transition: { staggerChildren: 0.12, delayChildren: 0.1 },
+                },
+              }}
+            >
+              <motion.p
+                variants={fadeUp}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="eyebrow text-teal"
+              >
+                {slide.eyebrow}
+              </motion.p>
+              <motion.h1
+                variants={fadeUp}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="max-w-3xl font-display text-[clamp(2.5rem,5.5vw,4rem)] font-light leading-[1.1] text-white"
+              >
+                {slide.headline}
+              </motion.h1>
+              <motion.p
+                variants={fadeUp}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg"
+              >
+                {slide.subheadline}
+              </motion.p>
               <motion.div
-                style={prefersReducedMotion ? undefined : { y: textY }}
-                className="flex-1"
+                variants={fadeUp}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="mt-10 flex flex-wrap gap-4"
               >
-                <motion.div
-                  key={slide.headline}
-                  initial={prefersReducedMotion ? false : "hidden"}
-                  animate="visible"
-                  variants={{
-                    visible: {
-                      transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-                    },
-                  }}
-                >
-                  <motion.p
-                    variants={fadeUp}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                    className="eyebrow text-teal"
-                  >
-                    {slide.eyebrow}
-                  </motion.p>
-                  <motion.h1
-                    variants={fadeUp}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                    className="max-w-3xl font-display text-[clamp(2.5rem,5.5vw,4rem)] font-light leading-[1.1] text-white"
-                  >
-                    {slide.headline}
-                  </motion.h1>
-                  <motion.p
-                    variants={fadeUp}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                    className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg"
-                  >
-                    {slide.subheadline}
-                  </motion.p>
-                  <motion.div
-                    variants={fadeUp}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                    className="mt-10 flex flex-wrap gap-4"
-                  >
-                    <Button href="/get-involved">Donate Now</Button>
-                    <Button href="/our-work" variant="ghost">
-                      Explore Our Work
-                    </Button>
-                  </motion.div>
-                </motion.div>
+                <Button href="/get-involved">Donate Now</Button>
+                <Button href="/our-work" variant="ghost">
+                  Explore Our Work
+                </Button>
               </motion.div>
+            </motion.div>
+          </motion.div>
 
-              {/* Video play button */}
-              <motion.button
-                type="button"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="group hidden shrink-0 lg:flex"
-                aria-label="Play video"
-              >
-                <span className="relative flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/60 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-white group-hover:bg-white/10">
-                  <Play className="h-8 w-8 fill-white text-white transition-transform duration-300 group-hover:scale-110" />
-                  {/* Pulse ring */}
-                  <span className="absolute inset-0 animate-ping rounded-full border border-white/30" style={{ animationDuration: "2s" }} />
-                </span>
-              </motion.button>
-            </div>
-
-            {heroSlides.length > 1 && (
-              <div className="mt-12 flex gap-2">
-                {heroSlides.map((_, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    onClick={() => setActiveIndex(i)}
-                    className={`h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-navy ${
-                      i === activeIndex
-                        ? "w-8 bg-teal"
-                        : "w-4 bg-white/40 hover:bg-white/60"
-                    }`}
-                    aria-label={`Show slide ${i + 1}: ${heroSlides[i].headline}`}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
+          {/* Video play button */}
+          <motion.button
+            type="button"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="group hidden shrink-0 lg:flex z-[2]"
+            aria-label="Play video"
+          >
+            <span className="relative flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/60 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-white group-hover:bg-white/10">
+              <Play className="h-8 w-8 fill-white text-white transition-transform duration-300 group-hover:scale-110" />
+              {/* Pulse ring */}
+              <span className="absolute inset-0 animate-ping rounded-full border border-white/30" style={{ animationDuration: "2s" }} />
+            </span>
+          </motion.button>
         </div>
+
+        {heroSlides.length > 1 && (
+          <div className="mt-12 flex gap-2 z-[2]">
+            {heroSlides.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setActiveIndex(i)}
+                className={`h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-navy ${
+                  i === activeIndex
+                    ? "w-8 bg-teal"
+                    : "w-4 bg-white/40 hover:bg-white/60"
+                }`}
+                aria-label={`Show slide ${i + 1}: ${heroSlides[i].headline}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
+
+      {/* Wave shape divider */}
+      <ShapeDivider color="#FFFFFF" className="bottom-0 z-10" />
     </section>
   );
 }
