@@ -21,7 +21,6 @@ export function Footer() {
 
   const handleNewsletter = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: wire to email/API
     setSubmitted(true);
   };
 
@@ -30,8 +29,8 @@ export function Footer() {
   );
 
   return (
-    <footer className="relative overflow-hidden bg-navy-deep text-white">
-      {/* Wave SVG divider */}
+    <footer className="relative overflow-hidden bg-[#F2FBF9] text-[#1E3E39]">
+      {/* Wave SVG divider transitioning from white section above */}
       <svg
         className="absolute left-0 top-[-1px] w-full"
         xmlns="http://www.w3.org/2000/svg"
@@ -45,13 +44,14 @@ export function Footer() {
         />
       </svg>
 
-      <HandsMark className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 text-white opacity-[0.04]" />
+      <HandsMark className="pointer-events-none absolute -right-20 -top-20 h-80 w-80 text-[#2ac4ba] opacity-[0.08]" />
 
-      <div className="container-content section-padding relative">
+      <div className="container-content section-padding relative pt-24">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
+            {/* Wrap in white background since the logo text itself is white */}
             <Logo height={36} onDark />
-            <p className="mt-4 text-sm leading-relaxed text-white/70">
+            <p className="mt-4 text-sm leading-relaxed text-[#4A6B65]">
               {organization.mission}
             </p>
             <div className="mt-6 flex gap-3">
@@ -62,7 +62,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all duration-300 hover:scale-110 hover:border-teal hover:text-teal hover:shadow-[0_0_12px_rgba(0,204,180,0.4)]"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#2ac4ba]/30 bg-white text-[#2ac4ba] transition-all duration-300 hover:scale-110 hover:bg-[#2ac4ba] hover:text-white hover:shadow-[0_0_12px_rgba(42,196,186,0.4)]"
                 >
                   {socialIcons[social.label]}
                 </a>
@@ -71,7 +71,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/50">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#2ac4ba]">
               Explore
             </h3>
             <ul className="space-y-2">
@@ -79,7 +79,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/80 transition-colors hover:text-teal"
+                    className="text-sm text-[#4A6B65] transition-colors hover:text-[#2ac4ba]"
                   >
                     {link.label}
                   </Link>
@@ -89,15 +89,15 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/50">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#2ac4ba]">
               Contact
             </h3>
-            <address className="not-italic space-y-2 text-sm text-white/80">
+            <address className="not-italic space-y-2 text-sm text-[#4A6B65]">
               <p>{organization.contact.address}</p>
               <p>
                 <a
                   href={`mailto:${organization.contact.email}`}
-                  className="transition-colors hover:text-teal"
+                  className="transition-colors hover:text-[#2ac4ba]"
                 >
                   {organization.contact.email}
                 </a>
@@ -105,7 +105,7 @@ export function Footer() {
               <p>
                 <a
                   href={`tel:${organization.contact.phone.replace(/\s/g, "")}`}
-                  className="transition-colors hover:text-teal"
+                  className="transition-colors hover:text-[#2ac4ba]"
                 >
                   {organization.contact.phone}
                 </a>
@@ -114,11 +114,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/50">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#2ac4ba]">
               Newsletter
             </h3>
             {submitted ? (
-              <p className="text-sm text-teal">Thank you for subscribing!</p>
+              <p className="text-sm text-[#2ac4ba]">Thank you for subscribing!</p>
             ) : (
               <form onSubmit={handleNewsletter} className="space-y-3">
                 <label htmlFor="newsletter-email" className="sr-only">
@@ -131,9 +131,9 @@ export function Footer() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email"
-                  className="w-full rounded-full border border-white/20 bg-white/10 px-4 py-2.5 text-sm text-white placeholder:text-white/40 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/50"
+                  className="w-full rounded-full border border-[#2ac4ba]/30 bg-white px-4 py-2.5 text-sm text-[#1E3E39] placeholder:text-[#1E3E39]/40 focus:border-[#2ac4ba] focus:outline-none focus:ring-2 focus:ring-[#2ac4ba]/20"
                 />
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full bg-[#2ac4ba] hover:bg-[#20b0a6] text-white">
                   Subscribe
                 </Button>
               </form>
@@ -142,8 +142,8 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/10">
-        <div className="container-content flex flex-wrap items-center justify-between gap-4 px-6 py-5 text-xs text-white/50 md:px-8">
+      <div className="border-t border-[#2ac4ba]/10 bg-[#E5F7F3]">
+        <div className="container-content flex flex-wrap items-center justify-between gap-4 px-6 py-5 text-xs text-[#4A6B65] md:px-8">
           <p>
             &copy; {new Date().getFullYear()} Humanity Worldwide (HWW). All
             rights reserved.
