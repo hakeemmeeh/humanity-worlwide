@@ -52,7 +52,7 @@ export function CTAStripe({ variant = "coral" }: CTAStripeProps) {
               <>
                 <Button
                   href="/get-involved"
-                  className="bg-white text-coral hover:bg-sand"
+                  variant="white"
                 >
                   Donate Now
                 </Button>
