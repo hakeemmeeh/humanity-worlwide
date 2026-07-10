@@ -23,12 +23,12 @@ export function StoriesSection() {
   };
 
   return (
-    <section className="section-padding bg-sand relative overflow-hidden">
+    <section className="section-padding bg-sand/35 relative overflow-hidden">
       <div className="container-content">
         <Reveal>
           <p className="eyebrow">Success Stories</p>
           <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="max-w-xl font-display text-3xl font-semibold md:text-4xl">
+            <h2 className="max-w-xl font-display text-3xl font-semibold md:text-4xl text-navy">
               Voices from the field
             </h2>
             <Link
@@ -47,7 +47,7 @@ export function StoriesSection() {
             type="button"
             onClick={() => scroll("left")}
             aria-label="Previous story"
-            className="absolute left-0 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[#1E1E1E] text-white shadow-lg transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+            className="absolute left-0 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-sand-deep/60 bg-white text-navy shadow-sm transition-all duration-300 hover:bg-teal hover:text-white hover:border-teal hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
@@ -57,7 +57,7 @@ export function StoriesSection() {
             type="button"
             onClick={() => scroll("right")}
             aria-label="Next story"
-            className="absolute right-0 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[#1E1E1E] text-white shadow-lg transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+            className="absolute right-0 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-sand-deep/60 bg-white text-navy shadow-sm transition-all duration-300 hover:bg-teal hover:text-white hover:border-teal hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
           >
             <ChevronRight className="h-5 w-5" />
           </button>
