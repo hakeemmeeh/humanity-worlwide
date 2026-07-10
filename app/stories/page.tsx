@@ -31,7 +31,7 @@ export default function StoriesPage() {
         </div>
       </section>
 
-      <CTAStripe />
+      <CTAStripe variant="navy" />
     </>
   );
 }

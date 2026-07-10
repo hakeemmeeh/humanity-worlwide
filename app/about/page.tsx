@@ -111,7 +111,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <CTAStripe />
+      <CTAStripe variant="navy" />
     </>
   );
 }

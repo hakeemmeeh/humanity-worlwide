@@ -99,7 +99,7 @@ export default function StoryDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <CTAStripe />
+      <CTAStripe variant="navy" />
     </>
   );
 }

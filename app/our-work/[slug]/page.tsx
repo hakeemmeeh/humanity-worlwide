@@ -156,7 +156,7 @@ export default function ProgramPage({ params }: Props) {
         </section>
       )}
 
-      <CTAStripe />
+      <CTAStripe variant="navy" />
     </>
   );
 }

@@ -98,7 +98,7 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <CTAStripe />
+      <CTAStripe variant="navy" />
     </>
   );
 }

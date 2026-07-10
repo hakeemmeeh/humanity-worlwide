@@ -146,7 +146,7 @@ export default function CampaignDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <CTAStripe />
+      <CTAStripe variant="navy" />
     </>
   );
 }

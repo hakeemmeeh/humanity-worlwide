@@ -42,7 +42,7 @@ export default function OurWorkPage() {
         </div>
       </section>
 
-      <CTAStripe />
+      <CTAStripe variant="navy" />
     </>
   );
 }

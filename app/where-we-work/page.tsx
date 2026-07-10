@@ -107,7 +107,7 @@ export default function WhereWeWorkPage() {
         </div>
       </section>
 
-      <CTAStripe />
+      <CTAStripe variant="navy" />
     </>
   );
 }

@@ -100,7 +100,7 @@ export default function NewsArticlePage({ params }: Props) {
         </div>
       </section>
 
-      <CTAStripe />
+      <CTAStripe variant="navy" />
     </>
   );
 }

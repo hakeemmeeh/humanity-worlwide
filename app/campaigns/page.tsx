@@ -43,7 +43,7 @@ export default function CampaignsPage() {
         </div>
       </section>
 
-      <CTAStripe />
+      <CTAStripe variant="navy" />
     </>
   );
 }

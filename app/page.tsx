@@ -12,6 +12,7 @@ import { WhereWeWorkSection } from "@/components/home/WhereWeWorkSection";
 import { campaigns, heroSlides, organization } from "@/data/content";
 
 import { VideoParallaxSection } from "@/components/home/VideoParallaxSection";
+import { WhatWeOfferSection } from "@/components/home/WhatWeOfferSection";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -30,6 +31,7 @@ export default function HomePage() {
       <WaysToGiveSection />
       <ImpactStatsSection />
       <ProgramsSection />
+      <WhatWeOfferSection />
       <WhereWeWorkSection />
       <VideoParallaxSection />
       <section className="section-padding bg-white">

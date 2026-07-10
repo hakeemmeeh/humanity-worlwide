@@ -27,7 +27,7 @@ export function Logo({
         width={width}
         height={height}
         priority
-        className="h-full w-auto object-contain mix-blend-multiply"
+        className="h-full w-auto object-contain"
       />
     </Link>
   );

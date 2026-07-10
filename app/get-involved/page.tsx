@@ -59,7 +59,7 @@ export default function GetInvolvedPage() {
         </div>
       </section>
 
-      <CTAStripe />
+      <CTAStripe variant="navy" />
     </>
   );
 }
