@@ -66,7 +66,7 @@ export const heroSlides: HeroSlide[] = [
     subheadline:
       "Rapid humanitarian action when floods, conflict, and displacement threaten lives",
     image:
-      "https://images.unsplash.com/photo-1547685079-3f4a4e2e2f2b?w=1920&q=80",
+      "https://images.unsplash.com/photo-1504159506876-f8338247a14a?w=1920&q=80",
     imageAlt: "Humanitarian workers responding to flood-affected communities",
   },
   {
@@ -300,7 +300,7 @@ export const campaigns: Campaign[] = [
     description:
       "Emergency response efforts reached 2,000 families in Jonglei State following devastating floods. Your support helps us provide shelter, clean water, and essential supplies to families who have lost everything.",
     image:
-      "https://images.unsplash.com/photo-1547685079-3f4a4e2e2f2b?w=1200&q=80",
+      "https://images.unsplash.com/photo-1504159506876-f8338247a14a?w=1200&q=80",
     goal: 150000,
     raised: 97500,
     familiesReached: 2000,
@@ -397,7 +397,7 @@ export const articles: Article[] = [
     author: "Michael Chen",
     date: "2024-01-10",
     image:
-      "https://images.unsplash.com/photo-1547685079-3f4a4e2e2f2b?w=800&q=80", // REPLACE with HWW field photos
+      "https://images.unsplash.com/photo-1504159506876-f8338247a14a?w=800&q=80", // REPLACE with HWW field photos
     category: "Emergency",
     body: [
       "Devastating floods in Jonglei State displaced thousands of families in early January 2024, destroying homes, crops, and critical infrastructure across multiple counties.",

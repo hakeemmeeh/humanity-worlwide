@@ -27,11 +27,11 @@ export function WhereWeWorkSection() {
         </Reveal>
 
         <div className="mt-12 grid gap-12 lg:grid-cols-5">
-          <Reveal className="lg:col-span-2">
+          <Reveal className="lg:col-span-3">
             <RegionMap />
           </Reveal>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:col-span-3 lg:grid-cols-1">
+          <div className="grid gap-6 md:grid-cols-2 lg:col-span-2 lg:grid-cols-1">
           {regions.map((region, index) => (
             <Reveal key={region.slug} delay={index * 0.1}>
               <Link

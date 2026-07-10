@@ -10,7 +10,7 @@ interface LogoProps {
 }
 
 export function Logo({
-  height = 44,
+  height = 56,
   onDark = false,
   className = "",
 }: LogoProps) {
@@ -23,19 +23,20 @@ export function Logo({
       width={width}
       height={height}
       priority
-      className="h-auto w-auto"
-      style={{ height, width: "auto", maxWidth: width }}
+      className="object-contain"
+      style={{ height: `${height}px`, width: `${width}px` }}
     />
   );
 
   return (
     <Link
       href="/"
-      className={`inline-flex shrink-0 items-center ${className}`}
+      className={`inline-flex shrink-0 items-center justify-center ${className}`}
       aria-label="Humanity Worldwide — Home"
+      style={{ height: `${height}px` }}
     >
       {onDark ? (
-        <span className="inline-block rounded-xl bg-white px-4 py-2.5">
+        <span className="inline-block rounded-xl bg-white px-4 py-2">
           {image}
         </span>
       ) : (

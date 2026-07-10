@@ -39,11 +39,11 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 bg-white border-b border-sand-deep/30 shadow-sm transition-all duration-300"
+      className="sticky top-0 z-50 bg-[#F8F9FA] border-b border-sand-deep/20 shadow-sm transition-all duration-300"
     >
       <nav aria-label="Main navigation">
-        <div className="container-content flex items-center justify-between gap-3 px-6 py-3.5 md:px-8">
-          <Logo height={60} className="min-w-0 max-w-[240px] sm:max-w-none" />
+        <div className="container-content flex items-center justify-between gap-3 px-6 py-2.5 md:px-8">
+          <Logo height={76} className="min-w-0 max-w-[300px] sm:max-w-none" />
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-6 xl:flex">

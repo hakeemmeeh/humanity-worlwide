@@ -29,7 +29,7 @@ export function Footer() {
   );
 
   return (
-    <footer className="relative overflow-hidden bg-[#F2FBF9] text-[#1E3E39]">
+    <footer className="relative overflow-hidden bg-[#F8F9FA] text-[#1E3E39]">
       {/* Wave SVG divider transitioning from white section above */}
       <svg
         className="absolute left-0 top-[-1px] w-full"
@@ -49,8 +49,8 @@ export function Footer() {
       <div className="container-content section-padding relative pt-24">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            {/* Wrap in white background since the logo text itself is white */}
-            <Logo height={52} onDark />
+            {/* The logo has a matching background and blends seamlessly */}
+            <Logo height={68} />
             <p className="mt-4 text-sm leading-relaxed text-[#4A6B65]">
               {organization.mission}
             </p>
@@ -142,7 +142,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-[#2ac4ba]/10 bg-[#E5F7F3]">
+      <div className="border-t border-[#2ac4ba]/10 bg-[#E2ECE9]">
         <div className="container-content flex flex-wrap items-center justify-between gap-4 px-6 py-5 text-xs text-[#4A6B65] md:px-8">
           <p>
             &copy; {new Date().getFullYear()} Humanity Worldwide (HWW). All
