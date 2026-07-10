@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight, Heart, Droplets, BookOpen, Tractor } from "lucide-react";
@@ -48,6 +48,11 @@ const offers: OfferItem[] = [
 
 export function WhatWeOfferSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+  const dragDistance = useRef(0);
 
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
@@ -61,8 +66,47 @@ export function WhatWeOfferSection() {
     });
   };
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    isDown.current = true;
+    setIsDragging(true);
+    startX.current = e.pageX - scrollRef.current.offsetLeft;
+    scrollLeft.current = scrollRef.current.scrollLeft;
+    dragDistance.current = 0;
+  };
+
+  const handleMouseLeave = () => {
+    if (!isDown.current) return;
+    isDown.current = false;
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    isDown.current = false;
+    // Delay setting dragging to false slightly to prevent immediate link click triggers
+    setTimeout(() => {
+      setIsDragging(false);
+    }, 50);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDown.current || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5; // Drag speed multiplier
+    scrollRef.current.scrollLeft = scrollLeft.current - walk;
+    dragDistance.current = Math.abs(x - startX.current);
+  };
+
+  const handleLinkClick = (e: React.MouseEvent) => {
+    // If the user dragged more than 5 pixels, prevent navigation
+    if (dragDistance.current > 5) {
+      e.preventDefault();
+    }
+  };
+
   return (
-    <section className="section-padding bg-[#F8F9FA] relative overflow-hidden border-t border-sand-deep/30">
+    <section className="section-padding bg-[#F8F9FA] relative overflow-hidden border-t border-sand-deep/30 select-none">
       <div className="container-content">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <Reveal>
@@ -98,20 +142,27 @@ export function WhatWeOfferSection() {
           </Reveal>
         </div>
 
-        {/* Scrollable Carousel */}
+        {/* Scrollable Drag Carousel */}
         <div
           ref={scrollRef}
-          className="mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-6"
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+          className={`mt-12 flex gap-6 overflow-x-auto pb-6 scrollbar-none transition-all duration-150 ${
+            isDragging ? "snap-none cursor-grabbing" : "snap-x snap-mandatory cursor-grab"
+          }`}
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {offers.map((item, index) => (
             <div
               key={item.title}
-              className="w-full flex-shrink-0 snap-start sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+              className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 snap-start"
             >
               <Reveal delay={index * 0.08} className="h-full">
                 <Link
                   href={item.href}
+                  onClick={handleLinkClick}
                   className="group relative flex h-[420px] flex-col justify-end overflow-hidden rounded-2xl bg-navy-deep shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-teal/30 border border-transparent"
                 >
                   {/* Background Image */}
@@ -119,20 +170,21 @@ export function WhatWeOfferSection() {
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-60"
+                    draggable={false}
+                    className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-60 pointer-events-none"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/60 to-transparent transition-all duration-300 group-hover:via-navy-deep/75" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/60 to-transparent transition-all duration-300 group-hover:via-navy-deep/75 pointer-events-none" />
 
                   {/* Icon Card Bubble */}
-                  <div className="absolute left-6 top-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md text-white border border-white/20 transition-all duration-300 group-hover:bg-teal group-hover:border-teal group-hover:scale-110">
+                  <div className="absolute left-6 top-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md text-white border border-white/20 transition-all duration-300 group-hover:bg-teal group-hover:border-teal group-hover:scale-110 pointer-events-none">
                     {item.icon}
                   </div>
 
                   {/* Content Container */}
-                  <div className="relative z-10 p-6 md:p-8">
+                  <div className="relative z-10 p-6 md:p-8 pointer-events-none">
                     <h3 className="font-display text-xl font-bold text-white group-hover:text-teal-soft transition-colors duration-300">
                       {item.title}
                     </h3>
