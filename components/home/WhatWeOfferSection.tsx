@@ -3,47 +3,67 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronLeft, ChevronRight, Heart, Droplets, BookOpen, Tractor } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { Button } from "@/components/Button";
 
-interface OfferItem {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
+interface GalleryItem {
   image: string;
-  href: string;
+  widthClass: string;
+  heightClass: string;
+  aspectClass: string;
+  alt: string;
 }
 
-const offers: OfferItem[] = [
+const galleryItems: GalleryItem[] = [
   {
-    title: "Disaster & Emergency Response",
-    description: "Providing immediate, lifesaving distribution of food, medical packages, clean water, and temporary shelters to communities displaced by climate disasters and conflict.",
-    icon: <Heart className="h-6 w-6" />,
-    image: "https://images.unsplash.com/photo-1504159506876-f8338247a14a?w=800&q=80",
-    href: "/our-work",
-  },
-  {
-    title: "Clean Water & Sanitation (WASH)",
-    description: "Constructing deep solar-powered water wells, establishing community sanitation blocks, and running hygiene education workshops to prevent waterborne illnesses.",
-    icon: <Droplets className="h-6 w-6" />,
-    image: "https://images.unsplash.com/photo-1541959837-9759bc1ba255?w=800&q=80",
-    href: "/our-work/wash",
-  },
-  {
-    title: "Education & Child Protection",
-    description: "Rehabilitating schools, establishing child-friendly safe spaces in refugee camps, distributing textbooks, and providing training for local educators.",
-    icon: <BookOpen className="h-6 w-6" />,
     image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
-    href: "/our-work/education",
+    widthClass: "w-[320px]",
+    heightClass: "h-[240px]",
+    aspectClass: "aspect-[4/3]",
+    alt: "Children in field learning",
   },
   {
-    title: "Sustainable Livelihoods",
-    description: "Distributing seeds, modern farm tools, and irrigation equipment alongside vocational training classes to promote micro-commerce and food independence.",
-    icon: <Tractor className="h-6 w-6" />,
-    image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80",
-    href: "/our-work/livelihoods",
+    image: "https://images.unsplash.com/photo-1504159506876-f8338247a14a?w=800&q=80",
+    widthClass: "w-[280px]",
+    heightClass: "h-[380px]",
+    aspectClass: "aspect-[3/4]",
+    alt: "Waving happy children",
   },
+  {
+    image: "https://images.unsplash.com/photo-1546984575-75774c6c09e6?w=800&q=80",
+    widthClass: "w-[300px]",
+    heightClass: "h-[300px]",
+    aspectClass: "aspect-square",
+    alt: "Young woman close up",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80",
+    widthClass: "w-[290px]",
+    heightClass: "h-[370px]",
+    aspectClass: "aspect-[3/4]",
+    alt: "Volunteer coordination speaking",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80",
+    widthClass: "w-[320px]",
+    heightClass: "h-[240px]",
+    aspectClass: "aspect-[4/3]",
+    alt: "Operational community gathering",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+    widthClass: "w-[320px]",
+    heightClass: "h-[240px]",
+    aspectClass: "aspect-[4/3]",
+    alt: "Children in field learning",
+  },
+  {
+    image: "https://images.unsplash.com/photo-1504159506876-f8338247a14a?w=800&q=80",
+    widthClass: "w-[280px]",
+    heightClass: "h-[380px]",
+    aspectClass: "aspect-[3/4]",
+    alt: "Waving happy children",
+  }
 ];
 
 export function WhatWeOfferSection() {
@@ -57,8 +77,9 @@ export function WhatWeOfferSection() {
   const scroll = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
     const container = scrollRef.current;
-    const cardWidth = container.querySelector<HTMLElement>(":scope > div")?.offsetWidth ?? container.clientWidth;
-    const gap = 24; // gap-6 = 24px
+    const firstChild = container.querySelector<HTMLElement>(":scope > div");
+    const cardWidth = firstChild?.offsetWidth ?? container.clientWidth;
+    const gap = 32; // gap-8 = 32px
     const scrollAmount = cardWidth + gap;
     container.scrollBy({
       left: direction === "left" ? -scrollAmount : scrollAmount,
@@ -81,9 +102,8 @@ export function WhatWeOfferSection() {
     setIsDragging(false);
   };
 
-  const handleMouseUp = (e: React.MouseEvent) => {
+  const handleMouseUp = () => {
     isDown.current = false;
-    // Delay setting dragging to false slightly to prevent immediate link click triggers
     setTimeout(() => {
       setIsDragging(false);
     }, 50);
@@ -98,34 +118,35 @@ export function WhatWeOfferSection() {
     dragDistance.current = Math.abs(x - startX.current);
   };
 
-  const handleLinkClick = (e: React.MouseEvent) => {
-    // If the user dragged more than 5 pixels, prevent navigation
-    if (dragDistance.current > 5) {
-      e.preventDefault();
-    }
-  };
-
   return (
-    <section className="section-padding bg-[#F8F9FA] relative overflow-hidden border-t border-sand-deep/30 select-none">
+    <section className="py-20 bg-white relative overflow-hidden select-none">
+      {/* Background horizontal guide strip behind varying height images */}
+      <div className="absolute left-0 right-0 top-[60%] h-[120px] -translate-y-1/2 bg-[#F8F9FA] -z-10 border-y border-sand-deep/20" />
+
       <div className="container-content">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <Reveal>
-            <p className="eyebrow text-teal">What We Offer</p>
-            <h2 className="max-w-2xl font-display text-3xl font-semibold md:text-4xl text-navy mt-1">
-              Delivering Sustainable Humanitarian Solutions
+            <p className="text-[11px] font-extrabold uppercase tracking-widest text-navy/60">
+              What We Offer
+            </p>
+            <h2 className="max-w-2xl font-display text-4xl font-semibold md:text-5xl leading-tight text-[#1C1C1C] mt-2">
+              Empowering local communities and building a sustainable future
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="flex items-center gap-4">
-              <Button href="/our-work" variant="ghost" className="hidden sm:inline-flex">
-                Explore All Programs
-              </Button>
-              <div className="flex gap-2">
+            <div className="flex flex-wrap items-center gap-6">
+              <Link
+                href="/about"
+                className="inline-block bg-[#6C8D98] hover:bg-[#5B7B86] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors rounded-none shadow-sm"
+              >
+                More About Us
+              </Link>
+              <div className="flex gap-1">
                 <button
                   type="button"
                   onClick={() => scroll("left")}
                   aria-label="Scroll left"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-sand-deep/60 bg-white text-navy shadow-sm transition-all duration-300 hover:bg-teal hover:text-white hover:border-teal hover:scale-105"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-sand-deep/60 bg-white text-navy shadow-sm transition-all duration-300 hover:bg-teal hover:text-white hover:border-teal"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
@@ -133,7 +154,7 @@ export function WhatWeOfferSection() {
                   type="button"
                   onClick={() => scroll("right")}
                   aria-label="Scroll right"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-sand-deep/60 bg-white text-navy shadow-sm transition-all duration-300 hover:bg-teal hover:text-white hover:border-teal hover:scale-105"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-sand-deep/60 bg-white text-navy shadow-sm transition-all duration-300 hover:bg-teal hover:text-white hover:border-teal"
                 >
                   <ChevronRight className="h-5 w-5" />
                 </button>
@@ -142,61 +163,31 @@ export function WhatWeOfferSection() {
           </Reveal>
         </div>
 
-        {/* Scrollable Drag Carousel */}
+        {/* Horizontal varying aspect ratios swiper container */}
         <div
           ref={scrollRef}
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
           onMouseUp={handleMouseUp}
           onMouseMove={handleMouseMove}
-          className={`mt-12 flex gap-6 overflow-x-auto pb-6 scrollbar-none transition-all duration-150 ${
+          className={`mt-16 flex items-center gap-8 overflow-x-auto pb-4 scrollbar-none transition-all duration-150 ${
             isDragging ? "snap-none cursor-grabbing" : "snap-x snap-mandatory cursor-grab"
           }`}
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {offers.map((item, index) => (
+          {galleryItems.map((item, index) => (
             <div
-              key={item.title}
-              className="w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 snap-start"
+              key={`${item.image}-${index}`}
+              className={`${item.widthClass} ${item.heightClass} ${item.aspectClass} flex-shrink-0 snap-start relative overflow-hidden rounded-none border border-sand-deep/30 shadow-md transition-transform duration-500 hover:scale-105`}
             >
-              <Reveal delay={index * 0.08} className="h-full">
-                <Link
-                  href={item.href}
-                  onClick={handleLinkClick}
-                  className="group relative flex h-[420px] flex-col justify-end overflow-hidden rounded-2xl bg-navy-deep shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-teal/30 border border-transparent"
-                >
-                  {/* Background Image */}
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    draggable={false}
-                    className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-60 pointer-events-none"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy-deep/60 to-transparent transition-all duration-300 group-hover:via-navy-deep/75 pointer-events-none" />
-
-                  {/* Icon Card Bubble */}
-                  <div className="absolute left-6 top-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md text-white border border-white/20 transition-all duration-300 group-hover:bg-teal group-hover:border-teal group-hover:scale-110 pointer-events-none">
-                    {item.icon}
-                  </div>
-
-                  {/* Content Container */}
-                  <div className="relative z-10 p-6 md:p-8 pointer-events-none">
-                    <h3 className="font-display text-xl font-bold text-white group-hover:text-teal-soft transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm text-white/70 line-clamp-3 leading-relaxed transition-all duration-300 group-hover:text-white/90">
-                      {item.description}
-                    </p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-teal transition-all duration-300 group-hover:text-white group-hover:translate-x-1.5">
-                      Learn More <ArrowRight className="h-3.5 w-3.5" />
-                    </span>
-                  </div>
-                </Link>
-              </Reveal>
+              <Image
+                src={item.image}
+                alt={item.alt}
+                fill
+                draggable={false}
+                className="object-cover pointer-events-none"
+                sizes="(max-width: 640px) 100vw, 400px"
+              />
             </div>
           ))}
         </div>
