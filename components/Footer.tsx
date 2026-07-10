@@ -49,8 +49,7 @@ export function Footer() {
       <div className="container-content section-padding relative pt-24">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            {/* The logo has a matching background and blends seamlessly */}
-            <Logo height={68} />
+            <Logo className="h-14 md:h-16 lg:h-18" />
             <p className="mt-4 text-sm leading-relaxed text-[#4A6B65]">
               {organization.mission}
             </p>

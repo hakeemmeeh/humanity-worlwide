@@ -12,24 +12,20 @@ export function CTAStripe({ variant = "coral" }: CTAStripeProps) {
 
   return (
     <section
-      className={`relative overflow-hidden section-padding ${
-        isCoral ? "" : "bg-navy"
-      }`}
+      className="relative overflow-hidden section-padding"
     >
-      {/* Background image for coral variant */}
-      {isCoral && (
-        <>
-          <Image
-            src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1920&q=80"
-            alt=""
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-          <div className="absolute inset-0 bg-coral/90" />
-        </>
-      )}
+      {/* Background image with color overlay */}
+      <>
+        <Image
+          src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1920&q=80"
+          alt=""
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
+        />
+        <div className={`absolute inset-0 ${isCoral ? "bg-coral/95" : "bg-[#12304F]/95"}`} />
+      </>
 
       <div className="container-content relative text-center">
         <Reveal>

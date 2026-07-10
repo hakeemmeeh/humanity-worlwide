@@ -40,7 +40,7 @@ export default function HomePage() {
       <StoriesSection />
       <NewsSection />
       <PartnersSection />
-      <CTAStripe />
+      <CTAStripe variant="navy" />
     </>
   );
 }
