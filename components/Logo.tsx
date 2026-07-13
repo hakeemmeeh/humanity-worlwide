@@ -10,7 +10,7 @@ interface LogoProps {
 }
 
 export function Logo({
-  height = 56,
+  height = 76,
   className = "",
 }: LogoProps) {
   const width = Math.round((498 / 154) * height);
