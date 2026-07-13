@@ -86,14 +86,14 @@ export function RegionMap() {
         </div>
       </div>
 
-      <div className="relative overflow-hidden rounded-xl bg-[#F8F9FA] border border-sand/60">
+      <div className="relative overflow-hidden rounded-xl bg-white border border-sand/30">
         <svg
           viewBox="0 0 400 360"
           className="w-full h-auto select-none"
           aria-hidden="true"
         >
           {/* Coordinates grid */}
-          <g stroke="#2CADA3" strokeDasharray="2 4" strokeWidth="0.5" opacity="0.12">
+          <g stroke="#2CADA3" strokeDasharray="2 4" strokeWidth="0.5" opacity="0.06">
             <line x1="50" y1="0" x2="50" y2="360" />
             <line x1="150" y1="0" x2="150" y2="360" />
             <line x1="250" y1="0" x2="250" y2="360" />
@@ -104,7 +104,7 @@ export function RegionMap() {
           </g>
 
           {/* Grid Labels */}
-          <g fill="#A0A5AB" fontSize="8" fontFamily="monospace" opacity="0.8">
+          <g fill="#A0A5AB" fontSize="8" fontFamily="monospace" opacity="0.6">
             <text x="355" y="96">15° N</text>
             <text x="355" y="186">5° N</text>
             <text x="355" y="276">5° S</text>
@@ -114,9 +114,8 @@ export function RegionMap() {
             <text x="355" y="348">45° E</text>
           </g>
 
-          {/* Compass Rose */}
-          <g transform="translate(45, 305)" opacity="0.35" className="scale-75">
-            <circle cx="0" cy="0" r="18" fill="none" stroke="#2CADA3" strokeWidth="1" />
+          {/* Compass */}
+          <g transform="translate(45, 45)" opacity="0.4">
             <line x1="-22" y1="0" x2="22" y2="0" stroke="#2CADA3" strokeWidth="1" />
             <line x1="0" y1="-22" x2="0" y2="22" stroke="#2CADA3" strokeWidth="1" />
             <polygon points="0,-22 4,-4 0,0" fill="#E1723C" />
@@ -127,7 +126,7 @@ export function RegionMap() {
           </g>
 
           {/* Scale Bar */}
-          <g transform="translate(290, 315)" opacity="0.6">
+          <g transform="translate(290, 315)" opacity="0.4">
             <line x1="0" y1="0" x2="60" y2="0" stroke="#12304F" strokeWidth="2" />
             <line x1="0" y1="-3" x2="0" y2="3" stroke="#12304F" strokeWidth="1" />
             <line x1="30" y1="-3" x2="30" y2="3" stroke="#12304F" strokeWidth="1" />
@@ -136,7 +135,7 @@ export function RegionMap() {
           </g>
 
           {/* Non-operational neighboring countries (dashed light outline) */}
-          <g fill="#EDEDED" stroke="#D2D6D9" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" strokeLinejoin="round">
+          <g fill="#FAFBFC" stroke="#E6E9EC" strokeWidth="1" strokeDasharray="3 3" opacity="0.8" strokeLinejoin="round">
             {/* Egypt */}
             <path d="M 60,10 L 200,10 L 200,60 L 60,60 Z" />
             {/* Ethiopia */}
@@ -157,8 +156,8 @@ export function RegionMap() {
                 <path
                   key={c.id}
                   d={c.path}
-                  fill={isHovered ? "url(#activeCountryGrad)" : "#E2EFEF"}
-                  stroke={isHovered ? "#E1723C" : "#A2C7C4"}
+                  fill={isHovered ? "url(#activeCountryGrad)" : "#F0F6F6"}
+                  stroke={isHovered ? "#E1723C" : "#B8D8D5"}
                   strokeWidth={isHovered ? "2.5" : "1.5"}
                   className="transition-all duration-300 cursor-pointer"
                   onMouseEnter={() => setHoveredCountry(c.id)}
