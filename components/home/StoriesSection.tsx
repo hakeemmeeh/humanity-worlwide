@@ -9,7 +9,13 @@ import { Reveal } from "@/components/Reveal";
 import { stories } from "@/data/content";
 
 export function StoriesSection() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", dragFree: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true, 
+    align: "center", 
+    breakpoints: {
+      '(min-width: 768px)': { align: "start" }
+    }
+  });
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(true);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(true);
 
