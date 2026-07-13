@@ -1,26 +1,38 @@
 "use client";
 
-import { useRef } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
 import { StoryCard } from "@/components/StoryCard";
 import { Reveal } from "@/components/Reveal";
 import { stories } from "@/data/content";
 
 export function StoriesSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", dragFree: true });
+  const [prevBtnEnabled, setPrevBtnEnabled] = useState(true);
+  const [nextBtnEnabled, setNextBtnEnabled] = useState(true);
 
-  const scroll = (direction: "left" | "right") => {
-    if (!scrollRef.current) return;
-    const container = scrollRef.current;
-    const cardWidth = container.querySelector<HTMLElement>(":scope > div")?.offsetWidth ?? container.clientWidth;
-    const gap = 32; // gap-8 = 32px
-    const scrollAmount = cardWidth + gap;
-    container.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setPrevBtnEnabled(emblaApi.canScrollPrev());
+    setNextBtnEnabled(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
 
   return (
     <section className="section-padding bg-sand/35 relative overflow-hidden">
@@ -41,13 +53,14 @@ export function StoriesSection() {
           </div>
         </Reveal>
 
-        <div className="relative mt-12 px-12">
+        <div className="relative mt-12">
           {/* Left arrow */}
           <button
             type="button"
-            onClick={() => scroll("left")}
+            onClick={scrollPrev}
+            disabled={!prevBtnEnabled}
             aria-label="Previous story"
-            className="absolute left-0 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-sand-deep/60 bg-white text-navy shadow-sm transition-all duration-300 hover:bg-teal hover:text-white hover:border-teal hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+            className="absolute -left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-sand-deep/60 bg-white text-navy shadow-sm transition-all duration-300 hover:bg-teal hover:text-white hover:border-teal hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal disabled:opacity-50 disabled:hover:bg-white disabled:hover:text-navy disabled:hover:scale-100 disabled:cursor-not-allowed md:-left-6"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
@@ -55,33 +68,31 @@ export function StoriesSection() {
           {/* Right arrow */}
           <button
             type="button"
-            onClick={() => scroll("right")}
+            onClick={scrollNext}
+            disabled={!nextBtnEnabled}
             aria-label="Next story"
-            className="absolute right-0 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-sand-deep/60 bg-white text-navy shadow-sm transition-all duration-300 hover:bg-teal hover:text-white hover:border-teal hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+            className="absolute -right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-sand-deep/60 bg-white text-navy shadow-sm transition-all duration-300 hover:bg-teal hover:text-white hover:border-teal hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal disabled:opacity-50 disabled:hover:bg-white disabled:hover:text-navy disabled:hover:scale-100 disabled:cursor-not-allowed md:-right-6"
           >
             <ChevronRight className="h-5 w-5" />
           </button>
 
-          {/* Scrollable container */}
-          <div
-            ref={scrollRef}
-            className="flex snap-x snap-mandatory gap-8 overflow-x-auto scroll-smooth pb-4"
-            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          >
-            {stories.map((story, index) => (
-              <div
-                key={story.slug}
-                className="w-full flex-shrink-0 snap-start md:w-[calc(50%-1rem)]"
-              >
-                <Reveal delay={index * 0.1}>
-                  <StoryCard story={story} />
-                </Reveal>
-              </div>
-            ))}
+          {/* Embla Carousel Viewport */}
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex touch-pan-y -ml-6">
+              {stories.map((story, index) => (
+                <div
+                  key={story.slug}
+                  className="min-w-0 flex-none pl-6 w-[85%] md:w-[50%] lg:w-[45%]"
+                >
+                  <Reveal delay={index * 0.1}>
+                    <StoryCard story={story} />
+                  </Reveal>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-

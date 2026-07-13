@@ -40,20 +40,22 @@ export function HeroSection() {
       ref={sectionRef}
       className="relative flex h-[75vh] min-h-[580px] max-h-[780px] w-full items-center overflow-hidden bg-navy"
     >
-      {heroSlides.map((s, i) => (
-        <Image
-          key={s.headline}
-          src={s.image}
-          alt={s.imageAlt}
-          fill
-          priority={i === 0}
-          className={`object-cover transition-opacity duration-1000 ${
-            i === activeIndex ? "opacity-100" : "opacity-0"
-          }`}
-          style={{ filter: "contrast(1.08) saturate(1.15) brightness(0.92)" }}
-          sizes="100vw"
-        />
-      ))}
+      <motion.div className="absolute inset-0 z-0" style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "20%"]) }}>
+        {heroSlides.map((s, i) => (
+          <Image
+            key={s.headline}
+            src={s.image}
+            alt={s.imageAlt}
+            fill
+            priority={i === 0}
+            className={`object-cover transition-opacity duration-1000 ${
+              i === activeIndex ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ filter: "contrast(1.08) saturate(1.15) brightness(0.92)" }}
+            sizes="100vw"
+          />
+        ))}
+      </motion.div>
       <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/85 via-navy/55 to-transparent z-[1]" />
 
       <div className="container-content relative w-full px-6 py-20 md:px-8 z-[2]">
