@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/Button";
 import { Logo } from "@/components/Logo";
 import { organization } from "@/data/content";
@@ -32,6 +32,13 @@ const navigationStructure = [
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMobileDropdown = (label: string) => {
     setExpandedMobileMenu(expandedMobileMenu === label ? null : label);
@@ -39,11 +46,15 @@ export function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 bg-[#F8F9FA] border-b border-sand-deep/20 shadow-sm transition-all duration-300"
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? "bg-white/90 backdrop-blur-lg shadow-lg border border-sand/40 py-1 mt-2 mx-4 rounded-2xl lg:mx-auto lg:max-w-7xl lg:mt-4" 
+          : "bg-[#F8F9FA] border-b border-sand-deep/20 py-2.5 mx-0 rounded-none shadow-none"
+      }`}
     >
       <nav aria-label="Main navigation">
-        <div className="container-content flex items-center justify-between gap-3 px-6 py-2.5 md:px-8">
-          <Logo className="h-16 sm:h-20 md:h-24 lg:h-28 min-w-0" />
+        <div className={`container-content flex items-center justify-between gap-3 transition-all duration-300 ${isScrolled ? "px-5 md:px-6" : "px-6 md:px-8"}`}>
+          <Logo className={`transition-all duration-300 min-w-0 ${isScrolled ? "h-12 sm:h-14 md:h-16 lg:h-18" : "h-16 sm:h-20 md:h-24 lg:h-28"}`} />
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-6 xl:flex">
