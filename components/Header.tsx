@@ -44,17 +44,19 @@ export function Header() {
     setExpandedMobileMenu(expandedMobileMenu === label ? null : label);
   };
 
+  const isFloating = isScrolled && !mobileOpen;
+
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-white/90 backdrop-blur-lg shadow-lg border border-sand/40 py-1 mt-2 mx-4 rounded-2xl lg:mx-auto lg:max-w-7xl lg:mt-4" 
+        isFloating 
+          ? "bg-white/95 backdrop-blur-lg shadow-lg border border-sand/40 py-1 mt-2 mx-4 rounded-2xl lg:mx-auto lg:max-w-7xl lg:mt-4" 
           : "bg-[#F8F9FA] border-b border-sand-deep/20 py-2.5 mx-0 rounded-none shadow-none"
       }`}
     >
       <nav aria-label="Main navigation">
-        <div className={`container-content flex items-center justify-between gap-3 transition-all duration-300 ${isScrolled ? "px-5 md:px-6" : "px-6 md:px-8"}`}>
-          <Logo className={`transition-all duration-300 min-w-0 ${isScrolled ? "h-12 sm:h-14 md:h-16 lg:h-18" : "h-16 sm:h-20 md:h-24 lg:h-28"}`} />
+        <div className={`container-content flex items-center justify-between gap-3 transition-all duration-300 ${isFloating ? "px-5 md:px-6" : "px-6 md:px-8"}`}>
+          <Logo className={`transition-all duration-300 min-w-0 ${isFloating ? "h-12 sm:h-14 md:h-16 lg:h-18" : "h-16 sm:h-20 md:h-24 lg:h-28"}`} />
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-6 xl:flex">
