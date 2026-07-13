@@ -56,27 +56,24 @@ export const heroSlides: HeroSlide[] = [
     headline: "Building Futures Through Education",
     subheadline:
       "Quality education and teacher training for crisis-affected communities",
-    image:
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1920&q=80",
-    imageAlt: "Children learning in a classroom in South Sudan",
+    image: "/images/education-school-building.jpg",
+    imageAlt: "UNICEF-supported school building constructed by Humanity Worldwide in South Sudan",
   },
   {
     eyebrow: "Emergency Response",
     headline: "Standing With Families in Crisis",
     subheadline:
       "Rapid humanitarian action when floods, conflict, and displacement threaten lives",
-    image:
-      "https://images.unsplash.com/photo-1504159506876-f8338247a14a?w=1920&q=80",
-    imageAlt: "Humanitarian workers responding to flood-affected communities",
+    image: "/images/hero-emergency-composite.jpg",
+    imageAlt: "Humanity Worldwide emergency response teams donating boats in partnership with UNHCR",
   },
   {
     eyebrow: "Clean Water · Healthy Communities",
     headline: "Water That Saves Lives",
     subheadline:
       "WASH programs reaching 10,000 people across 8 states with clean water and sanitation",
-    image:
-      "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=1920&q=80",
-    imageAlt: "Community members accessing a rehabilitated water point",
+    image: "/images/wash-water-distribution.jpg",
+    imageAlt: "Communities accessing clean water during humanitarian WASH distribution",
   },
 ];
 
@@ -170,8 +167,7 @@ export const programs: Program[] = [
     tagline: "Building Futures",
     description:
       "Quality education, teacher training, school construction, and infrastructure development. UNICEF-supported projects in Kapoeta South, Kapoeta North, Torit and Magwi (South Sudan).",
-    image:
-      "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800&q=80", // REPLACE with HWW field photos
+    image: "/images/education-school-building.jpg",
     stats: [
       { value: 12, label: "Classrooms Built" },
       { value: 28, label: "Teachers Trained" },
@@ -187,9 +183,9 @@ export const programs: Program[] = [
     approach:
       "We believe education is the foundation of lasting peace and development. Our education programs combine infrastructure investment with teacher capacity building and community ownership, ensuring schools remain operational long after project completion.",
     gallery: [
-      "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80",
-      "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800&q=80",
-      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80",
+      "/images/education-school-building.jpg",
+      "/images/education-unicef-school-sign.jpg",
+      "/images/livelihoods-community-group.jpg",
     ],
   },
   {
@@ -197,9 +193,8 @@ export const programs: Program[] = [
     title: "WASH & Environment",
     tagline: "Clean Water, Healthy Communities",
     description:
-      "Clean water, sanitation facilities, and hygiene education. Multiple water points rehabilitated across crisis-affected communities.",
-    image:
-      "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=800&q=80", // REPLACE with HWW field photos
+      "Clean water, sanitation facilities, and hygiene education. Multiple water points rehabilitated across crisis-affected communities in South Sudan and Somalia.",
+    image: "/images/wash-water-distribution.jpg",
     stats: [
       { value: 85, suffix: "%", label: "Reduction in Waterborne Diseases" },
       { value: 10000, label: "People Reached" },
@@ -214,9 +209,9 @@ export const programs: Program[] = [
     approach:
       "Access to clean water and sanitation is a human right. Our WASH interventions follow a community-led model — training local water committees, promoting hygiene behavior change, and building infrastructure designed for long-term maintenance.",
     gallery: [
-      "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=800&q=80",
-      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
-      "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80",
+      "/images/wash-water-distribution.jpg",
+      "/images/shelter-koica-house.jpg",
+      "/images/team-field-staff.jpg",
     ],
   },
   {
@@ -224,9 +219,8 @@ export const programs: Program[] = [
     title: "Livelihoods",
     tagline: "Economic Independence",
     description:
-      "Vocational training, microfinance, agricultural support, and economic development for sustainable self-reliance.",
-    image:
-      "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80", // REPLACE with HWW field photos
+      "Vocational training, microfinance, agricultural cooperative support, and economic development for sustainable self-reliance in crisis-affected communities.",
+    image: "/images/food-security-cooperative.jpg",
     stats: [
       { value: 78, suffix: "%", label: "Income Improvement Rate" },
       { value: 6000, suffix: "+", label: "Lives Impacted" },
@@ -235,15 +229,123 @@ export const programs: Program[] = [
     highlights: [
       "Vocational skills training programs",
       "Microfinance and small business support",
-      "Agricultural development initiatives",
+      "Agricultural cooperative development",
       "Women and youth economic empowerment",
     ],
     approach:
       "Economic self-reliance breaks cycles of dependency. We equip individuals — especially women and youth — with market-relevant skills, seed capital, and ongoing mentorship to build businesses that sustain families and strengthen communities.",
     gallery: [
-      "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=80",
-      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80",
-      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+      "/images/food-security-cooperative.jpg",
+      "/images/livelihoods-community-group.jpg",
+      "/images/team-field-staff.jpg",
+    ],
+  },
+  {
+    slug: "protection",
+    title: "Protection",
+    tagline: "Safety, Dignity & Rights",
+    description:
+      "Comprehensive protection services including GBV prevention, child protection, inclusion of persons with disabilities, and community peace-building programs with UNHCR support.",
+    image: "/images/protection-wheelchairs.jpg",
+    stats: [
+      { value: 3500, suffix: "+", label: "Individuals Supported" },
+      { value: 12, label: "Community Committees" },
+      { value: 4, label: "States Covered" },
+    ],
+    regions: ["Jonglei", "Akobo", "Ayod", "Upper Nile"],
+    highlights: [
+      "GBV prevention and response services",
+      "Child protection and safe space programs",
+      "Disability inclusion and assistive devices",
+      "Sports for peace and community cohesion",
+    ],
+    approach:
+      "Protection is at the heart of everything we do. We create safe spaces, train community protection committees, and work alongside UNHCR to ensure that the most vulnerable — including women, children, and persons with disabilities — can live safely and with dignity.",
+    gallery: [
+      "/images/protection-wheelchairs.jpg",
+      "/images/protection-sports-peace.jpg",
+      "/images/protection-inclusive-sports.jpg",
+    ],
+  },
+  {
+    slug: "shelter",
+    title: "Shelter",
+    tagline: "Safe Homes for Displaced Families",
+    description:
+      "Emergency and transitional shelter construction for displaced and refugee families. Funded by KOICA and CERF, implemented in partnership with UNHCR across Jonglei and Upper Nile states.",
+    image: "/images/shelter-koica-house.jpg",
+    stats: [
+      { value: 140, label: "Shelters Constructed" },
+      { value: 700, suffix: "+", label: "Family Members Housed" },
+      { value: 3, label: "Funding Partners" },
+    ],
+    regions: ["Akobo", "Jonglei", "Upper Nile"],
+    highlights: [
+      "Emergency shelter kits for displaced families",
+      "Transitional shelter construction with KOICA funding",
+      "UNHCR-branded emergency tents at displacement sites",
+      "Community-led construction and maintenance",
+    ],
+    approach:
+      "A safe home is the foundation for rebuilding a life. Our shelter programs provide both immediate emergency protection and durable transitional solutions, built with community participation and funded through our strategic partnerships with CERF, KOICA, and UNHCR.",
+    gallery: [
+      "/images/shelter-koica-house.jpg",
+      "/images/shelter-koica-door.jpg",
+      "/images/shelter-unhcr-tent-akobo.jpg",
+    ],
+  },
+  {
+    slug: "food-security",
+    title: "Food Security",
+    tagline: "Chasing Hunger from Communities",
+    description:
+      "Food security and agricultural livelihood programs supporting cooperative societies and smallholder farmers to achieve food self-sufficiency and market access.",
+    image: "/images/food-security-cooperative.jpg",
+    stats: [
+      { value: 2400, suffix: "+", label: "Households Supported" },
+      { value: 8, label: "Cooperatives Formed" },
+      { value: 60, suffix: "%", label: "Reduction in Food Insecurity" },
+    ],
+    regions: ["Western Equatoria", "Yambio", "Bangasu"],
+    highlights: [
+      "Agricultural cooperative society support",
+      "Rice milling and grain market improvement",
+      "Seed and tool distribution to smallholder farmers",
+      "Women-led food production groups",
+    ],
+    approach:
+      "Food security is inseparable from dignity. We support cooperative societies like Gangara Sinai II to build local food systems that improve income, quality, and market access — reducing dependency and increasing community resilience.",
+    gallery: [
+      "/images/food-security-cooperative.jpg",
+      "/images/livelihoods-community-group.jpg",
+      "/images/wash-water-distribution.jpg",
+    ],
+  },
+  {
+    slug: "health",
+    title: "Health & Nutrition",
+    tagline: "Healthy Communities, Stronger Futures",
+    description:
+      "Community health outreach, nutrition screening, and integrated health services for crisis-affected populations across South Sudan and Somalia, in partnership with WHO and UNICEF.",
+    image: "/images/livelihoods-community-group.jpg",
+    stats: [
+      { value: 5000, suffix: "+", label: "Patients Treated" },
+      { value: 90, suffix: "%", label: "Nutrition Screening Coverage" },
+      { value: 6, label: "Health Posts Supported" },
+    ],
+    regions: ["Kapoeta", "Torit", "Jonglei", "Jubaland"],
+    highlights: [
+      "Community health worker training and deployment",
+      "Acute malnutrition screening and treatment",
+      "Maternal and child health services",
+      "Integrated health and nutrition campaigns",
+    ],
+    approach:
+      "Health and nutrition are fundamental rights. We deploy trained community health workers to deliver preventive and curative services at the last mile, focusing on mothers, infants, and children under five who are most vulnerable to malnutrition and preventable diseases.",
+    gallery: [
+      "/images/livelihoods-community-group.jpg",
+      "/images/wash-water-distribution.jpg",
+      "/images/team-field-staff.jpg",
     ],
   },
 ];
@@ -256,8 +358,7 @@ export const regions: Region[] = [
       "Our largest operational presence, delivering education, WASH, shelter, and livelihoods programs across multiple states.",
     longDescription:
       "South Sudan is the heart of our operations. With 7 regional offices spanning Kapoeta, Torit, Magwi, and Jonglei, we deliver integrated programs that address the interconnected needs of displaced and host communities — from classrooms and clean water to emergency shelter and economic recovery.",
-    image:
-      "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80", // REPLACE with HWW field photos
+    image: "/images/education-school-building.jpg",
     stats: [
       { value: 7, label: "Regional Offices" },
       { value: 140, label: "Shelters Built" },
@@ -270,8 +371,7 @@ export const regions: Region[] = [
     name: "Somalia",
     description:
       "Integrated humanitarian response addressing protection, nutrition, and community resilience in crisis-affected areas.",
-    image:
-      "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=800&q=80", // REPLACE with HWW field photos
+    image: "/images/where-we-work-somalia.jpg",
     stats: [
       { value: 3, label: "Program Areas" },
       { value: 2000, suffix: "+", label: "Families Supported" },
@@ -283,8 +383,7 @@ export const regions: Region[] = [
     name: "Sudan",
     description:
       "Emergency response and development programs supporting displaced populations and marginalized communities.",
-    image:
-      "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&q=80", // REPLACE with HWW field photos
+    image: "/images/wash-water-distribution.jpg",
     stats: [
       { value: 2, label: "Active Programs" },
       { value: 1500, suffix: "+", label: "People Reached" },
@@ -299,8 +398,7 @@ export const campaigns: Campaign[] = [
     title: "Emergency Response in Jonglei State",
     description:
       "Emergency response efforts reached 2,000 families in Jonglei State following devastating floods. Your support helps us provide shelter, clean water, and essential supplies to families who have lost everything.",
-    image:
-      "https://images.unsplash.com/photo-1504159506876-f8338247a14a?w=1200&q=80",
+    image: "/images/emergency-boat-donation.jpg",
     goal: 150000,
     raised: 97500,
     familiesReached: 2000,
@@ -379,8 +477,7 @@ export const articles: Article[] = [
       "A new education initiative brings hope to children in Kapoeta with comprehensive learning programs and teacher training.",
     author: "Gift Michael Bernado",
     date: "2024-01-15",
-    image:
-      "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80", // REPLACE with HWW field photos
+    image: "/images/education-unicef-school-sign.jpg",
     category: "Education",
     body: [
       "Humanity Worldwide has successfully completed UNICEF-supported education projects across four counties in South Sudan — Kapoeta South, Kapoeta North, Torit, and Magwi.",
@@ -390,37 +487,67 @@ export const articles: Article[] = [
     ],
   },
   {
-    slug: "emergency-response-jonglei",
-    title: "Emergency Response in Jonglei State",
+    slug: "emergency-boat-donation-unhcr",
+    title: "Humanity Worldwide Donates Boats to Flood-Affected Communities in Partnership with UNHCR",
     excerpt:
-      "Emergency response efforts reach 2,000 families in Jonglei State following devastating floods.",
-    author: "Michael Chen",
-    date: "2024-01-10",
-    image:
-      "https://images.unsplash.com/photo-1504159506876-f8338247a14a?w=800&q=80", // REPLACE with HWW field photos
+      "HWW and UNHCR provide dugout canoes and life jackets to communities cut off by flooding in Jonglei State, restoring critical mobility and access to services.",
+    author: "Gift Michael Bernado",
+    date: "2026-02-25",
+    image: "/images/emergency-boat-donation.jpg",
     category: "Emergency",
     body: [
-      "Devastating floods in Jonglei State displaced thousands of families in early January 2024, destroying homes, crops, and critical infrastructure across multiple counties.",
-      "Humanity Worldwide deployed emergency response teams within 72 hours, reaching 2,000 families with shelter materials, water purification supplies, and essential non-food items.",
-      "The response included establishing temporary learning spaces for displaced children and rehabilitating three water points to prevent waterborne disease outbreaks in overcrowded displacement sites.",
-      "HWW continues to support recovery efforts, working alongside local authorities and community leaders to help families rebuild.",
+      "Devastating floods in Jonglei State isolated entire communities from markets, health facilities, and humanitarian assistance. Humanity Worldwide, in partnership with UNHCR, responded by donating dugout canoes equipped with paddles and life jackets to restore essential mobility.",
+      "The boat donation ceremony, held in Akobo County, brought together community leaders, local authorities, and humanitarian staff. Each canoe was branded with the HWW and UNHCR partnership logo.",
+      "'These boats are lifelines,' said one community elder. 'Without them, we cannot reach hospitals, schools, or food markets during flood season.'",
+      "HWW continues to scale emergency response interventions across Jonglei and Upper Nile states, working alongside local authorities and UN agencies to address the humanitarian impact of recurrent flooding.",
     ],
   },
   {
     slug: "wash-program-milestone",
-    title: "WASH Program Reaches 10,000 People",
+    title: "WASH Program Reaches 10,000 People Across 8 States",
     excerpt:
-      "WASH program milestone: 10,000 people now have access to clean water across 8 states.",
-    author: "John Smith",
-    date: "2024-01-01",
-    image:
-      "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=800&q=80", // REPLACE with HWW field photos
+      "WASH program milestone: 10,000 people now have access to clean water and improved sanitation across 8 states.",
+    author: "Gift Michael Bernado",
+    date: "2024-06-01",
+    image: "/images/wash-water-distribution.jpg",
     category: "WASH",
     body: [
       "Humanity Worldwide's WASH program has reached a major milestone — 10,000 people across 8 states now have reliable access to clean water and improved sanitation.",
       "The program rehabilitated 24 water points, constructed 16 latrine blocks, and trained 120 community hygiene promoters in behavior change communication.",
       "Independent monitoring shows an 85% reduction in waterborne diseases in program areas, with significant improvements in child health indicators.",
       "This achievement underscores HWW's commitment to evidence-based programming and community-led WASH solutions.",
+    ],
+  },
+  {
+    slug: "shelter-koica-transitional-homes",
+    title: "140 Transitional Shelters Completed for Displaced Families with KOICA & UNHCR",
+    excerpt:
+      "Humanity Worldwide completes construction of 140 transitional shelters for displaced refugee families, funded by KOICA in partnership with UNHCR.",
+    author: "Gift Michael Bernado",
+    date: "2025-11-10",
+    image: "/images/shelter-koica-house.jpg",
+    category: "Shelter",
+    body: [
+      "Humanity Worldwide has completed construction of 140 transitional shelter units for displaced families in South Sudan, funded by the Korea International Cooperation Agency (KOICA) and implemented in partnership with UNHCR.",
+      "Each shelter is a semi-permanent structure featuring plastered walls, corrugated iron roofing, and a reinforced door — providing durability and weather resistance for families who had been living in temporary plastic sheeting.",
+      "The project prioritised female-headed households and families with persons with disabilities, ensuring the most vulnerable received shelter first.",
+      "'This is the first solid home I have had in five years,' said one beneficiary mother in Akobo. 'My children can sleep without fear of rain or wind.'",
+    ],
+  },
+  {
+    slug: "protection-sports-peace-ayod",
+    title: "Promoting Peaceful Coexistence Through Sports in Ayod County",
+    excerpt:
+      "HWW launches a sports-for-peace tournament in Ayod County, bringing together youth from different communities to promote peaceful coexistence and social cohesion.",
+    author: "Gift Michael Bernado",
+    date: "2025-12-20",
+    image: "/images/protection-peace-ayod.jpg",
+    category: "Protection",
+    body: [
+      "Humanity Worldwide, with support from UNHCR, organized a sports-for-peace football tournament in Ayod County, Jonglei State, bringing together youth from host communities and refugee populations.",
+      "The tournament, branded 'Peace Begin With Me', featured teams wearing Humanity Worldwide and UNHCR jerseys, symbolizing unity across communities that have historically experienced inter-communal tensions.",
+      "Alongside the football matches, HWW facilitated community dialogue sessions where youth leaders discussed peaceful coexistence, conflict resolution, and shared aspirations for their communities.",
+      "Events like this are central to HWW's protection programming, which recognizes that lasting peace requires investment in social cohesion and community-level trust-building.",
     ],
   },
 ];
