@@ -16,53 +16,53 @@ interface GalleryItem {
 
 const galleryItems: GalleryItem[] = [
   {
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+    image: "/images/livelihoods-community-group.jpg",
     widthClass: "w-[320px]",
     heightClass: "h-[240px]",
     aspectClass: "aspect-[4/3]",
-    alt: "Children in field learning",
+    alt: "Humanity Worldwide community group",
   },
   {
-    image: "https://images.unsplash.com/photo-1504159506876-f8338247a14a?w=800&q=80",
+    image: "/images/wash-water-distribution.jpg",
     widthClass: "w-[280px]",
     heightClass: "h-[380px]",
     aspectClass: "aspect-[3/4]",
-    alt: "Waving happy children",
+    alt: "Clean water distribution",
   },
   {
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80",
+    image: "/images/food-security-cooperative.jpg",
     widthClass: "w-[300px]",
     heightClass: "h-[300px]",
     aspectClass: "aspect-square",
-    alt: "Young woman close up",
+    alt: "Agricultural cooperative rice milling",
   },
   {
-    image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80",
+    image: "/images/shelter-koica-house.jpg",
     widthClass: "w-[290px]",
     heightClass: "h-[370px]",
     aspectClass: "aspect-[3/4]",
-    alt: "Volunteer coordination speaking",
+    alt: "KOICA-funded transitional shelter",
   },
   {
-    image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80",
+    image: "/images/protection-wheelchairs.jpg",
     widthClass: "w-[320px]",
     heightClass: "h-[240px]",
     aspectClass: "aspect-[4/3]",
-    alt: "Operational community gathering",
+    alt: "Protection services and disability support",
   },
   {
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+    image: "/images/emergency-boat-donation.jpg",
     widthClass: "w-[320px]",
     heightClass: "h-[240px]",
     aspectClass: "aspect-[4/3]",
-    alt: "Children in field learning",
+    alt: "UNHCR emergency boat donation",
   },
   {
-    image: "https://images.unsplash.com/photo-1504159506876-f8338247a14a?w=800&q=80",
+    image: "/images/where-we-work-somalia.jpg",
     widthClass: "w-[280px]",
     heightClass: "h-[380px]",
     aspectClass: "aspect-[3/4]",
-    alt: "Waving happy children",
+    alt: "Golool Yaryar program location sign",
   }
 ];
 

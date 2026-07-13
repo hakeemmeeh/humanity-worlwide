@@ -50,10 +50,11 @@ export function HeroSection() {
           className={`object-cover transition-opacity duration-1000 ${
             i === activeIndex ? "opacity-100" : "opacity-0"
           }`}
+          style={{ filter: "contrast(1.08) saturate(1.15) brightness(0.92)" }}
           sizes="100vw"
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/90 via-navy/60 to-transparent z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/85 via-navy/55 to-transparent z-[1]" />
 
       <div className="container-content relative w-full px-6 py-20 md:px-8 z-[2]">
         <div className="flex items-center justify-between gap-8">

@@ -56,8 +56,8 @@ export const heroSlides: HeroSlide[] = [
     headline: "Building Futures Through Education",
     subheadline:
       "Quality education and teacher training for crisis-affected communities",
-    image: "/images/education-school-building.jpg",
-    imageAlt: "UNICEF-supported school building constructed by Humanity Worldwide in South Sudan",
+    image: "/images/livelihoods-community-group.jpg",
+    imageAlt: "Humanity Worldwide community gathering for program support in South Sudan",
   },
   {
     eyebrow: "Emergency Response",
