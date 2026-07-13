@@ -43,7 +43,7 @@ export function Header() {
     >
       <nav aria-label="Main navigation">
         <div className="container-content flex items-center justify-between gap-3 px-6 py-2.5 md:px-8">
-          <Logo className="h-14 sm:h-18 md:h-22 lg:h-26 min-w-0" />
+          <Logo className="h-16 sm:h-20 md:h-24 lg:h-28 min-w-0" />
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-6 xl:flex">
