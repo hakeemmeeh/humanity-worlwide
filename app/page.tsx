@@ -13,6 +13,8 @@ import { campaigns, heroSlides, organization } from "@/data/content";
 
 import { VideoParallaxSection } from "@/components/home/VideoParallaxSection";
 import { WhatWeOfferSection } from "@/components/home/WhatWeOfferSection";
+import { VisionSection } from "@/components/home/VisionSection";
+import { EventsSection } from "@/components/home/EventsSection";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -31,6 +33,7 @@ export default function HomePage() {
       <WaysToGiveSection />
       <ImpactStatsSection />
       <ProgramsSection />
+      <VisionSection />
       <WhatWeOfferSection />
       <WhereWeWorkSection />
       <VideoParallaxSection />
@@ -40,6 +43,7 @@ export default function HomePage() {
         </div>
       </section>
       <StoriesSection />
+      <EventsSection />
       <NewsSection />
       <PartnersSection />
       <CTAStripe variant="navy" />

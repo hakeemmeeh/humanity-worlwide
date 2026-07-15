@@ -43,11 +43,14 @@ export function StoriesSection() {
   return (
     <section className="section-padding bg-sand/35 relative overflow-hidden">
       <div className="container-content">
-        <Reveal direction="right">
-          <p className="eyebrow">Success Stories</p>
+        <Reveal direction="left">
+          <span className="font-handwriting text-3xl text-coral block -mb-1 rotate-[-2deg] select-none">
+            Their own voices
+          </span>
+          <p className="eyebrow">Testimonials</p>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="max-w-xl font-display text-3xl font-semibold md:text-4xl text-navy">
-              Voices from the field
+              Words From People
             </h2>
             <Link
               href="/stories"
