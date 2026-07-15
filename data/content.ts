@@ -423,15 +423,15 @@ export const stories: Story[] = [
     title: "A New Beginning",
     quote:
       "For the first time, my children have a safe place to learn. The new classroom has given our community hope for the future.",
-    name: "Maria A.",
+    name: "Mary Nyandeng",
     role: "Parent, Kapoeta South",
     image:
       "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=600&q=80", // REPLACE with HWW field photos
     program: "Education",
     body: [
-      "Maria's village in Kapoeta South had no permanent school structure. Children learned under trees, their lessons interrupted by rain and heat.",
+      "Mary's village in Kapoeta South had no permanent school structure. Children learned under trees, their lessons interrupted by rain and heat.",
       "When HWW completed the UNICEF-supported classroom construction project, everything changed. Twelve new classrooms now serve hundreds of children, with trained teachers delivering quality instruction.",
-      "Maria's eldest daughter is now top of her class. 'Education is the only gift I can give my children that no one can take away,' Maria says.",
+      "Mary's eldest daughter is now top of her class. 'Education is the only gift I can give my children that no one can take away,' Mary says.",
     ],
   },
   {
@@ -439,15 +439,15 @@ export const stories: Story[] = [
     title: "Clean Water Changes Everything",
     quote:
       "Before the water point was rehabilitated, our children were constantly sick. Now our entire village has access to clean, safe water.",
-    name: "James K.",
+    name: "Deng Kuol",
     role: "Community Leader, Torit",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80", // REPLACE with HWW field photos
     program: "WASH",
     body: [
-      "James has served as a community leader in Torit for over a decade. He witnessed firsthand the toll that waterborne diseases took on his village — especially among children under five.",
+      "Deng has served as a community leader in Torit for over a decade. He witnessed firsthand the toll that waterborne diseases took on his village — especially among children under five.",
       "When HWW rehabilitated the local water point and trained community hygiene promoters, the transformation was immediate. Cases of diarrhea dropped dramatically within months.",
-      "Today, James leads the village water committee, ensuring the infrastructure is maintained and hygiene practices continue. 'Clean water gave us our health back,' he reflects.",
+      "Today, Deng leads the village water committee, ensuring the infrastructure is maintained and hygiene practices continue. 'Clean water gave us our health back,' he reflects.",
     ],
   },
   {
@@ -455,7 +455,7 @@ export const stories: Story[] = [
     title: "Building Economic Independence",
     quote:
       "The vocational training program gave me skills I never thought I could have. I now run my own tailoring business and support my family.",
-    name: "Amina H.",
+    name: "Amina Hassan",
     role: "Program Graduate, Magwi",
     image:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80", // REPLACE with HWW field photos
