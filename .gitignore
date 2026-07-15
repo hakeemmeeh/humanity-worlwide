@@ -42,3 +42,8 @@ pnpm-debug.log*
 
 # cursor (local IDE config)
 .cursor
+
+# temp files
+/images_temp/
+/scratch/
+*.zip
