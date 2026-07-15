@@ -125,7 +125,7 @@ export function WhatWeOfferSection() {
 
       <div className="container-content">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <Reveal>
+          <Reveal direction="left">
             <p className="text-[11px] font-extrabold uppercase tracking-widest text-navy/60">
               What We Offer
             </p>
@@ -133,7 +133,7 @@ export function WhatWeOfferSection() {
               Empowering local communities and building a sustainable future
             </h2>
           </Reveal>
-          <Reveal delay={0.1}>
+          <Reveal delay={0.1} direction="right">
             <div className="flex flex-wrap items-center gap-6">
               <Link
                 href="/about"

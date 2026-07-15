@@ -18,7 +18,8 @@ export default function NewsPage() {
         eyebrow="News & Updates"
         title="From the field"
         subtitle="Stay informed about our programs, milestones, and emergency response efforts."
-        image="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&q=80"
+        image="/images/education-unicef-school-sign.jpg"
+        imageAlt="UNICEF education project signage at a Humanity Worldwide school site"
       />
 
       <section className="section-padding bg-white">

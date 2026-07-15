@@ -37,7 +37,7 @@ export function PartnersSection() {
   return (
     <section className="section-padding bg-[#F8F9FA] border-t border-sand-deep/30 relative overflow-hidden">
       <div className="container-content text-center">
-        <Reveal>
+        <Reveal direction="zoom" duration={0.9}>
           <p className="eyebrow justify-center">Strategic Alliances</p>
           <h2 className="font-display text-3xl font-semibold md:text-4xl text-navy">
             Cooperating with Leading Global Agencies
@@ -77,7 +77,7 @@ export function PartnersSection() {
           </div>
         </div>
 
-        <Reveal>
+        <Reveal direction="up" delay={0.2}>
           <p className="mx-auto mt-10 max-w-lg text-sm text-ink/75">
             Interested in establishing institutional partnerships or joint programs?
           </p>

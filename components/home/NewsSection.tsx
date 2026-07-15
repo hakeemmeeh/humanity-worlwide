@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { NewsCard } from "@/components/NewsCard";
@@ -8,7 +10,7 @@ export function NewsSection() {
   return (
     <section className="section-padding bg-white">
       <div className="container-content">
-        <Reveal>
+        <Reveal direction="left">
           <p className="eyebrow">Latest News</p>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="max-w-xl font-display text-3xl font-semibold md:text-4xl">
@@ -26,7 +28,7 @@ export function NewsSection() {
 
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           {articles.map((article, index) => (
-            <Reveal key={article.slug} delay={index * 0.1}>
+            <Reveal key={article.slug} delay={index * 0.15} direction="up">
               <NewsCard article={article} />
             </Reveal>
           ))}

@@ -26,10 +26,10 @@ export default function GetInvolvedPage() {
 
       <section className="section-padding bg-white">
         <div className="container-content grid gap-12 lg:grid-cols-2">
-          <Reveal>
+          <Reveal direction="left">
             <DonationWidget />
           </Reveal>
-          <Reveal delay={0.15}>
+          <Reveal delay={0.15} direction="right">
             <div>
               <h2 className="font-display text-2xl font-semibold text-navy">
                 Become a Volunteer
@@ -47,7 +47,7 @@ export default function GetInvolvedPage() {
 
       <section className="section-padding bg-sand">
         <div className="container-content">
-          <Reveal>
+          <Reveal direction="zoom">
             <p className="eyebrow">FAQ</p>
             <h2 className="font-display text-3xl font-semibold">
               Common questions

@@ -43,7 +43,7 @@ export function StoriesSection() {
   return (
     <section className="section-padding bg-sand/35 relative overflow-hidden">
       <div className="container-content">
-        <Reveal>
+        <Reveal direction="right">
           <p className="eyebrow">Success Stories</p>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="max-w-xl font-display text-3xl font-semibold md:text-4xl text-navy">

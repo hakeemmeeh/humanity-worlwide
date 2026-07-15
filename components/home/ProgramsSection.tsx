@@ -36,7 +36,7 @@ export function ProgramsSection() {
   return (
     <section className="relative section-padding bg-sand pb-24 md:pb-32">
       <div className="container-content">
-        <Reveal>
+        <Reveal direction="left">
           <p className="eyebrow">Our Programs</p>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="max-w-xl font-display text-3xl font-semibold md:text-4xl">
@@ -55,7 +55,7 @@ export function ProgramsSection() {
         {/* Icon boxes — inspired by Savior's solution blocks */}
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {iconBoxes.map((box, index) => (
-            <Reveal key={box.title} delay={index * 0.1}>
+            <Reveal key={box.title} delay={index * 0.12} direction="zoom">
               <div className="group rounded-2xl bg-white p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
                 <span className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[#6C9E6C]/15">
                   <box.icon className="h-7 w-7 text-[#6C9E6C]" />
@@ -80,7 +80,7 @@ export function ProgramsSection() {
 
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           {programs.map((program, index) => (
-            <Reveal key={program.slug} delay={index * 0.1}>
+            <Reveal key={program.slug} delay={index * 0.15} direction={index % 2 === 0 ? "left" : "right"}>
               <ProgramCard program={program} />
             </Reveal>
           ))}

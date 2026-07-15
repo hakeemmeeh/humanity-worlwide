@@ -23,7 +23,7 @@ export default function ContactPage() {
       <section className="section-padding bg-white">
         <div className="container-content grid gap-12 lg:grid-cols-5">
           <div className="space-y-6 lg:col-span-2">
-            <Reveal>
+            <Reveal direction="left">
               <div className="rounded-2xl bg-sand p-8">
                 <div className="flex items-start gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-soft text-teal-text">
@@ -38,7 +38,7 @@ export default function ContactPage() {
                 </div>
               </div>
             </Reveal>
-            <Reveal delay={0.1}>
+            <Reveal delay={0.1} direction="left">
               <div className="rounded-2xl bg-sand p-8">
                 <div className="flex items-start gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-soft text-teal-text">
@@ -56,7 +56,7 @@ export default function ContactPage() {
                 </div>
               </div>
             </Reveal>
-            <Reveal delay={0.2}>
+            <Reveal delay={0.2} direction="left">
               <div className="rounded-2xl bg-sand p-8">
                 <div className="flex items-start gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-soft text-teal-text">
@@ -76,7 +76,7 @@ export default function ContactPage() {
             </Reveal>
           </div>
 
-          <Reveal delay={0.15} className="lg:col-span-3">
+          <Reveal delay={0.15} className="lg:col-span-3" direction="right">
             <div className="rounded-2xl bg-sand p-8 md:p-10">
               <h2 className="font-display text-2xl font-semibold text-navy">
                 Send us a message

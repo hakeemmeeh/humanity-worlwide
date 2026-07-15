@@ -1,3 +1,5 @@
+"use client";
+
 import {
   BarChart3,
   Layers,
@@ -20,10 +22,10 @@ export function WaysToGiveSection() {
     <section className="relative z-10 -mt-20 pb-16 md:-mt-24">
       <div className="container-content px-6 md:px-8">
         <div className="grid gap-6 lg:grid-cols-5">
-          <Reveal className="lg:col-span-2">
+          <Reveal className="lg:col-span-2" direction="left">
             <DonationWidget />
           </Reveal>
-          <Reveal delay={0.15} className="lg:col-span-3">
+          <Reveal delay={0.15} className="lg:col-span-3" direction="right">
             <div className="h-full rounded-2xl bg-white p-8 shadow-card md:p-10">
               <h2 className="font-display text-2xl font-semibold text-navy">
                 Our Four Pillars

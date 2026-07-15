@@ -44,7 +44,7 @@ export function ImpactStatsSection() {
       <HandsMark className="pointer-events-none absolute -bottom-40 -left-40 z-[1] h-[400px] w-[400px] text-white opacity-[0.05]" />
 
       <div className="container-content relative z-[2] px-6 md:px-8">
-        <Reveal>
+        <Reveal direction="fade" duration={1}>
           <p className="eyebrow text-teal">Our Impact</p>
           <h2 className="max-w-2xl font-display text-3xl font-semibold text-white md:text-4xl">
             Measurable change across communities
@@ -53,7 +53,7 @@ export function ImpactStatsSection() {
 
         <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {impactStats.map((stat, index) => (
-            <Reveal key={stat.label} delay={index * 0.08}>
+            <Reveal key={stat.label} delay={index * 0.1} direction="zoom">
               <StatBlock stat={stat} variant="dark" />
             </Reveal>
           ))}

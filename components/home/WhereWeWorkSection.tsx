@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
@@ -10,7 +12,7 @@ export function WhereWeWorkSection() {
   return (
     <section className="section-padding bg-white">
       <div className="container-content">
-        <Reveal>
+        <Reveal direction="right">
           <p className="eyebrow">Where We Work</p>
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="max-w-xl font-display text-3xl font-semibold md:text-4xl">
@@ -27,13 +29,13 @@ export function WhereWeWorkSection() {
         </Reveal>
 
         <div className="mt-12 grid gap-12 lg:grid-cols-5">
-          <Reveal className="lg:col-span-3">
+          <Reveal className="lg:col-span-3" direction="left" duration={0.9}>
             <RegionMap />
           </Reveal>
 
           <div className="grid gap-6 md:grid-cols-2 lg:col-span-2 lg:grid-cols-1">
           {regions.map((region, index) => (
-            <Reveal key={region.slug} delay={index * 0.1}>
+            <Reveal key={region.slug} delay={index * 0.12} direction="right">
               <Link
                 href={`/where-we-work#${region.slug}`}
                 className="group flex gap-4 rounded-2xl bg-sand p-5 shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card-hover"

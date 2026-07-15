@@ -41,7 +41,7 @@ export default function AboutPage() {
         <div className="container-content">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {aboutQuickStats.map((stat, index) => (
-              <Reveal key={stat.label} delay={index * 0.1}>
+              <Reveal key={stat.label} delay={index * 0.1} direction="zoom">
                 <StatBlock stat={stat} />
               </Reveal>
             ))}
@@ -59,7 +59,7 @@ export default function AboutPage() {
           </Reveal>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
             {pillars.map((pillar, index) => (
-              <Reveal key={pillar.id} delay={index * 0.1}>
+              <Reveal key={pillar.id} delay={index * 0.12} direction={index % 2 === 0 ? "left" : "right"}>
                 <div className="flex gap-5 rounded-2xl bg-white p-8 shadow-card">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-soft text-teal-text">
                     {iconMap[pillar.icon]}
@@ -103,7 +103,7 @@ export default function AboutPage() {
           </Reveal>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {teamMembers.map((member, index) => (
-              <Reveal key={member.name} delay={index * 0.1}>
+              <Reveal key={member.name} delay={index * 0.15} direction="zoom">
                 <TeamProfile member={member} />
               </Reveal>
             ))}
