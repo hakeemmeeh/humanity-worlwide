@@ -49,28 +49,48 @@ export function DonationBanner({
             )}
 
             <div className="mt-8">
-              <div className="flex items-center justify-between text-sm">
-                <span className="font-semibold text-navy">
-                  ${campaign.raised.toLocaleString()} raised
-                </span>
-                <span className="text-ink/50">
-                  of ${campaign.goal.toLocaleString()} goal
-                </span>
+              <div className="flex items-end justify-between">
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-ink/40 uppercase tracking-widest">Raised</span>
+                  <span className="font-display text-2xl font-bold text-navy">
+                    ${campaign.raised.toLocaleString()}
+                  </span>
+                </div>
+                <div className="flex flex-col items-end">
+                  <span className="text-[10px] font-bold text-ink/40 uppercase tracking-widest">Target Goal</span>
+                  <span className="font-display text-2xl font-bold text-ink/75">
+                    ${campaign.goal.toLocaleString()}
+                  </span>
+                </div>
               </div>
-              <div className="mt-2 h-3 overflow-hidden rounded-full bg-sand-deep">
-                <div
-                  className="h-full rounded-full bg-coral transition-all duration-1000"
-                  style={{ width: `${progress}%` }}
-                  role="progressbar"
-                  aria-valuenow={progress}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  aria-label={`${progress}% of fundraising goal reached`}
-                />
+
+              <div className="relative mt-6 pt-6">
+                {/* Floating Tooltip Bubble */}
+                <div 
+                  className="absolute top-0 flex flex-col items-center -translate-x-1/2 transition-all duration-1000 ease-out"
+                  style={{ left: `${Math.min(progress, 100)}%` }}
+                >
+                  <span className="rounded bg-navy-deep px-2 py-0.5 text-[10px] font-bold text-white shadow-md">
+                    {progress}%
+                  </span>
+                  <span className="h-1.5 w-1.5 rotate-45 bg-navy-deep -mt-0.5" />
+                </div>
+
+                {/* Progress Bar Container */}
+                <div className="h-3.5 w-full rounded-full bg-sand-deep p-[2px] shadow-inner overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-coral via-orange-500 to-amber-500 transition-all duration-1000 ease-out relative shadow-[0_0_8px_rgba(225,114,60,0.3)]"
+                    style={{ width: `${progress}%` }}
+                    role="progressbar"
+                    aria-valuenow={progress}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-label={`${progress}% of fundraising goal reached`}
+                  >
+                    <div className="absolute inset-0 bg-white/10 animate-pulse" />
+                  </div>
+                </div>
               </div>
-              <p className="mt-2 text-sm font-semibold text-coral">
-                {progress}% funded
-              </p>
             </div>
 
             <div className="mt-8 flex flex-wrap gap-4">

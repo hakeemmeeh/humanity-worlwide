@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { Play } from "lucide-react";
 import { Button } from "@/components/Button";
 import { heroSlides } from "@/data/content";
+import { VideoLightbox } from "@/components/VideoLightbox";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -17,6 +18,7 @@ import { ShapeDivider } from "@/components/ShapeDivider";
 export function HeroSection() {
   const prefersReducedMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const slide = heroSlides[activeIndex];
 
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -77,6 +79,13 @@ export function HeroSection() {
               <motion.p
                 variants={fadeUp}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="font-handwriting text-3xl text-teal/95 rotate-[-2deg] origin-left mb-1 block select-none"
+              >
+                Together we are stronger
+              </motion.p>
+              <motion.p
+                variants={fadeUp}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="eyebrow text-teal"
               >
                 {slide.eyebrow}
@@ -110,11 +119,12 @@ export function HeroSection() {
 
           {/* Video play button */}
           <motion.button
+            onClick={() => setLightboxOpen(true)}
             type="button"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="group hidden shrink-0 lg:flex z-[2]"
+            className="group hidden shrink-0 lg:flex z-[2] cursor-pointer"
             aria-label="Play video"
           >
             <span className="relative flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/60 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-white group-hover:bg-white/10">
@@ -146,6 +156,7 @@ export function HeroSection() {
 
       {/* Wave shape divider */}
       <ShapeDivider color="#FFFFFF" className="bottom-0 z-10" />
+      <VideoLightbox isOpen={lightboxOpen} onClose={() => setLightboxOpen(false)} />
     </section>
   );
 }

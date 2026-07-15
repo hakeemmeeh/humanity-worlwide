@@ -126,6 +126,9 @@ export function WhatWeOfferSection() {
       <div className="container-content">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <Reveal direction="left">
+            <span className="font-handwriting text-3xl text-coral block -mb-1 rotate-[-1deg] select-none">
+              Our dedication
+            </span>
             <p className="text-[11px] font-extrabold uppercase tracking-widest text-navy/60">
               What We Offer
             </p>

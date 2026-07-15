@@ -1,10 +1,10 @@
 "use client";
 
+import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Play, Phone, Mail, MapPin } from "lucide-react";
-import { useRef } from "react";
 import { organization } from "@/data/content";
-
+import { VideoLightbox } from "@/components/VideoLightbox";
 import Image from "next/image";
 
 const contactItems = [
@@ -26,6 +26,7 @@ const contactItems = [
 ];
 
 export function VideoParallaxSection() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -60,7 +61,8 @@ export function VideoParallaxSection() {
       <div className="relative z-10 flex min-h-[500px] flex-col items-center justify-center px-6 py-20 text-center">
         {/* Play button */}
         <motion.button
-          className="group relative mb-6 flex h-24 w-24 items-center justify-center rounded-full border-2 border-white/50 transition-colors hover:border-white"
+          onClick={() => setLightboxOpen(true)}
+          className="group relative mb-6 flex h-24 w-24 items-center justify-center rounded-full border-2 border-white/50 transition-colors hover:border-white cursor-pointer"
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
           aria-label="Play our story video"
@@ -101,6 +103,7 @@ export function VideoParallaxSection() {
           ))}
         </div>
       </div>
+      <VideoLightbox isOpen={lightboxOpen} onClose={() => setLightboxOpen(false)} />
     </section>
   );
 }
