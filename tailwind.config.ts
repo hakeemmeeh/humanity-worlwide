@@ -33,7 +33,7 @@ const config: Config = {
       fontFamily: {
         display: ["var(--font-fraunces)", "Georgia", "serif"],
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        handwriting: ["var(--font-caveat)", "cursive"],
+        handwriting: ["var(--font-lora)", "serif"],
       },
       boxShadow: {
         card: "0 2px 24px rgba(18,48,79,0.08)",
