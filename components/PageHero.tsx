@@ -9,8 +9,8 @@ interface PageHeroProps {
   eyebrow?: string;
   title: string;
   subtitle?: string;
-  image?: string;
   imageAlt?: string;
+  align?: "left" | "center";
 }
 
 export function PageHero({
@@ -19,6 +19,7 @@ export function PageHero({
   subtitle,
   image,
   imageAlt,
+  align = "left",
 }: PageHeroProps) {
   const alt = imageAlt ?? title;
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -42,14 +43,14 @@ export function PageHero({
           />
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy/60 to-navy/30 z-[1]" />
-        <div className="container-content relative w-full px-6 pb-16 pt-32 md:px-8 md:pb-20 z-[2]">
+        <div className={`container-content relative w-full px-6 pb-16 pt-32 md:px-8 md:pb-20 z-[2] ${align === "center" ? "text-center flex flex-col items-center" : ""}`}>
           <Reveal>
             {eyebrow && <p className="eyebrow text-teal">{eyebrow}</p>}
-            <h1 className="max-w-3xl font-display text-4xl font-semibold text-white md:text-5xl lg:text-6xl">
+            <h1 className={`max-w-3xl font-display text-4xl font-semibold text-white md:text-5xl lg:text-6xl ${align === "center" ? "mx-auto" : ""}`}>
               {title}
             </h1>
             {subtitle && (
-              <p className="mt-4 max-w-2xl text-lg text-white/80">
+              <p className={`mt-4 max-w-2xl text-lg text-white/80 ${align === "center" ? "mx-auto" : ""}`}>
                 {subtitle}
               </p>
             )}
@@ -61,14 +62,14 @@ export function PageHero({
 
   return (
     <section className="bg-sand section-padding">
-      <div className="container-content">
+      <div className={`container-content ${align === "center" ? "text-center flex flex-col items-center" : ""}`}>
         <Reveal>
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-          <h1 className="max-w-3xl font-display text-4xl font-semibold md:text-5xl lg:text-6xl">
+          <h1 className={`max-w-3xl font-display text-4xl font-semibold md:text-5xl lg:text-6xl ${align === "center" ? "mx-auto" : ""}`}>
             {title}
           </h1>
           {subtitle && (
-            <p className="mt-4 max-w-2xl text-lg text-ink/70">{subtitle}</p>
+            <p className={`mt-4 max-w-2xl text-lg text-ink/70 ${align === "center" ? "mx-auto" : ""}`}>{subtitle}</p>
           )}
         </Reveal>
       </div>

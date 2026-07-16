@@ -32,7 +32,7 @@ const videosList: VideoItem[] = [
     title: "Clean Water & A Chance to Survive Cholera in South Sudan",
     location: "Kapoeta & Torit",
     description: "Witness our teams distributing water treatment tablets and conducting hygiene training sessions to combat cholera epidemics in high-risk zones.",
-    image: "https://images.unsplash.com/photo-1541913772-247f9c4b40f4?w=800&q=80",
+    image: "/images/hero-emergency-composite.jpg",
   },
   {
     id: "solidarites-response",
@@ -41,7 +41,7 @@ const videosList: VideoItem[] = [
     title: "Responding to Displacements and Severe Flooding",
     location: "Leer & Pibor",
     description: "Follow frontline emergency responders as they cross marshlands on canoes to distribute liferafts, clean water, and plastic sheeting to flooded communities.",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+    image: "/images/emergency-boat-donation.jpg",
   },
   {
     id: "nfi-delivery",
@@ -49,7 +49,7 @@ const videosList: VideoItem[] = [
     title: "Last-Mile Non-Food Items (NFI) Refugee Response [Coming Soon]",
     location: "Maban & Renk Border Crossing",
     description: "Dignity kits, solar lanterns, sleeping mats, and family shelter tools packaged for refugee families escaping cross-border displacements.",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&q=80",
+    image: "/images/shelter-unhcr-tent-akobo.jpg",
   },
 ];
 
@@ -62,8 +62,9 @@ export default function MediaHubPage() {
       <PageHero
         title="Film & Field Media"
         subtitle="Cinematic field documentaries, impact reports, and program video diaries from our teams across South Sudan and Somalia."
-        image="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&q=80"
+        image="/images/team-field-staff.jpg"
         eyebrow="Documentary Hub"
+        align="center"
       />
 
       {/* Featured Video Player Area */}
@@ -93,7 +94,7 @@ export default function MediaHubPage() {
               ) : (
                 <>
                   <Image
-                    src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&q=80"
+                    src="/images/wash-water-distribution.jpg"
                     alt={featuredVideo.title}
                     fill
                     className="object-cover opacity-90 transition-transform duration-700 hover:scale-102"

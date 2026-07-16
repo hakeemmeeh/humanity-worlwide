@@ -3,66 +3,58 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 interface GalleryItem {
   image: string;
-  widthClass: string;
-  heightClass: string;
-  aspectClass: string;
   alt: string;
+  title: string;
+  description: string;
 }
 
-const galleryItems: GalleryItem[] = [
+const galleryItems = [
   {
     image: "/images/livelihoods-community-group.jpg",
-    widthClass: "w-[320px]",
-    heightClass: "h-[240px]",
-    aspectClass: "aspect-[4/3]",
     alt: "Humanity Worldwide community group",
+    title: "Livelihoods",
+    description: "Economic independence & vocational training",
   },
   {
     image: "/images/wash-water-distribution.jpg",
-    widthClass: "w-[280px]",
-    heightClass: "h-[380px]",
-    aspectClass: "aspect-[3/4]",
     alt: "Clean water distribution",
+    title: "WASH",
+    description: "Clean water and healthy communities",
   },
   {
     image: "/images/food-security-cooperative.jpg",
-    widthClass: "w-[300px]",
-    heightClass: "h-[300px]",
-    aspectClass: "aspect-square",
     alt: "Agricultural cooperative rice milling",
+    title: "Food Security",
+    description: "Agricultural support & cooperatives",
   },
   {
     image: "/images/shelter-koica-house.jpg",
-    widthClass: "w-[290px]",
-    heightClass: "h-[370px]",
-    aspectClass: "aspect-[3/4]",
     alt: "KOICA-funded transitional shelter",
+    title: "Shelter",
+    description: "Safe homes for displaced families",
   },
   {
     image: "/images/protection-wheelchairs.jpg",
-    widthClass: "w-[320px]",
-    heightClass: "h-[240px]",
-    aspectClass: "aspect-[4/3]",
     alt: "Protection services and disability support",
+    title: "Protection",
+    description: "Safety, dignity, and rights",
   },
   {
     image: "/images/emergency-boat-donation.jpg",
-    widthClass: "w-[320px]",
-    heightClass: "h-[240px]",
-    aspectClass: "aspect-[4/3]",
     alt: "UNHCR emergency boat donation",
+    title: "Emergency Response",
+    description: "Rapid humanitarian action",
   },
   {
     image: "/images/where-we-work-somalia.jpg",
-    widthClass: "w-[280px]",
-    heightClass: "h-[380px]",
-    aspectClass: "aspect-[3/4]",
     alt: "Golool Yaryar program location sign",
+    title: "Global Presence",
+    description: "Delivering solutions across East Africa",
   }
 ];
 
@@ -166,33 +158,50 @@ export function WhatWeOfferSection() {
           </Reveal>
         </div>
 
-        {/* Horizontal varying aspect ratios swiper container */}
-        <div
-          ref={scrollRef}
-          onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseUp={handleMouseUp}
-          onMouseMove={handleMouseMove}
-          className={`mt-16 flex items-center gap-8 overflow-x-auto pb-4 scrollbar-none transition-all duration-150 ${
-            isDragging ? "snap-none cursor-grabbing" : "snap-x snap-mandatory cursor-grab"
-          }`}
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {galleryItems.map((item, index) => (
-            <div
-              key={`${item.image}-${index}`}
-              className={`${item.widthClass} ${item.heightClass} ${item.aspectClass} flex-shrink-0 snap-start relative overflow-hidden rounded-none border border-sand-deep/30 shadow-md transition-transform duration-500 hover:scale-105`}
-            >
-              <Image
-                src={item.image}
-                alt={item.alt}
-                fill
-                draggable={false}
-                className="object-cover pointer-events-none"
-                sizes="(max-width: 640px) 100vw, 400px"
-              />
-            </div>
-          ))}
+        {/* Full width swiper container with exactly 1 card on mobile, 2 on desktop */}
+        <div className="mt-16 w-full">
+          <div
+            ref={scrollRef}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseLeave}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+            className={`flex items-center gap-6 overflow-x-auto pb-8 pt-4 scrollbar-none transition-all duration-150 ${
+              isDragging ? "snap-none cursor-grabbing" : "snap-x snap-mandatory cursor-grab"
+            }`}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {galleryItems.map((item, index) => (
+              <div
+                key={`${item.image}-${index}`}
+                className={`w-full md:w-[calc(50%-12px)] aspect-square md:aspect-[4/3] flex-shrink-0 snap-start relative overflow-hidden rounded-none border border-sand-deep/30 shadow-md transition-all duration-500 group`}
+              >
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  draggable={false}
+                  className="object-cover pointer-events-none transition-transform duration-700 lg:group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                {/* Overlay: Always visible on mobile, fade in on hover for desktop */}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-deep/95 via-navy-deep/40 to-transparent opacity-100 lg:opacity-0 transition-opacity duration-500 lg:group-hover:opacity-100 pointer-events-none" />
+                
+                {/* Centered Icon */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="w-14 h-14 rounded-full bg-coral text-white flex items-center justify-center transform scale-100 lg:scale-0 transition-transform duration-500 delay-100 lg:group-hover:scale-100 shadow-lg">
+                    <ArrowRight className="w-6 h-6" />
+                  </div>
+                </div>
+
+                {/* Text Content at bottom */}
+                <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end translate-y-0 lg:translate-y-8 opacity-100 lg:opacity-0 transition-all duration-500 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 pointer-events-none">
+                  <h3 className="font-display font-semibold text-3xl text-white mb-3">{item.title}</h3>
+                  <p className="text-white/90 text-base leading-relaxed">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

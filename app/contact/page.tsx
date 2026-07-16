@@ -18,6 +18,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Get in touch"
         subtitle="We'd love to hear from you. Reach out for partnerships, volunteering, media inquiries, or general questions."
+        align="center"
       />
 
       <section className="section-padding bg-white">

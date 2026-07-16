@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, Lora } from "next/font/google";
+import { Fraunces, Inter, Caveat } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { organization } from "@/data/content";
@@ -19,12 +19,10 @@ const inter = Inter({
   weight: ["400", "500", "600"],
 });
 
-const lora = Lora({
+const caveat = Caveat({
   subsets: ["latin"],
-  variable: "--font-lora",
+  variable: "--font-caveat",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
 });
 
 
@@ -88,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${lora.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${caveat.variable}`}>
       <head>
         <script
           type="application/ld+json"

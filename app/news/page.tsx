@@ -20,6 +20,7 @@ export default function NewsPage() {
         subtitle="Stay informed about our programs, milestones, and emergency response efforts."
         image="/images/education-unicef-school-sign.jpg"
         imageAlt="UNICEF education project signage at a Humanity Worldwide school site"
+        align="center"
       />
 
       <section className="section-padding bg-white">

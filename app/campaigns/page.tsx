@@ -20,8 +20,9 @@ export default function CampaignsPage() {
         eyebrow="Campaigns"
         title="Emergency response & appeals"
         subtitle="When crisis strikes, we respond. Your support enables rapid humanitarian action."
-        image="https://images.unsplash.com/photo-1547685079-3f4a4e2e2f2b?w=1920&q=80"
-        imageAlt="Emergency flood response campaign in Jonglei State, South Sudan"
+        image="/images/hero-emergency-composite.jpg"
+        imageAlt="Emergency response in crisis-affected areas"
+        align="center"
       />
 
       <section className="section-padding bg-white">

@@ -21,6 +21,7 @@ export default function ResourcesPage() {
         eyebrow="Resources"
         title="Reports & publications"
         subtitle="Transparency and accountability are core to our mission. Access our latest reports and program briefs."
+        align="center"
       />
 
       <section className="section-padding bg-white">

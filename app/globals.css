@@ -61,9 +61,6 @@
   .text-balance {
     text-wrap: balance;
   }
-  .font-handwriting {
-    font-style: italic;
-  }
 }
 
 @layer components {
