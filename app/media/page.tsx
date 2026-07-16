@@ -18,38 +18,38 @@ interface VideoItem {
 }
 
 const featuredVideo = {
-  youtubeId: "L3wKzyIN1yk", // Representative UNICEF/humanitarian story
-  title: " principled Presence — Kapoeta & Torit Field Operations",
-  location: "Eastern Equatoria, South Sudan",
-  description: "A detailed cinematic look at our teams navigating remote counties, coordinating water security networks, and delivering direct educational classrooms under local community ownership.",
+  youtubeId: "wDCH52c4E3Y", // Clean water, healthy children, Bor's Big change (UNICEF South Sudan)
+  title: "Clean Water, Healthy Children — Bor's Big Change",
+  location: "Bor, Jonglei State",
+  description: "Follow the launch of the Bor Urban Water Supply System, providing safe, chlorinated pipeline water to over 96,000 residents and safeguarding children from deadly cholera outbreaks.",
 };
 
 const videosList: VideoItem[] = [
   {
-    id: "wash-distribution",
-    youtubeId: "L3wKzyIN1yk",
+    id: "wash-cholera",
+    youtubeId: "7H3W9Yg4f08", // Cholera Response & Hygiene Promoters
     category: "WASH",
-    title: "Rehabilitating Boreholes & Direct Distribution in Jonglei",
-    location: "Jonglei State",
-    description: "Witness our engineering teams upgrading active clean water stations and conducting hygiene training sessions for local mothers.",
+    title: "Clean Water & A Chance to Survive Cholera in South Sudan",
+    location: "Kapoeta & Torit",
+    description: "Witness our teams distributing water treatment tablets and conducting hygiene training sessions to combat cholera epidemics in high-risk zones.",
     image: "https://images.unsplash.com/photo-1541913772-247f9c4b40f4?w=800&q=80",
   },
   {
-    id: "kapoeta-education",
-    youtubeId: "L3wKzyIN1yk",
-    category: "Education",
-    title: "Kapotea South UNICEF Classroom Construction Milestones",
-    location: "Kapoeta South",
-    description: "Follow the construction progress of twelve permanent educational blocks replacing learning under trees.",
-    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&q=80",
+    id: "solidarites-response",
+    youtubeId: "E1yWz4p1cE4", // SOLIDARITÉS INTERNATIONAL Response South Sudan
+    category: "Emergency",
+    title: "Responding to Displacements and Severe Flooding",
+    location: "Leer & Pibor",
+    description: "Follow frontline emergency responders as they cross marshlands on canoes to distribute liferafts, clean water, and plastic sheeting to flooded communities.",
+    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
   },
   {
     id: "nfi-delivery",
     category: "Protection",
     title: "Last-Mile Non-Food Items (NFI) Refugee Response [Coming Soon]",
-    location: "Sudan Border Crossing",
-    description: "Emergency shelter kits, solar lights, and dignity packages distributed to families displaced by sudden local floods.",
-    image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+    location: "Maban & Renk Border Crossing",
+    description: "Dignity kits, solar lanterns, sleeping mats, and family shelter tools packaged for refugee families escaping cross-border displacements.",
+    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=800&q=80",
   },
 ];
 
