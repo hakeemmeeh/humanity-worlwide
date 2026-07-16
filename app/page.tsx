@@ -11,7 +11,6 @@ import { WaysToGiveSection } from "@/components/home/WaysToGiveSection";
 import { WhereWeWorkSection } from "@/components/home/WhereWeWorkSection";
 import { campaigns, heroSlides, organization } from "@/data/content";
 
-import { VideoParallaxSection } from "@/components/home/VideoParallaxSection";
 import { WhatWeOfferSection } from "@/components/home/WhatWeOfferSection";
 import { VisionSection } from "@/components/home/VisionSection";
 import { EventsSection } from "@/components/home/EventsSection";
@@ -36,7 +35,6 @@ export default function HomePage() {
       <VisionSection />
       <WhatWeOfferSection />
       <WhereWeWorkSection />
-      <VideoParallaxSection />
       <section className="section-padding bg-white">
         <div className="container-content">
           <DonationBanner campaign={campaigns[0]} embedded />
