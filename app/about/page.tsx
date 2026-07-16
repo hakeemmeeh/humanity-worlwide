@@ -6,12 +6,14 @@ import { Reveal } from "@/components/Reveal";
 import { StatBlock } from "@/components/StatBlock";
 import { TeamProfile } from "@/components/TeamProfile";
 import { Timeline } from "@/components/Timeline";
+import { StoryCard } from "@/components/StoryCard";
 import {
   aboutQuickStats,
   organization,
   pillars,
   teamMembers,
   timeline,
+  stories,
 } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -105,6 +107,28 @@ export default function AboutPage() {
             {teamMembers.map((member, index) => (
               <Reveal key={member.name} delay={index * 0.15} direction="zoom">
                 <TeamProfile member={member} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Success Stories Section */}
+      <section id="stories" className="section-padding bg-white border-t border-sand-deep/30">
+        <div className="container-content">
+          <Reveal>
+            <p className="eyebrow">Impact Stories</p>
+            <h2 className="font-display text-3xl font-semibold md:text-4xl text-navy mb-4">
+              Voices from the field
+            </h2>
+            <p className="text-sm text-ink/65 max-w-xl">
+              Behind every statistic is a person whose life has been changed. These are their real stories of transformation.
+            </p>
+          </Reveal>
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {stories.map((story, index) => (
+              <Reveal key={story.slug} delay={index * 0.1} direction="up" className="flex">
+                <StoryCard story={story} />
               </Reveal>
             ))}
           </div>

@@ -59,7 +59,7 @@ export function HeroSection() {
           />
         ))}
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/85 via-navy/55 to-transparent z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/60 via-navy/30 to-transparent z-[1]" />
 
       <div className="container-content relative w-full px-6 py-20 md:px-8 z-[2]">
         <div className="flex items-center justify-between gap-8">

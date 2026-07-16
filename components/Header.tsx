@@ -21,7 +21,7 @@ const navigationStructure = [
     dropdownItems: [
       { label: "Programs", href: "/our-work" },
       { label: "Emergency Campaigns", href: "/campaigns" },
-      { label: "Success Stories", href: "/stories" },
+      { label: "Success Stories", href: "/about#stories" },
       { label: "Film & Media", href: "/media" },
       { label: "News & Press", href: "/news" },
     ],

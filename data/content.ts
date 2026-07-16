@@ -43,7 +43,7 @@ export const navLinks: NavLink[] = [
   { label: "Our Work", href: "/our-work" },
   { label: "Where We Work", href: "/where-we-work" },
   { label: "Campaigns", href: "/campaigns" },
-  { label: "Success Stories", href: "/stories" },
+  { label: "Success Stories", href: "/about#stories" },
   { label: "Film & Media", href: "/media" },
   { label: "News", href: "/news" },
   { label: "Get Involved", href: "/get-involved" },
