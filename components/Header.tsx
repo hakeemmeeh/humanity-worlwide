@@ -22,6 +22,7 @@ const navigationStructure = [
       { label: "Programs", href: "/our-work" },
       { label: "Emergency Campaigns", href: "/campaigns" },
       { label: "Success Stories", href: "/stories" },
+      { label: "Film & Media", href: "/media" },
       { label: "News & Press", href: "/news" },
     ],
   },

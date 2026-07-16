@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Play } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/Button";
 import { heroSlides } from "@/data/content";
 import { VideoLightbox } from "@/components/VideoLightbox";
@@ -118,21 +119,23 @@ export function HeroSection() {
           </motion.div>
 
           {/* Video play button */}
-          <motion.button
-            onClick={() => setLightboxOpen(true)}
-            type="button"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          <Link
+            href="/media"
             className="group hidden shrink-0 lg:flex z-[2] cursor-pointer"
-            aria-label="Play video"
+            aria-label="Watch our story films"
           >
-            <span className="relative flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/60 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-white group-hover:bg-white/10">
-              <Play className="h-8 w-8 fill-white text-white transition-transform duration-300 group-hover:scale-110" />
-              {/* Pulse ring */}
-              <span className="absolute inset-0 animate-ping rounded-full border border-white/30" style={{ animationDuration: "2s" }} />
-            </span>
-          </motion.button>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span className="relative flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/60 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-white group-hover:bg-white/10">
+                <Play className="h-8 w-8 fill-white text-white transition-transform duration-300 group-hover:scale-110" />
+                {/* Pulse ring */}
+                <span className="absolute inset-0 animate-ping rounded-full border border-white/30" style={{ animationDuration: "2s" }} />
+              </span>
+            </motion.div>
+          </Link>
         </div>
 
         {heroSlides.length > 1 && (

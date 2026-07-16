@@ -7,7 +7,6 @@ import { ChevronLeft, ChevronRight, Quote, Play, Phone, Mail, MapPin } from "luc
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
-import { VideoLightbox } from "@/components/VideoLightbox";
 import { stories, organization } from "@/data/content";
 
 const contactItems = [
@@ -35,7 +34,6 @@ export function StoriesSection() {
   });
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(true);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(true);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -164,17 +162,15 @@ export function StoriesSection() {
 
           {/* Play button block */}
           <div className="relative z-10 text-center flex flex-col items-center w-full max-w-lg">
-            <motion.button
-              onClick={() => setLightboxOpen(true)}
+            <Link
+              href="/media"
               className="group relative flex h-24 w-24 items-center justify-center rounded-full border-2 border-white/50 transition-all hover:border-white cursor-pointer bg-white/5 backdrop-blur-xs"
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Play our story video"
+              aria-label="Visit Film and Media hub"
             >
               {/* Pulsing Ring Animation */}
               <span className="absolute inset-0 animate-pulse-ring rounded-full border-2 border-white/30" />
               <Play className="h-10 w-10 text-white fill-white transition-transform group-hover:scale-110" />
-            </motion.button>
+            </Link>
             <span className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-white/80 select-none">
               Watch Our Story
             </span>
@@ -198,8 +194,6 @@ export function StoriesSection() {
           </div>
         </div>
       </div>
-
-      <VideoLightbox isOpen={lightboxOpen} onClose={() => setLightboxOpen(false)} />
     </section>
   );
 }
