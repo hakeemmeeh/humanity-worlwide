@@ -3,12 +3,30 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Quote, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Quote, Play, Phone, Mail, MapPin } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import { VideoLightbox } from "@/components/VideoLightbox";
-import { stories } from "@/data/content";
+import { stories, organization } from "@/data/content";
+
+const contactItems = [
+  {
+    icon: Phone,
+    label: "Call Us",
+    value: organization.contact.phone,
+  },
+  {
+    icon: Mail,
+    label: "Email Us",
+    value: organization.contact.email,
+  },
+  {
+    icon: MapPin,
+    label: "Visit Us",
+    value: organization.contact.address,
+  },
+];
 
 export function StoriesSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -132,8 +150,8 @@ export function StoriesSection() {
           </div>
         </div>
 
-        {/* Right Column — Video Parallax Trigger */}
-        <div className="relative min-h-[450px] lg:min-h-full overflow-hidden flex items-center justify-center">
+        {/* Right Column — Video Cover & Contact Items */}
+        <div className="relative min-h-[550px] lg:min-h-full overflow-hidden flex flex-col items-center justify-center px-6 py-20 text-center">
           <Image
             src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&q=80"
             alt="Children in a humanitarian setting"
@@ -144,8 +162,8 @@ export function StoriesSection() {
           {/* Dark Overlay */}
           <div className="absolute inset-0 bg-black/60 transition-opacity duration-500 hover:bg-black/50" />
 
-          {/* Pulse Button block */}
-          <div className="relative z-10 text-center flex flex-col items-center">
+          {/* Play button block */}
+          <div className="relative z-10 text-center flex flex-col items-center w-full max-w-lg">
             <motion.button
               onClick={() => setLightboxOpen(true)}
               className="group relative flex h-24 w-24 items-center justify-center rounded-full border-2 border-white/50 transition-all hover:border-white cursor-pointer bg-white/5 backdrop-blur-xs"
@@ -160,6 +178,23 @@ export function StoriesSection() {
             <span className="mt-4 text-xs font-bold uppercase tracking-[0.2em] text-white/80 select-none">
               Watch Our Story
             </span>
+
+            {/* Contact info row (Phone, Email, Visit Address) */}
+            <div className="mt-12 w-full grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
+              {contactItems.map((item) => (
+                <div key={item.label} className="flex flex-col items-center text-center">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-coral/20 mb-2">
+                    <item.icon className="h-5 w-5 text-coral" />
+                  </span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/50 mb-1">
+                    {item.label}
+                  </span>
+                  <span className="text-xs text-white/80 font-medium break-all max-w-[130px] leading-tight">
+                    {item.value}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
