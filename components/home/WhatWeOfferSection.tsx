@@ -111,20 +111,20 @@ export function WhatWeOfferSection() {
   };
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden select-none">
+    <section className="relative select-none overflow-hidden bg-white px-6 py-20 md:px-8">
       {/* Background horizontal guide strip behind varying height images */}
-      <div className="absolute left-0 right-0 top-[60%] h-[120px] -translate-y-1/2 bg-[#F8F9FA] -z-10 border-y border-sand-deep/20" />
+      <div className="absolute left-0 right-0 top-[60%] -z-10 h-[120px] -translate-y-1/2 border-y border-sand-deep/20 bg-[#F8F9FA]" />
 
       <div className="container-content">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <Reveal direction="left">
-            <span className="font-handwriting text-3xl text-coral block mb-3 rotate-[-1deg] select-none">
+            <span className="mb-3 block rotate-[-1deg] select-none font-handwriting text-3xl text-coral">
               Our dedication
             </span>
             <p className="text-[11px] font-extrabold uppercase tracking-widest text-navy/60">
               What We Offer
             </p>
-            <h2 className="max-w-2xl font-display text-4xl font-semibold md:text-5xl leading-tight text-[#1C1C1C] mt-2">
+            <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold leading-tight text-[#1C1C1C] md:text-4xl lg:text-5xl">
               Empowering local communities and building a sustainable future
             </h2>
           </Reveal>

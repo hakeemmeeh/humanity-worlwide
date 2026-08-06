@@ -176,16 +176,16 @@ export function StoriesSection() {
             </span>
 
             {/* Contact info row (Phone, Email, Visit Address) */}
-            <div className="mt-12 w-full grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
+            <div className="mt-12 grid w-full grid-cols-1 gap-6 border-t border-white/10 pt-8 sm:grid-cols-3 sm:gap-4">
               {contactItems.map((item) => (
                 <div key={item.label} className="flex flex-col items-center text-center">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-coral/20 mb-2">
+                  <span className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-coral/20">
                     <item.icon className="h-5 w-5 text-coral" />
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/50 mb-1">
+                  <span className="mb-1 text-[10px] font-bold uppercase tracking-widest text-white/50">
                     {item.label}
                   </span>
-                  <span className="text-xs text-white/80 font-medium break-all max-w-[130px] leading-tight">
+                  <span className="break-words text-xs font-medium leading-tight text-white/80 sm:max-w-[130px] sm:break-all">
                     {item.value}
                   </span>
                 </div>

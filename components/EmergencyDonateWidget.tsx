@@ -29,7 +29,7 @@ export function EmergencyDonateWidget() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl bg-white p-8 text-center shadow-card md:p-10">
+      <div className="rounded-2xl bg-white p-5 text-center shadow-card sm:p-8 md:p-10">
         <p className="font-display text-2xl font-semibold text-navy">
           Thank you!
         </p>
@@ -42,8 +42,8 @@ export function EmergencyDonateWidget() {
   }
 
   return (
-    <div className="rounded-2xl bg-white p-8 shadow-card md:p-10">
-      <h3 className="font-display text-2xl font-semibold text-navy">
+    <div className="rounded-2xl bg-white p-5 shadow-card sm:p-8 md:p-10">
+      <h3 className="font-display text-xl font-semibold text-navy sm:text-2xl">
         Donate to our emergency response
       </h3>
       <p className="mt-2 text-sm text-ink/60">
@@ -59,7 +59,7 @@ export function EmergencyDonateWidget() {
               key={c.slug}
               type="button"
               onClick={() => setCountry(c.slug)}
-              className={`rounded-full py-2.5 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 ${
+              className={`min-h-11 rounded-full py-3 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 ${
                 country === c.slug
                   ? "border border-navy bg-navy text-white"
                   : "border border-sand-deep bg-sand/50 text-navy hover:border-navy"
@@ -80,7 +80,7 @@ export function EmergencyDonateWidget() {
               setSelected(amt);
               setCustom("");
             }}
-            className={`rounded-full py-2.5 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 ${
+            className={`min-h-11 rounded-full py-3 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 ${
               selected === amt && !custom
                 ? "border border-coral bg-coral text-white"
                 : "border border-sand-deep bg-white text-navy hover:border-coral hover:text-coral"
@@ -114,9 +114,12 @@ export function EmergencyDonateWidget() {
       <Button
         onClick={handleDonate}
         disabled={amount <= 0}
-        className="mt-6 w-full bg-amber-500 text-white hover:bg-amber-600"
+        className="mt-6 w-full bg-amber-500 px-4 text-sm leading-snug text-white hover:bg-amber-600 sm:text-base"
       >
-        Donate ${amount > 0 ? amount : "—"} for {countryName}
+        <span className="sm:hidden">Donate ${amount > 0 ? amount : "—"}</span>
+        <span className="hidden sm:inline">
+          Donate ${amount > 0 ? amount : "—"} for {countryName}
+        </span>
       </Button>
     </div>
   );

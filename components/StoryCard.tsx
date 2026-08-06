@@ -13,7 +13,7 @@ export function StoryCard({ story }: StoryCardProps) {
     : undefined;
 
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-[2.5rem_1rem_2.5rem_1rem] border border-sand-deep/20 bg-gradient-to-br from-white to-[#F6F9FB] px-8 py-10 text-center transition-all duration-500 ease-in-out hover:-translate-y-2 hover:rounded-[1rem_2.5rem_1rem_2.5rem] hover:border-teal/20 hover:shadow-2xl hover:shadow-teal/5 md:px-8">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[2.5rem_1rem_2.5rem_1rem] border border-sand-deep/20 bg-gradient-to-br from-white to-[#F6F9FB] px-5 py-8 text-center transition-all duration-500 ease-in-out hover:-translate-y-2 hover:rounded-[1rem_2.5rem_1rem_2.5rem] hover:border-teal/20 hover:shadow-2xl hover:shadow-teal/5 sm:px-8 sm:py-10">
       <span className="pointer-events-none absolute -left-6 -top-10 select-none font-serif text-[12rem] font-bold italic leading-none text-teal/[0.04] transition-all duration-700 ease-out group-hover:translate-x-2 group-hover:translate-y-2 group-hover:scale-110 group-hover:text-coral/[0.05]">
         &ldquo;
       </span>

@@ -18,7 +18,7 @@ export function DonationWidget({ compact = false }: { compact?: boolean }) {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl bg-white p-8 text-center shadow-card">
+      <div className="rounded-2xl bg-white p-5 text-center shadow-card sm:p-8">
         <p className="font-display text-2xl font-semibold text-navy">
           Thank you!
         </p>
@@ -32,7 +32,7 @@ export function DonationWidget({ compact = false }: { compact?: boolean }) {
   return (
     <div
       className={`rounded-2xl bg-white shadow-card shadow-lg ${
-        compact ? "p-6" : "p-8 md:p-10"
+        compact ? "p-5 sm:p-6" : "p-5 sm:p-8 md:p-10"
       }`}
     >
       <h3 className="font-display text-2xl font-semibold text-navy">
@@ -51,7 +51,7 @@ export function DonationWidget({ compact = false }: { compact?: boolean }) {
               setSelected(amt);
               setCustom("");
             }}
-            className={`rounded-full py-2.5 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 ${
+            className={`min-h-11 rounded-full py-3 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 ${
               selected === amt && !custom
                 ? "border border-coral bg-coral text-white"
                 : "border border-sand-deep bg-white text-navy hover:border-coral hover:text-coral"

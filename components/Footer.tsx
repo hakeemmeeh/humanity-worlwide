@@ -61,7 +61,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#2ac4ba]/30 bg-white text-[#2ac4ba] transition-all duration-300 hover:scale-110 hover:bg-[#2ac4ba] hover:text-white hover:shadow-[0_0_12px_rgba(42,196,186,0.4)]"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-[#2ac4ba]/30 bg-white text-[#2ac4ba] transition-all duration-300 hover:scale-110 hover:bg-[#2ac4ba] hover:text-white hover:shadow-[0_0_12px_rgba(42,196,186,0.4)]"
                 >
                   {socialIcons[social.label]}
                 </a>

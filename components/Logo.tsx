@@ -18,7 +18,7 @@ export function Logo({
   return (
     <Link
       href="/"
-      className={`inline-flex shrink-0 items-center gap-3 ${className}`}
+      className={`inline-flex min-w-0 items-center gap-2 sm:gap-3 ${className}`}
       aria-label="Humanity Worldwide — Home"
     >
       <Image
@@ -27,12 +27,12 @@ export function Logo({
         width={height}
         height={height}
         priority
-        className="h-auto w-auto object-contain"
+        className="h-auto w-auto shrink-0 object-contain"
         style={{ height, width: "auto" }}
       />
-      <div className="min-w-0">
+      <div className="hidden min-w-0 min-[400px]:block">
         <span
-          className={`block truncate font-display text-base font-semibold leading-tight sm:text-lg ${
+          className={`block truncate font-display text-sm font-semibold leading-tight sm:text-base md:text-lg ${
             onDark ? "text-white" : "text-navy"
           }`}
         >

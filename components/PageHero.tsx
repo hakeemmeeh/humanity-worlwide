@@ -47,7 +47,7 @@ export function PageHero({
         <div className={`container-content relative w-full px-6 pb-16 pt-32 md:px-8 md:pb-20 z-[2] ${align === "center" ? "text-center flex flex-col items-center" : ""}`}>
           <Reveal>
             {eyebrow && <p className="eyebrow text-teal">{eyebrow}</p>}
-            <h1 className={`max-w-3xl font-display text-4xl font-semibold text-white md:text-5xl lg:text-6xl ${align === "center" ? "mx-auto" : ""}`}>
+            <h1 className={`max-w-3xl font-display text-3xl font-semibold text-white sm:text-4xl md:text-5xl lg:text-6xl ${align === "center" ? "mx-auto" : ""}`}>
               {title}
             </h1>
             {subtitle && (
@@ -66,7 +66,7 @@ export function PageHero({
       <div className={`container-content ${align === "center" ? "text-center flex flex-col items-center" : ""}`}>
         <Reveal>
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-          <h1 className={`max-w-3xl font-display text-4xl font-semibold md:text-5xl lg:text-6xl ${align === "center" ? "mx-auto" : ""}`}>
+          <h1 className={`max-w-3xl font-display text-3xl font-semibold sm:text-4xl md:text-5xl lg:text-6xl ${align === "center" ? "mx-auto" : ""}`}>
             {title}
           </h1>
           {subtitle && (

@@ -61,7 +61,7 @@ export function HeroSection() {
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-r from-navy-deep/60 via-navy/30 to-transparent z-[1]" />
 
-      <div className="container-content relative w-full px-6 py-20 md:px-8 z-[2]">
+      <div className="container-content relative z-[2] w-full px-6 pb-28 pt-20 md:px-8 md:pb-36">
         <div className="flex items-center justify-between gap-8">
           <motion.div
             style={prefersReducedMotion ? undefined : { y: textY }}
@@ -80,7 +80,7 @@ export function HeroSection() {
               <motion.p
                 variants={fadeUp}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="font-handwriting text-3xl text-teal/95 rotate-[-2deg] origin-left mb-1 block select-none"
+                className="font-handwriting text-3xl text-teal/95 rotate-[-2deg] origin-left mb-3 block select-none"
               >
                 Together we are stronger
               </motion.p>
@@ -139,19 +139,23 @@ export function HeroSection() {
         </div>
 
         {heroSlides.length > 1 && (
-          <div className="mt-12 flex gap-2 z-[2]">
+          <div className="z-[2] mt-12 flex gap-1">
             {heroSlides.map((_, i) => (
               <button
                 key={i}
                 type="button"
                 onClick={() => setActiveIndex(i)}
-                className={`h-1.5 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-navy ${
-                  i === activeIndex
-                    ? "w-8 bg-teal"
-                    : "w-4 bg-white/40 hover:bg-white/60"
-                }`}
+                className="flex h-11 w-11 items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
                 aria-label={`Show slide ${i + 1}: ${heroSlides[i].headline}`}
-              />
+              >
+                <span
+                  className={`block h-1.5 rounded-full transition-all duration-300 ${
+                    i === activeIndex
+                      ? "w-8 bg-teal"
+                      : "w-4 bg-white/40"
+                  }`}
+                />
+              </button>
             ))}
           </div>
         )}

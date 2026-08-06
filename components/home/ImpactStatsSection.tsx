@@ -45,16 +45,16 @@ export function ImpactStatsSection() {
             Every contribution counts!
           </span>
           <p className="eyebrow text-teal">Our Impact</p>
-          <h2 className="max-w-2xl font-display text-3xl font-semibold text-white md:text-4xl">
+          <h2 className="max-w-2xl font-display text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
             Meaningful change across communities
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-8 sm:mt-14 sm:grid-cols-2 sm:gap-10 lg:grid-cols-3">
           {impactAreas.map((area, index) => (
             <Reveal key={area.label} delay={index * 0.1} direction="zoom">
-              <div className="border-l-4 border-teal py-2 pl-5 text-white">
-                <p className="font-display text-2xl font-semibold md:text-3xl">
+              <div className="border-l-4 border-teal py-2 pl-4 text-white sm:pl-5">
+                <p className="font-display text-xl font-semibold sm:text-2xl md:text-3xl">
                   {area.label}
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-white/70">

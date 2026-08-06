@@ -29,7 +29,7 @@ export function Header() {
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         isFloating 
-          ? "bg-white/95 backdrop-blur-lg shadow-lg border border-sand/40 py-1 mt-2 mx-4 rounded-2xl lg:mx-auto lg:max-w-7xl lg:mt-4" 
+          ? "bg-white/95 backdrop-blur-lg shadow-lg border border-sand/40 py-1 mt-2 mx-2 rounded-2xl sm:mx-4 lg:mx-auto lg:max-w-7xl lg:mt-4" 
           : "bg-[#F8F9FA] border-b border-sand-deep/20 py-2.5 mx-0 rounded-none shadow-none"
       }`}
     >
@@ -75,13 +75,15 @@ export function Header() {
           </div>
 
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-            <Button href="/get-involved" className="px-4 py-2.5 text-xs sm:px-7 sm:py-3 sm:text-sm">
-              Donate Now
+            <Button href="/get-involved" className="min-h-11 px-3 py-2.5 text-xs sm:px-7 sm:py-3 sm:text-sm">
+              <span className="sm:hidden">Donate</span>
+              <span className="hidden sm:inline">Donate Now</span>
             </Button>
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="rounded-lg p-2 xl:hidden transition-colors duration-300 text-[#1E3E39]"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg p-2.5 xl:hidden transition-colors duration-300 text-[#1E3E39]"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
               {mobileOpen ? (
                 <X className="h-6 w-6" />
