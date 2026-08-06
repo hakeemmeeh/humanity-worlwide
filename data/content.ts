@@ -32,6 +32,16 @@ export const organization = {
   url: "https://hww.xpeedium.com",
 };
 
+/** South Sudan states where HWW operates (state-level naming for public content). */
+export const southSudanStates = [
+  "Eastern Equatoria",
+  "Western Equatoria",
+  "Central Equatoria",
+  "Jonglei State",
+  "Northern Bahr el Ghazal",
+  "Lakes State",
+];
+
 export const socialLinks: SocialLink[] = [
   { label: "Facebook", href: "https://facebook.com" },
   { label: "Twitter", href: "https://twitter.com" },
@@ -185,10 +195,10 @@ export const programs: Program[] = [
     title: "Education",
     tagline: "Building Futures",
     description:
-      "Quality education, teacher training, school construction, and infrastructure development. Projects in Kapoeta South, Kapoeta North, Torit and Magwi (South Sudan).",
+      "Quality education, teacher training, school construction, and infrastructure development across Eastern Equatoria State, South Sudan.",
     image: "/images/education-school-building.jpg",
 
-    regions: ["Kapoeta South", "Kapoeta North", "Torit", "Magwi"],
+    regions: ["Eastern Equatoria"],
     highlights: [
       "Classrooms and infrastructure construction and rehabilitation in the greater equatoria and Jonglei states",
     ],
@@ -228,7 +238,7 @@ export const programs: Program[] = [
       "Vocational training, microfinance, agricultural cooperative support, and economic development for sustainable self-reliance in crisis-affected communities.",
     image: "/images/food-security-cooperative.jpg",
 
-    regions: ["Magwi", "Torit", "Kapoeta"],
+    regions: ["Eastern Equatoria"],
     highlights: [
       "Vocational skills training programs and microfinance support in the greater equatoria and Jonglei states",
     ],
@@ -248,7 +258,7 @@ export const programs: Program[] = [
       "Comprehensive protection services including GBV prevention, child protection, inclusion of persons with disabilities, and community peace-building programs.",
     image: "/images/protection-wheelchairs.jpg",
 
-    regions: ["Jonglei", "Akobo", "Ayod", "Upper Nile"],
+    regions: ["Jonglei State", "Upper Nile State"],
     highlights: [
       "GBV prevention, child protection, and peace-building programs in the greater equatoria and Jonglei states",
     ],
@@ -267,7 +277,7 @@ export const programs: Program[] = [
     description:
       "Emergency and transitional shelter construction for displaced and refugee families across Jonglei and Upper Nile states.",
     image: "/images/education-school-building.jpg",
-    regions: ["Akobo", "Jonglei", "Upper Nile"],
+    regions: ["Jonglei State", "Upper Nile State"],
     highlights: [
       "Emergency and transitional shelter construction in the greater equatoria and Jonglei states",
     ],
@@ -287,7 +297,7 @@ export const programs: Program[] = [
       "Food security and agricultural livelihood programs supporting cooperative societies and smallholder farmers to achieve food self-sufficiency and market access.",
     image: "/images/food-security-cooperative.jpg",
 
-    regions: ["Western Equatoria", "Yambio", "Bangasu"],
+    regions: ["Western Equatoria"],
     highlights: [
       "Agricultural cooperative support and seed distribution in the greater equatoria and Jonglei states",
     ],
@@ -307,7 +317,7 @@ export const programs: Program[] = [
       "Community health outreach, nutrition screening, and integrated health services for crisis-affected populations across South Sudan and Somalia.",
     image: "/images/livelihoods-community-group.jpg",
 
-    regions: ["Kapoeta", "Torit", "Jonglei", "Jubaland"],
+    regions: ["Eastern Equatoria", "Jonglei State", "Jubaland"],
     highlights: [
       "Community health outreach and nutrition screening in the greater equatoria and Jonglei states",
     ],
@@ -328,7 +338,7 @@ export const regions: Region[] = [
     description:
       "Our largest operational presence, delivering education, WASH, shelter, and livelihoods programs across multiple states.",
     longDescription:
-      "South Sudan is the heart of our operations. Across Kapoeta, Torit, Magwi, and Jonglei, we deliver integrated programs that address the interconnected needs of displaced and host communities — from classrooms and clean water to emergency shelter and economic recovery.",
+      "South Sudan is the heart of our operations. Across Eastern Equatoria, Western Equatoria, Central Equatoria, Jonglei State, Northern Bahr el Ghazal, and Lakes State, we deliver integrated programs that address the interconnected needs of displaced and host communities — from classrooms and clean water to emergency shelter and economic recovery.",
     image: "/images/education-school-building.jpg",
     stats: [],
     programs: ["Education", "WASH", "Livelihoods", "Shelter"],
