@@ -143,47 +143,36 @@ export const pillars: Pillar[] = [
   },
 ];
 
-export const impactStats: Stat[] = [
+/** General impact areas for the homepage — no specific unverified figures. */
+export const impactAreas: { label: string; description: string }[] = [
   {
-    value: 12,
-    label: "Classrooms Built",
-    description: "Creating safe learning spaces for hundreds of children",
+    label: "Education",
+    description: "Safe learning spaces, teacher support, and community-led schooling",
   },
   {
-    value: 28,
-    label: "Teachers Trained",
-    description: "Enhancing education quality through professional development",
+    label: "WASH",
+    description: "Clean water, sanitation, and hygiene for healthier communities",
   },
   {
-    value: 140,
-    label: "Shelters Built",
-    description: "Providing safe homes for displaced families",
+    label: "Livelihoods",
+    description: "Skills, cooperatives, and economic recovery for families",
   },
   {
-    value: 6000,
-    suffix: "+",
-    label: "Lives Impacted",
-    description: "Transforming communities across South Sudan",
+    label: "Protection",
+    description: "Safety, dignity, and support for vulnerable women and children",
   },
   {
-    value: 92,
-    suffix: "%",
-    label: "Student Retention",
-    description: "Sustained enrollment in our education programs",
+    label: "Shelter",
+    description: "Emergency and transitional homes for displaced families",
   },
   {
-    value: 85,
-    suffix: "%",
-    label: "Reduction in Waterborne Diseases",
-    description: "Through WASH interventions across communities",
-  },
-  {
-    value: 78,
-    suffix: "%",
-    label: "Income Improvement Rate",
-    description: "Livelihoods program participants reporting gains",
+    label: "Emergency Response",
+    description: "Rapid relief when floods, conflict, and drought strike",
   },
 ];
+
+/** @deprecated Prefer impactAreas — kept empty for any remaining Stat-based imports */
+export const impactStats: Stat[] = [];
 
 export const aboutQuickStats: Stat[] = [
   { value: 4, label: "Countries Served" },

@@ -2,12 +2,10 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
 import { HandsMark } from "@/components/HandsMark";
 import { Reveal } from "@/components/Reveal";
-import { StatBlock } from "@/components/StatBlock";
-import { impactStats } from "@/data/content";
-
-import Image from "next/image";
+import { impactAreas } from "@/data/content";
 
 export function ImpactStatsSection() {
   const ref = useRef<HTMLElement>(null);
@@ -23,7 +21,6 @@ export function ImpactStatsSection() {
       className="relative overflow-hidden py-20 md:py-24"
       style={{ isolation: "isolate" }}
     >
-      {/* Parallax background image */}
       <motion.div
         className="absolute inset-0 -top-[10%] -bottom-[10%]"
         style={{ y: bgY }}
@@ -37,7 +34,6 @@ export function ImpactStatsSection() {
         />
       </motion.div>
 
-      {/* Dark overlay */}
       <div className="absolute inset-0 bg-navy/85" />
 
       <HandsMark className="pointer-events-none absolute -right-32 -top-32 z-[1] h-[500px] w-[500px] text-white opacity-[0.06]" />
@@ -50,14 +46,21 @@ export function ImpactStatsSection() {
           </span>
           <p className="eyebrow text-teal">Our Impact</p>
           <h2 className="max-w-2xl font-display text-3xl font-semibold text-white md:text-4xl">
-            Measurable change across communities
+            Meaningful change across communities
           </h2>
         </Reveal>
 
-        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {impactStats.map((stat, index) => (
-            <Reveal key={stat.label} delay={index * 0.1} direction="zoom">
-              <StatBlock stat={stat} variant="dark" />
+        <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {impactAreas.map((area, index) => (
+            <Reveal key={area.label} delay={index * 0.1} direction="zoom">
+              <div className="border-l-4 border-teal py-2 pl-5 text-white">
+                <p className="font-display text-2xl font-semibold md:text-3xl">
+                  {area.label}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">
+                  {area.description}
+                </p>
+              </div>
             </Reveal>
           ))}
         </div>
