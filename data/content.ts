@@ -29,7 +29,7 @@ export const organization = {
     email: "Info@humanity-worldwide.org",
     phone: "+1 (816) 208-2270",
   },
-  url: "https://humanity-worldwide.org",
+  url: "https://xpeedium.com",
 };
 
 export const socialLinks: SocialLink[] = [
