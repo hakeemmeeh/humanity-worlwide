@@ -5,30 +5,8 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/Button";
 import { Logo } from "@/components/Logo";
-import { organization } from "@/data/content";
-
-const navigationStructure = [
-  {
-    label: "About Us",
-    dropdownItems: [
-      { label: "Our Mission", href: "/about" },
-      { label: "Where We Work", href: "/where-we-work" },
-      { label: "Resources & Reports", href: "/resources" },
-    ],
-  },
-  {
-    label: "Our Work",
-    dropdownItems: [
-      { label: "Programs", href: "/our-work" },
-      { label: "Emergency Campaigns", href: "/campaigns" },
-      { label: "Success Stories", href: "/about#stories" },
-      { label: "Film & Media", href: "/media" },
-      { label: "News & Press", href: "/news" },
-    ],
-  },
-  { label: "Get Involved", href: "/get-involved" },
-  { label: "Contact", href: "/contact" },
-];
+import { headerNavigation } from "@/data/content";
+import { isNavDropdown } from "@/types";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -61,8 +39,8 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-6 xl:flex">
-            {navigationStructure.map((nav) => (
-              nav.dropdownItems ? (
+            {headerNavigation.map((nav) =>
+              isNavDropdown(nav) ? (
                 <div key={nav.label} className="relative group py-2">
                   <button className="nav-link flex items-center gap-1 text-[#1E3E39]/80 after:bg-teal hover:text-navy focus:outline-none">
                     {nav.label}
@@ -93,7 +71,7 @@ export function Header() {
                   {nav.label}
                 </Link>
               )
-            ))}
+            )}
           </div>
 
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
@@ -122,8 +100,8 @@ export function Header() {
         >
           <div className="px-6 py-4">
             <div className="flex flex-col gap-1.5">
-              {navigationStructure.map((nav) => (
-                nav.dropdownItems ? (
+              {headerNavigation.map((nav) =>
+                isNavDropdown(nav) ? (
                   <div key={nav.label} className="flex flex-col">
                     <button
                       onClick={() => toggleMobileDropdown(nav.label)}
@@ -167,7 +145,7 @@ export function Header() {
                     {nav.label}
                   </Link>
                 )
-              ))}
+              )}
             </div>
           </div>
         </div>

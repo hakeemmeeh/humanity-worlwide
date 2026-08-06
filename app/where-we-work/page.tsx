@@ -10,7 +10,7 @@ import { regions } from "@/data/content";
 export const metadata: Metadata = {
   title: "Where We Work",
   description:
-    "Humanity Worldwide operates across South Sudan, Somalia, and Sudan, delivering integrated humanitarian programs.",
+    "Humanity Worldwide operates across South Sudan, Somalia, Sudan, and Kenya, delivering integrated humanitarian programs.",
 };
 
 export default function WhereWeWorkPage() {
@@ -29,7 +29,7 @@ export default function WhereWeWorkPage() {
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
               <p className="text-lg leading-relaxed text-ink/70">
-                Our presence spans three countries and seven regional offices,
+                Our presence spans four countries,
                 allowing us to respond rapidly to emergencies while maintaining
                 long-term development programs in the communities we serve.
               </p>

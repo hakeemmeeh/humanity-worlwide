@@ -7,7 +7,6 @@ import { CTAStripe } from "@/components/CTAStripe";
 import { Gallery } from "@/components/Gallery";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { StatBlock } from "@/components/StatBlock";
 import { Testimonial } from "@/components/Testimonial";
 import { getProgramBySlug, programs, stories } from "@/data/content";
 
@@ -37,9 +36,7 @@ export default function ProgramPage({ params }: Props) {
   const program = getProgramBySlug(params.slug);
   if (!program) notFound();
 
-  const relatedStory = stories.find((s) =>
-    s.program?.toLowerCase().includes(program.title.split(" ")[0].toLowerCase())
-  );
+  const relatedStory = stories.find((s) => s.programSlug === program.slug);
 
   return (
     <>
@@ -51,17 +48,38 @@ export default function ProgramPage({ params }: Props) {
         imageAlt={`${program.title} program — ${program.tagline}`}
       />
 
-      <section className="section-padding bg-white">
-        <div className="container-content">
-          <div className="grid gap-8 sm:grid-cols-3">
-            {program.stats.map((stat, index) => (
-              <Reveal key={stat.label} delay={index * 0.1}>
-                <StatBlock stat={stat} />
-              </Reveal>
-            ))}
+      {program.regions && (
+        <section className="section-padding bg-white">
+          <div className="container-content">
+            <Reveal>
+              <p className="eyebrow">Where We Implemented</p>
+              <h2 className="font-display text-3xl font-semibold">
+                Implementation locations
+              </h2>
+              <p className="mt-3 max-w-2xl text-ink/70">
+                This program has been delivered in the following areas.
+              </p>
+            </Reveal>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {program.regions.map((region) => (
+                <span
+                  key={region}
+                  className="rounded-full bg-teal-soft px-5 py-2 text-sm font-semibold text-teal-text"
+                >
+                  {region}
+                </span>
+              ))}
+            </div>
+            <Link
+              href="/where-we-work"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-teal-text transition-colors hover:text-teal"
+            >
+              View all regions
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {program.approach && (
         <section className="section-padding bg-sand">
@@ -122,36 +140,6 @@ export default function ProgramPage({ params }: Props) {
             <div className="mt-10">
               <Gallery images={program.gallery} altPrefix={program.title} />
             </div>
-          </div>
-        </section>
-      )}
-
-      {program.regions && (
-        <section className="section-padding bg-white">
-          <div className="container-content">
-            <Reveal>
-              <p className="eyebrow">Active Regions</p>
-              <h2 className="font-display text-3xl font-semibold">
-                Where this program operates
-              </h2>
-            </Reveal>
-            <div className="mt-8 flex flex-wrap gap-3">
-              {program.regions.map((region) => (
-                <span
-                  key={region}
-                  className="rounded-full bg-teal-soft px-5 py-2 text-sm font-semibold text-teal-text"
-                >
-                  {region}
-                </span>
-              ))}
-            </div>
-            <Link
-              href="/where-we-work"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-teal-text transition-colors hover:text-teal"
-            >
-              View all regions
-              <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
         </section>
       )}

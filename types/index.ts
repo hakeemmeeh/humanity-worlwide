@@ -19,7 +19,7 @@ export interface Program {
   tagline: string;
   description: string;
   image: string;
-  stats: Stat[];
+  stats?: Stat[];
   regions?: string[];
   highlights?: string[];
   approach?: string;
@@ -36,15 +36,46 @@ export interface Region {
   longDescription?: string;
 }
 
+export type CrisisType =
+  | "Floods"
+  | "Displacement"
+  | "Drought"
+  | "Conflict"
+  | "Multi-hazard";
+
+export interface EmergencyCrisis {
+  id: string;
+  title: string;
+  crisisType: CrisisType;
+  /** State, region, or area within the country */
+  area: string;
+  description: string;
+  familiesReached?: number;
+  /** Optional link to a featured emergency case page */
+  campaignSlug?: string;
+}
+
+export interface EmergencyCountry {
+  slug: string;
+  name: string;
+  description: string;
+  image: string;
+  crises: EmergencyCrisis[];
+}
+
 export interface Campaign {
   slug: string;
   title: string;
   description: string;
   image: string;
-  goal: number;
-  raised: number;
+  /** @deprecated Fundraising goals removed from emergency response pages */
+  goal?: number;
+  /** @deprecated Fundraising progress removed from emergency response pages */
+  raised?: number;
   familiesReached?: number;
   location: string;
+  country?: string;
+  crisisType?: CrisisType;
   body?: string[];
   needs?: string[];
 }
@@ -57,6 +88,7 @@ export interface Story {
   role: string;
   image: string;
   program?: string;
+  programSlug?: string;
   body?: string[];
 }
 
@@ -106,6 +138,17 @@ export interface FAQ {
 export interface NavLink {
   label: string;
   href: string;
+}
+
+export interface NavDropdown {
+  label: string;
+  dropdownItems: NavLink[];
+}
+
+export type HeaderNavItem = NavLink | NavDropdown;
+
+export function isNavDropdown(item: HeaderNavItem): item is NavDropdown {
+  return "dropdownItems" in item;
 }
 
 export interface HeroSlide {

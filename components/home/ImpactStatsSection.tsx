@@ -45,7 +45,7 @@ export function ImpactStatsSection() {
 
       <div className="container-content relative z-[2] px-6 md:px-8">
         <Reveal direction="fade" duration={1}>
-          <span className="font-handwriting text-3xl text-amber-400 block -mb-1 rotate-[-2deg] select-none">
+          <span className="font-handwriting text-3xl text-amber-400 block mb-3 rotate-[-2deg] select-none">
             Every contribution counts!
           </span>
           <p className="eyebrow text-teal">Our Impact</p>

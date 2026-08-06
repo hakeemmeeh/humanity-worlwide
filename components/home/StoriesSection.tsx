@@ -68,7 +68,7 @@ export function StoriesSection() {
 
           <div className="relative z-10 max-w-xl mx-auto w-full text-center">
             <Reveal direction="left">
-              <span className="font-handwriting text-3xl text-teal block -mb-1 rotate-[-2deg] select-none">
+              <span className="font-handwriting text-3xl text-teal block mb-3 rotate-[-2deg] select-none">
                 Their own voices
               </span>
               <p className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mb-2">
@@ -165,7 +165,7 @@ export function StoriesSection() {
             <Link
               href="/media"
               className="group relative flex h-24 w-24 items-center justify-center rounded-full border-2 border-white/50 transition-all hover:border-white cursor-pointer bg-white/5 backdrop-blur-xs"
-              aria-label="Visit Film and Media hub"
+              aria-label="Visit Field Documentaries & Successes"
             >
               {/* Pulsing Ring Animation */}
               <span className="absolute inset-0 animate-pulse-ring rounded-full border-2 border-white/30" />

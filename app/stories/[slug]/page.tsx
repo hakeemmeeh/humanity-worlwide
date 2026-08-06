@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTAStripe } from "@/components/CTAStripe";
 import { Reveal } from "@/components/Reveal";
@@ -39,7 +41,7 @@ export default function StoryDetailPage({ params }: Props) {
         <div className="container-content">
           <Breadcrumbs
             items={[
-              { label: "Success Stories", href: "/stories" },
+              { label: "Success Stories", href: "/about#stories" },
               { label: story.title },
             ]}
           />
@@ -57,10 +59,14 @@ export default function StoryDetailPage({ params }: Props) {
               </div>
             </Reveal>
             <Reveal delay={0.15}>
-              {story.program && (
-                <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.15em] text-teal-text">
-                  {story.program}
-                </span>
+              {story.program && story.programSlug && (
+                <Link
+                  href={`/our-work/${story.programSlug}`}
+                  className="mb-4 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.15em] text-teal-text transition-colors hover:text-teal"
+                >
+                  {story.program} program
+                  <ArrowRight className="h-3 w-3" />
+                </Link>
               )}
               <h1 className="font-display text-3xl font-semibold md:text-4xl lg:text-5xl">
                 {story.title}
@@ -72,6 +78,15 @@ export default function StoryDetailPage({ params }: Props) {
                 <p className="font-semibold text-navy">{story.name}</p>
                 <p className="text-sm text-ink/60">{story.role}</p>
               </div>
+              {story.programSlug && (
+                <Link
+                  href={`/our-work/${story.programSlug}`}
+                  className="mt-8 inline-flex items-center gap-2 rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-soft"
+                >
+                  Explore the {story.program} project
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
             </Reveal>
           </div>
         </div>

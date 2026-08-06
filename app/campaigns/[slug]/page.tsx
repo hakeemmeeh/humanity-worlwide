@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Button } from "@/components/Button";
 import { CTAStripe } from "@/components/CTAStripe";
-import { DonationWidget } from "@/components/DonationWidget";
 import { Reveal } from "@/components/Reveal";
 import { campaigns, getCampaignBySlug } from "@/data/content";
 
@@ -17,7 +19,7 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: Props): Metadata {
   const campaign = getCampaignBySlug(params.slug);
-  if (!campaign) return { title: "Campaign" };
+  if (!campaign) return { title: "Emergency Response" };
   return {
     title: campaign.title,
     description: campaign.description,
@@ -32,8 +34,6 @@ export function generateMetadata({ params }: Props): Metadata {
 export default function CampaignDetailPage({ params }: Props) {
   const campaign = getCampaignBySlug(params.slug);
   if (!campaign) notFound();
-
-  const progress = Math.round((campaign.raised / campaign.goal) * 100);
 
   return (
     <>
@@ -51,13 +51,14 @@ export default function CampaignDetailPage({ params }: Props) {
           <Breadcrumbs
             variant="light"
             items={[
-              { label: "Campaigns", href: "/campaigns" },
+              { label: "Emergency Response", href: "/campaigns" },
               { label: campaign.title },
             ]}
           />
           <Reveal>
             <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.15em] text-coral">
-              Emergency Campaign
+              {campaign.crisisType ?? "Emergency Response"}
+              {campaign.country ? ` · ${campaign.country}` : ""}
             </span>
             <h1 className="max-w-3xl font-display text-4xl font-semibold text-white md:text-5xl">
               {campaign.title}
@@ -76,7 +77,7 @@ export default function CampaignDetailPage({ params }: Props) {
           <div className="lg:col-span-3">
             <Reveal>
               <h2 className="font-display text-2xl font-semibold text-navy">
-                About this campaign
+                About this response
               </h2>
               <p className="mt-4 leading-relaxed text-ink/70">
                 {campaign.description}
@@ -96,7 +97,7 @@ export default function CampaignDetailPage({ params }: Props) {
             {campaign.needs && (
               <Reveal delay={0.2}>
                 <h3 className="mt-10 font-display text-xl font-semibold text-navy">
-                  What your donation provides
+                  Priority needs on the ground
                 </h3>
                 <ul className="mt-4 space-y-3">
                   {campaign.needs.map((need) => (
@@ -115,31 +116,28 @@ export default function CampaignDetailPage({ params }: Props) {
 
           <div className="lg:col-span-2">
             <Reveal delay={0.15}>
-              <div className="sticky top-28 space-y-6">
-                <div className="rounded-2xl bg-sand p-6 shadow-card">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="font-semibold text-navy">
-                      ${campaign.raised.toLocaleString()} raised
-                    </span>
-                    <span className="text-ink/50">
-                      of ${campaign.goal.toLocaleString()}
-                    </span>
-                  </div>
-                  <div className="mt-3 h-3 overflow-hidden rounded-full bg-sand-deep">
-                    <div
-                      className="h-full rounded-full bg-coral"
-                      style={{ width: `${progress}%` }}
-                      role="progressbar"
-                      aria-valuenow={progress}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                    />
-                  </div>
-                  <p className="mt-2 text-sm font-semibold text-coral">
-                    {progress}% funded
-                  </p>
-                </div>
-                <DonationWidget compact />
+              <div className="sticky top-28 rounded-2xl bg-sand p-6 shadow-card md:p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-coral">
+                  Support emergency response
+                </p>
+                <h3 className="mt-3 font-display text-xl font-semibold text-navy">
+                  Donate by country
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink/70">
+                  This page is an emergency response story, not a fundraising
+                  appeal. To give, use our general emergency donation — select
+                  South Sudan, Sudan, or Somalia.
+                </p>
+                <Button href="/campaigns#donate" className="mt-6 w-full">
+                  Donate to emergency response
+                </Button>
+                <Link
+                  href="/campaigns"
+                  className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-teal-text transition-colors hover:text-teal"
+                >
+                  View all countries
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </Reveal>
           </div>

@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/our-work/livelihoods",
     "/where-we-work",
     "/campaigns",
+    "/media",
     "/stories",
     "/news",
     "/get-involved",

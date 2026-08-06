@@ -75,7 +75,7 @@ const jsonLd = {
       name: organization.name,
       url: organization.url,
       description: organization.mission,
-      areaServed: ["South Sudan", "Somalia", "Sudan"],
+      areaServed: ["South Sudan", "Somalia", "Sudan", "Kenya"],
     },
   ],
 };

@@ -122,7 +122,7 @@ export function HeroSection() {
           <Link
             href="/media"
             className="group hidden shrink-0 lg:flex z-[2] cursor-pointer"
-            aria-label="Watch our story films"
+            aria-label="Watch field documentaries and successes"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}

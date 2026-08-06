@@ -1,12 +1,9 @@
-"use client";
-
 import {
   BarChart3,
   Layers,
   Shield,
   Users,
 } from "lucide-react";
-import { DonationWidget } from "@/components/DonationWidget";
 import { Reveal } from "@/components/Reveal";
 import { pillars } from "@/data/content";
 
@@ -19,39 +16,35 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export function WaysToGiveSection() {
   return (
-    <section className="relative z-10 -mt-20 pb-16 md:-mt-24">
-      <div className="container-content px-6 md:px-8">
-        <div className="grid gap-6 lg:grid-cols-5">
-          <Reveal className="lg:col-span-2" direction="left">
-            <DonationWidget />
-          </Reveal>
-          <Reveal delay={0.15} className="lg:col-span-3" direction="right">
-            <div className="h-full rounded-2xl bg-white p-8 shadow-card md:p-10">
-              <h2 className="font-display text-2xl font-semibold text-navy">
-                Our Four Pillars
-              </h2>
-              <p className="mt-2 text-sm text-ink/60">
-                The foundation of everything we do
-              </p>
-              <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                {pillars.map((pillar) => (
-                  <div key={pillar.id} className="flex gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-soft text-teal-text">
-                      {iconMap[pillar.icon]}
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-navy">
-                        {pillar.title}
-                      </h3>
-                      <p className="mt-1 text-sm leading-relaxed text-ink/60">
-                        {pillar.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+    <section className="section-padding bg-white">
+      <div className="container-content">
+        <Reveal>
+          <p className="eyebrow">Our Pillars</p>
+          <h2 className="max-w-2xl font-display text-3xl font-semibold text-navy md:text-4xl">
+            The foundation of everything we do
+          </h2>
+          <p className="mt-4 max-w-2xl text-ink/70">
+            Four commitments that guide our humanitarian and development work
+            across South Sudan, Somalia, Sudan, and Kenya.
+          </p>
+        </Reveal>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((pillar, index) => (
+            <Reveal key={pillar.id} delay={index * 0.08}>
+              <div className="h-full rounded-2xl bg-sand p-6 md:p-8">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-soft text-teal-text">
+                  {iconMap[pillar.icon]}
+                </div>
+                <h3 className="mt-5 font-display text-xl font-semibold text-navy">
+                  {pillar.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/65">
+                  {pillar.description}
+                </p>
               </div>
-            </div>
-          </Reveal>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

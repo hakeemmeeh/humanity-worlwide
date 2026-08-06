@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Play, Calendar, MapPin, Clock, ArrowRight } from "lucide-react";
+import { Play, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 import { VideoLightbox } from "@/components/VideoLightbox";
@@ -18,7 +18,7 @@ interface VideoItem {
 }
 
 const featuredVideo = {
-  youtubeId: "wDCH52c4E3Y", // Clean water, healthy children, Bor's Big change (UNICEF South Sudan)
+  youtubeId: "wDCH52c4E3Y", // Clean water, healthy children, Bor's Big change
   title: "Clean Water, Healthy Children — Bor's Big Change",
   location: "Bor, Jonglei State",
   description: "Follow the launch of the Bor Urban Water Supply System, providing safe, chlorinated pipeline water to over 96,000 residents and safeguarding children from deadly cholera outbreaks.",
@@ -36,7 +36,7 @@ const videosList: VideoItem[] = [
   },
   {
     id: "solidarites-response",
-    youtubeId: "E1yWz4p1cE4", // SOLIDARITÉS INTERNATIONAL Response South Sudan
+    youtubeId: "E1yWz4p1cE4", // Emergency Response South Sudan
     category: "Emergency",
     title: "Responding to Displacements and Severe Flooding",
     location: "Leer & Pibor",
@@ -49,7 +49,7 @@ const videosList: VideoItem[] = [
     title: "Last-Mile Non-Food Items (NFI) Refugee Response [Coming Soon]",
     location: "Maban & Renk Border Crossing",
     description: "Dignity kits, solar lanterns, sleeping mats, and family shelter tools packaged for refugee families escaping cross-border displacements.",
-    image: "/images/shelter-unhcr-tent-akobo.jpg",
+    image: "/images/education-school-building.jpg",
   },
 ];
 
@@ -60,10 +60,10 @@ export default function MediaHubPage() {
   return (
     <>
       <PageHero
-        title="Film & Field Media"
-        subtitle="Cinematic field documentaries, impact reports, and program video diaries from our teams across South Sudan and Somalia."
+        title="Field Documentaries & Successes"
+        subtitle="Field documentaries and success stories from our teams across South Sudan and Somalia — programs, impact, and lives changed on camera."
         image="/images/team-field-staff.jpg"
-        eyebrow="Documentary Hub"
+        eyebrow="From the Field"
         align="center"
       />
 
@@ -71,7 +71,7 @@ export default function MediaHubPage() {
       <section className="section-padding bg-[#F6F9FC]">
         <div className="container-content">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="font-handwriting text-3xl text-coral block -mb-1 rotate-[-2deg] select-none">
+            <span className="font-handwriting text-3xl text-coral block mb-3 rotate-[-2deg] select-none">
               Featured Documentary
             </span>
             <p className="eyebrow justify-center">Now Playing</p>
@@ -145,10 +145,10 @@ export default function MediaHubPage() {
         <div className="container-content">
           <div className="mb-12">
             <h3 className="font-display text-2xl font-bold text-navy">
-              More Stories from the Field
+              More Documentaries & Successes
             </h3>
             <p className="text-sm text-ink/50 mt-1">
-              Browse secondary campaign recordings and field training reports
+              Browse field films and program success stories from across our operations
             </p>
           </div>
 

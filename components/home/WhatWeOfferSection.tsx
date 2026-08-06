@@ -34,7 +34,7 @@ const galleryItems = [
   },
   {
     image: "/images/shelter-koica-house.jpg",
-    alt: "KOICA-funded transitional shelter",
+    alt: "Transitional shelter for displaced families",
     title: "Shelter",
     description: "Safe homes for displaced families",
   },
@@ -46,7 +46,7 @@ const galleryItems = [
   },
   {
     image: "/images/emergency-boat-donation.jpg",
-    alt: "UNHCR emergency boat donation",
+    alt: "Emergency boat donation for flood-affected communities",
     title: "Emergency Response",
     description: "Rapid humanitarian action",
   },
@@ -118,7 +118,7 @@ export function WhatWeOfferSection() {
       <div className="container-content">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <Reveal direction="left">
-            <span className="font-handwriting text-3xl text-coral block -mb-1 rotate-[-1deg] select-none">
+            <span className="font-handwriting text-3xl text-coral block mb-3 rotate-[-1deg] select-none">
               Our dedication
             </span>
             <p className="text-[11px] font-extrabold uppercase tracking-widest text-navy/60">
@@ -134,7 +134,7 @@ export function WhatWeOfferSection() {
                 href="/about"
                 className="inline-block bg-[#6C8D98] hover:bg-[#5B7B86] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors rounded-none shadow-sm"
               >
-                More About Us
+                About
               </Link>
               <div className="flex gap-1">
                 <button

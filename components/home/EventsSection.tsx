@@ -17,17 +17,17 @@ const events: EventItem[] = [
   {
     day: "24",
     month: "OCT",
-    title: "Create positive change today – Sydney Spring Briefing",
+    title: "Community Health Outreach Launch",
     time: "9:00 AM - 1:00 PM",
-    location: "Sydney Town Hall & Online",
+    location: "Juba, South Sudan & Online",
     href: "/contact",
   },
   {
     day: "12",
     month: "MAY",
-    title: "Foster compassion every day – London Field Conference",
+    title: "WASH Program Inauguration",
     time: "10:30 AM - 4:00 PM",
-    location: "London Olympia & Online",
+    location: "Mogadishu, Somalia & Online",
     href: "/contact",
   },
 ];
@@ -41,7 +41,7 @@ export function EventsSection() {
       <div className="container-content">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-16">
           <Reveal direction="left">
-            <span className="font-handwriting text-3xl text-coral block -mb-1 rotate-[-2deg] select-none">
+            <span className="font-handwriting text-3xl text-coral block mb-3 rotate-[-2deg] select-none">
               Get involved
             </span>
             <p className="eyebrow">Briefings &amp; Forums</p>

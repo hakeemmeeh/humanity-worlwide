@@ -1,18 +1,15 @@
 import type { Metadata } from "next";
-import { BarChart3, Layers, Shield, Users } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, BarChart3, Layers, Shield, Users } from "lucide-react";
 import { CTAStripe } from "@/components/CTAStripe";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { StatBlock } from "@/components/StatBlock";
-import { TeamProfile } from "@/components/TeamProfile";
-import { Timeline } from "@/components/Timeline";
 import { StoryCard } from "@/components/StoryCard";
 import {
   aboutQuickStats,
   organization,
   pillars,
-  teamMembers,
-  timeline,
   stories,
 } from "@/data/content";
 
@@ -41,7 +38,7 @@ export default function AboutPage() {
 
       <section className="section-padding bg-white">
         <div className="container-content">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto grid max-w-2xl gap-8 sm:grid-cols-2">
             {aboutQuickStats.map((stat, index) => (
               <Reveal key={stat.label} delay={index * 0.1} direction="zoom">
                 <StatBlock stat={stat} />
@@ -61,7 +58,11 @@ export default function AboutPage() {
           </Reveal>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
             {pillars.map((pillar, index) => (
-              <Reveal key={pillar.id} delay={index * 0.12} direction={index % 2 === 0 ? "left" : "right"}>
+              <Reveal
+                key={pillar.id}
+                delay={index * 0.12}
+                direction={index % 2 === 0 ? "left" : "right"}
+              >
                 <div className="flex gap-5 rounded-2xl bg-white p-8 shadow-card">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-soft text-teal-text">
                     {iconMap[pillar.icon]}
@@ -81,57 +82,52 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-padding bg-white">
-        <div className="container-content">
-          <Reveal>
-            <p className="eyebrow">Our History</p>
-            <h2 className="font-display text-3xl font-semibold md:text-4xl">
-              A journey of impact
-            </h2>
-          </Reveal>
-          <div className="mt-16">
-            <Timeline events={timeline} />
-          </div>
-        </div>
-      </section>
-
-      <section className="section-padding bg-sand">
-        <div className="container-content">
-          <Reveal>
-            <p className="eyebrow">Our Team</p>
-            <h2 className="font-display text-3xl font-semibold md:text-4xl">
-              Leadership & field staff
-            </h2>
-          </Reveal>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {teamMembers.map((member, index) => (
-              <Reveal key={member.name} delay={index * 0.15} direction="zoom">
-                <TeamProfile member={member} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Success Stories Section */}
-      <section id="stories" className="section-padding bg-white border-t border-sand-deep/30">
+      <section
+        id="stories"
+        className="section-padding border-t border-sand-deep/30 bg-white"
+      >
         <div className="container-content">
           <Reveal>
             <p className="eyebrow">Impact Stories</p>
-            <h2 className="font-display text-3xl font-semibold md:text-4xl text-navy mb-4">
+            <h2 className="mb-4 font-display text-3xl font-semibold text-navy md:text-4xl">
               Voices from the field
             </h2>
-            <p className="text-sm text-ink/65 max-w-xl">
-              Behind every statistic is a person whose life has been changed. These are their real stories of transformation.
+            <p className="max-w-2xl text-sm text-ink/65">
+              Real accounts from communities reached through our Education,
+              Livelihoods, Protection, and WASH programs across East Africa.
             </p>
           </Reveal>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {stories.map((story, index) => (
-              <Reveal key={story.slug} delay={index * 0.1} direction="up" className="flex">
+              <Reveal
+                key={story.slug}
+                delay={index * 0.1}
+                direction="up"
+                className="flex"
+              >
                 <StoryCard story={story} />
               </Reveal>
             ))}
           </div>
+          <Reveal delay={0.2}>
+            <div className="mt-10 flex flex-wrap gap-3">
+              {[
+                { label: "Education", href: "/our-work/education" },
+                { label: "Livelihoods", href: "/our-work/livelihoods" },
+                { label: "Protection", href: "/our-work/protection" },
+                { label: "WASH", href: "/our-work/wash" },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="inline-flex items-center gap-2 rounded-full border border-sand-deep bg-sand px-4 py-2 text-sm font-semibold text-navy transition-colors hover:border-teal hover:bg-teal-soft hover:text-teal-text"
+                >
+                  {item.label}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 

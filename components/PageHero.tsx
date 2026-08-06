@@ -9,6 +9,7 @@ interface PageHeroProps {
   eyebrow?: string;
   title: string;
   subtitle?: string;
+  image?: string;
   imageAlt?: string;
   align?: "left" | "center";
 }
