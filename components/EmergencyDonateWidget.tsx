@@ -82,8 +82,8 @@ export function EmergencyDonateWidget() {
             }}
             className={`min-h-11 rounded-full py-3 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 ${
               selected === amt && !custom
-                ? "border border-coral bg-coral text-white"
-                : "border border-sand-deep bg-white text-navy hover:border-coral hover:text-coral"
+                ? "border border-teal bg-teal text-white"
+                : "border border-sand-deep bg-white text-navy hover:border-teal hover:text-teal"
             }`}
           >
             ${amt}

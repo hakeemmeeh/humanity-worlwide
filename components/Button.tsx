@@ -15,7 +15,7 @@ interface ButtonProps {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-coral text-white hover:bg-coral-dark focus-visible:ring-coral",
+    "bg-teal text-white hover:bg-teal-text focus-visible:ring-teal",
   secondary:
     "border-2 border-navy text-navy hover:bg-navy hover:text-white focus-visible:ring-navy",
   ghost:
@@ -23,7 +23,7 @@ const variants: Record<ButtonVariant, string> = {
   "ghost-dark":
     "border-2 border-navy/80 text-navy hover:bg-navy/10 focus-visible:ring-navy",
   white:
-    "bg-white text-coral hover:bg-sand hover:text-coral-dark focus-visible:ring-white",
+    "bg-white text-teal-text hover:bg-sand hover:text-teal focus-visible:ring-white",
 };
 
 export function Button({

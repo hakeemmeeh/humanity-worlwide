@@ -132,7 +132,7 @@ export function Footer() {
                   placeholder="Your email"
                   className="w-full rounded-full border border-[#2ac4ba]/30 bg-white px-4 py-2.5 text-sm text-[#1E3E39] placeholder:text-[#1E3E39]/40 focus:border-[#2ac4ba] focus:outline-none focus:ring-2 focus:ring-[#2ac4ba]/20"
                 />
-                <Button type="submit" className="w-full bg-[#2ac4ba] hover:bg-[#20b0a6] text-white">
+                <Button type="submit" className="w-full">
                   Subscribe
                 </Button>
               </form>
