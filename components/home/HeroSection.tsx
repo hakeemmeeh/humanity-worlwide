@@ -110,10 +110,7 @@ export function HeroSection() {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="mt-10 flex flex-wrap gap-4"
               >
-                <Button href="/get-involved">Donate Now</Button>
-                <Button href="/our-work" variant="ghost">
-                  Explore Our Work
-                </Button>
+                <Button href="/our-work">Explore Our Work</Button>
               </motion.div>
             </motion.div>
           </motion.div>
