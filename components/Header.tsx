@@ -76,8 +76,7 @@ export function Header() {
 
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <Button href="/get-involved" className="min-h-11 px-3 py-2.5 text-xs sm:px-7 sm:py-3 sm:text-sm">
-              <span className="sm:hidden">Donate</span>
-              <span className="hidden sm:inline">Donate Now</span>
+              Get Involved
             </Button>
             <button
               type="button"
