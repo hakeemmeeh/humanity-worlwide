@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Play } from "lucide-react";
+import { ArrowRight, MapPin, Play } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { heroSlides } from "@/data/content";
@@ -108,10 +108,18 @@ export function HeroSection() {
               <motion.div
                 variants={fadeUp}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="mt-10 flex flex-wrap gap-4"
+                className="mt-10 flex flex-wrap items-center gap-3 sm:gap-4"
               >
-                <Button href="/our-work">Explore Our Work</Button>
-                <Button href="/where-we-work" variant="ghost">
+                <Button href="/our-work" className="gap-2 px-8 py-3.5 text-sm sm:text-base">
+                  Explore Our Work
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+                <Button
+                  href="/where-we-work"
+                  variant="white"
+                  className="gap-2 border-2 border-white/90 bg-white/95 px-8 py-3.5 text-sm text-navy shadow-lg backdrop-blur-sm hover:bg-white sm:text-base"
+                >
+                  <MapPin className="h-4 w-4 text-teal" />
                   Where We Work
                 </Button>
               </motion.div>

@@ -673,7 +673,7 @@ export const partners: Partner[] = [
 export const footerCta = {
   headline: "Join Us in Making a Difference",
   subheadline:
-    "Your support can transform lives and build sustainable communities. Every contribution helps us reach more people in need and create lasting positive change.",
+    "Partner with us, volunteer, or follow the work in the field. There are many ways to stand with communities across East Africa.",
 };
 
 export const teamMembers: TeamMember[] = [];

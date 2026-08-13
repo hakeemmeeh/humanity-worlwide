@@ -67,17 +67,17 @@ export function CTAStripe({
                   href="/get-involved"
                   variant="white"
                 >
-                  Donate Now
+                  Get Involved
                 </Button>
-                <Button href="/get-involved" variant="ghost">
-                  Become a Volunteer
+                <Button href="/contact" variant="ghost">
+                  Contact Us
                 </Button>
               </>
             ) : (
               <>
-                <Button href="/get-involved">Donate Now</Button>
-                <Button href="/get-involved" variant="ghost">
-                  Become a Volunteer
+                <Button href="/get-involved">Get Involved</Button>
+                <Button href="/contact" variant="ghost">
+                  Contact Us
                 </Button>
               </>
             )}
