@@ -44,7 +44,7 @@ export default function HomePage() {
       <EventsSection />
       <NewsSection />
       <PartnersSection />
-      <CTAStripe variant="navy" />
+      <CTAStripe variant="navy" intent="learn" />
     </>
   );
 }

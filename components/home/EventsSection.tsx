@@ -42,7 +42,7 @@ export function EventsSection() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-16">
           <Reveal direction="left">
             <span className="font-handwriting text-3xl text-coral block mb-3 rotate-[-2deg] select-none">
-              Get involved
+              From the field
             </span>
             <p className="eyebrow">Briefings &amp; Forums</p>
             <h2 className="max-w-xl font-display text-3xl font-semibold md:text-4xl text-navy">

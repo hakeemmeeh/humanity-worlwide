@@ -111,6 +111,9 @@ export function HeroSection() {
                 className="mt-10 flex flex-wrap gap-4"
               >
                 <Button href="/our-work">Explore Our Work</Button>
+                <Button href="/where-we-work" variant="ghost">
+                  Where We Work
+                </Button>
               </motion.div>
             </motion.div>
           </motion.div>

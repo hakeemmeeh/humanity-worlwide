@@ -5,10 +5,16 @@ import { footerCta } from "@/data/content";
 
 interface CTAStripeProps {
   variant?: "coral" | "navy";
+  /** Homepage uses a non-fundraising close; inner pages keep donate/volunteer. */
+  intent?: "support" | "learn";
 }
 
-export function CTAStripe({ variant = "coral" }: CTAStripeProps) {
+export function CTAStripe({
+  variant = "coral",
+  intent = "support",
+}: CTAStripeProps) {
   const isCoral = variant === "coral";
+  const isLearn = intent === "learn";
 
   return (
     <section
@@ -34,17 +40,28 @@ export function CTAStripe({ variant = "coral" }: CTAStripeProps) {
               isCoral ? "text-white" : "text-white"
             }`}
           >
-            {footerCta.headline}
+            {isLearn ? "See how we work across East Africa" : footerCta.headline}
           </h2>
           <p
             className={`mx-auto mt-4 max-w-2xl text-lg leading-relaxed ${
               isCoral ? "text-white/90" : "text-white/80"
             }`}
           >
-            {footerCta.subheadline}
+            {isLearn
+              ? "Explore our programs, regions, and field stories — then reach out if you would like to partner or support the work."
+              : footerCta.subheadline}
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            {isCoral ? (
+            {isLearn ? (
+              <>
+                <Button href="/our-work" variant={isCoral ? "white" : "primary"}>
+                  Explore Our Work
+                </Button>
+                <Button href="/where-we-work" variant="ghost">
+                  Where We Work
+                </Button>
+              </>
+            ) : isCoral ? (
               <>
                 <Button
                   href="/get-involved"
