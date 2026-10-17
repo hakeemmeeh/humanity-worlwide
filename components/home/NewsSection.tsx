@@ -4,9 +4,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { NewsCard } from "@/components/NewsCard";
 import { Reveal } from "@/components/Reveal";
-import { articles } from "@/data/content";
+import type { Article } from "@/types";
 
-export function NewsSection() {
+export function NewsSection({ articles }: { articles: Article[] }) {
+  if (articles.length === 0) return null;
   return (
     <section className="section-padding bg-white">
       <div className="container-content">

@@ -1,12 +1,9 @@
 import type { MetadataRoute } from "next";
-import {
-  articles,
-  campaigns,
-  organization,
-  stories,
-} from "@/data/content";
+import { organization } from "@/data/content";
+import { getArticles, getCampaigns, getStories } from "@/lib/published-content";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [articles, stories, campaigns] = await Promise.all([getArticles(), getStories(), getCampaigns()]);
   const base = organization.url;
   const staticRoutes = [
     "",
@@ -18,7 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/where-we-work",
     "/campaigns",
     "/media",
-    "/stories",
     "/news",
     "/get-involved",
     "/resources",

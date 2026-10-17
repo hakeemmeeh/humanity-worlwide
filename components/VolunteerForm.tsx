@@ -5,11 +5,32 @@ import { Button } from "@/components/Button";
 
 export function VolunteerForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: wire to email/API
-    setSubmitted(true);
+    setSending(true);
+    setError(null);
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+    try {
+      const res = await fetch("/api/volunteer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(json.error || "Something went wrong. Please try again.");
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setError("Network error. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
 
   if (submitted) {
@@ -27,6 +48,15 @@ export function VolunteerForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      {/* honeypot — hidden from people, filled by bots */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute left-[-9999px] h-0 w-0 opacity-0"
+      />
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="vol-name" className="mb-1.5 block text-sm font-medium text-navy">
@@ -82,7 +112,14 @@ export function VolunteerForm() {
           <option value="international">International</option>
         </select>
       </div>
-      <Button type="submit">Submit Application</Button>
+      {error && (
+        <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
+          {error}
+        </p>
+      )}
+      <Button type="submit" disabled={sending}>
+        {sending ? "Sending…" : "Submit Application"}
+      </Button>
     </form>
   );
 }
