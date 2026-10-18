@@ -163,3 +163,15 @@ export interface SocialLink {
   label: string;
   href: string;
 }
+
+export interface Video {
+  slug: string;
+  title: string;
+  category: string;
+  location: string;
+  description: string;
+  image: string;
+  /** 11-character YouTube id; omit for "Coming soon". */
+  youtubeId?: string;
+  featured?: boolean;
+}

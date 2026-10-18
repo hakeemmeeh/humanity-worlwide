@@ -1,4 +1,5 @@
 import type {
+  Video,
   Article,
   Campaign,
   EmergencyCountry,
@@ -735,3 +736,47 @@ export function getArticleBySlug(slug: string): Article | undefined {
 export function getCampaignBySlug(slug: string): Campaign | undefined {
   return campaigns.find((c) => c.slug === slug);
 }
+
+/** Field documentaries shown on /media (moved from the page so the CMS can manage them). */
+export const videos: Video[] = [
+  {
+    slug: "bor-water-supply",
+    featured: true,
+    youtubeId: "wDCH52c4E3Y",
+    category: "WASH",
+    title: "Clean Water, Healthy Children — Bor's Big Change",
+    location: "Bor, Jonglei State",
+    description:
+      "Follow the launch of the Bor Urban Water Supply System, providing safe, chlorinated pipeline water to over 96,000 residents and safeguarding children from deadly cholera outbreaks.",
+    image: "/images/wash-water-distribution.jpg",
+  },
+  {
+    slug: "wash-cholera",
+    youtubeId: "7H3W9Yg4f08",
+    category: "WASH",
+    title: "Clean Water & A Chance to Survive Cholera in South Sudan",
+    location: "Kapoeta & Torit",
+    description:
+      "Witness our teams distributing water treatment tablets and conducting hygiene training sessions to combat cholera epidemics in high-risk zones.",
+    image: "/images/hero-emergency-composite.jpg",
+  },
+  {
+    slug: "solidarites-response",
+    youtubeId: "E1yWz4p1cE4",
+    category: "Emergency",
+    title: "Responding to Displacements and Severe Flooding",
+    location: "Leer & Pibor",
+    description:
+      "Follow frontline emergency responders as they cross marshlands on canoes to distribute liferafts, clean water, and plastic sheeting to flooded communities.",
+    image: "/images/emergency-boat-donation.jpg",
+  },
+  {
+    slug: "nfi-delivery",
+    category: "Protection",
+    title: "Last-Mile Non-Food Items (NFI) Refugee Response [Coming Soon]",
+    location: "Maban & Renk Border Crossing",
+    description:
+      "Dignity kits, solar lanterns, sleeping mats, and family shelter tools packaged for refugee families escaping cross-border displacements.",
+    image: "/images/education-school-building.jpg",
+  },
+];

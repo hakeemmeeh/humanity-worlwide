@@ -7,7 +7,8 @@ import { ChevronLeft, ChevronRight, Quote, Play, Phone, Mail, MapPin } from "luc
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
-import { stories, organization } from "@/data/content";
+import { organization } from "@/data/content";
+import type { Story } from "@/types";
 
 const contactItems = [
   {
@@ -27,7 +28,7 @@ const contactItems = [
   },
 ];
 
-export function StoriesSection() {
+export function StoriesSection({ stories }: { stories: Story[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "center",
@@ -55,6 +56,8 @@ export function StoriesSection() {
     emblaApi.on("select", onSelect);
     emblaApi.on("reInit", onSelect);
   }, [emblaApi, onSelect]);
+
+  if (stories.length === 0) return null;
 
   return (
     <section className="relative overflow-hidden w-full border-y border-sand-deep/30 bg-[#F6F9FC]">
