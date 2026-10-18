@@ -33,7 +33,7 @@ export function getSupabasePublicReader(): SupabaseClient | null {
     auth: { persistSession: false, autoRefreshToken: false },
     global: {
       fetch: (input, init) =>
-        fetch(input, { ...init, next: { revalidate: 3600, tags: ["content"] } }),
+        fetch(input, { ...init, next: { revalidate: 60, tags: ["content"] } }),
     },
   });
 }
