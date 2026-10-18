@@ -87,6 +87,7 @@ export const headerNavigation: HeaderNavItem[] = [
       navByHref("/campaigns"),
       navByHref("/about#stories"),
       navByHref("/media"),
+      navByHref("/news"),
     ],
   },
   navByHref("/get-involved"),
