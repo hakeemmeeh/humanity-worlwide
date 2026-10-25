@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Building2, Mail, MapPin, Phone } from "lucide-react";
 import { CTAStripe } from "@/components/CTAStripe";
 import { ContactForm } from "@/components/ContactForm";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { organization } from "@/data/content";
+import { offices, organization } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -28,13 +28,24 @@ export default function ContactPage() {
               <div className="rounded-2xl bg-sand p-8">
                 <div className="flex items-start gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-soft text-teal-text">
-                    <MapPin className="h-5 w-5" />
+                    <Building2 className="h-5 w-5" />
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-navy">Address</h3>
-                    <p className="mt-1 text-sm text-ink/70">
-                      {organization.contact.address}
-                    </p>
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-navy">Our Offices</h3>
+                    <ul className="mt-3 space-y-4">
+                      {offices.map((office) => (
+                        <li key={office.label} className="flex gap-2 text-sm">
+                          <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-teal-text" aria-hidden />
+                          <div>
+                            <p className="font-medium text-navy">
+                              {office.label}
+                              <span className="font-normal text-ink/60"> · {office.city}</span>
+                            </p>
+                            <p className="mt-0.5 text-ink/70">{office.address}</p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>

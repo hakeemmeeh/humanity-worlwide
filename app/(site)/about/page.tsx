@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, BarChart3, Layers, Shield, Users } from "lucide-react";
+import { ArrowRight, BarChart3, Compass, Eye, Layers, Shield, Users } from "lucide-react";
 import { CTAStripe } from "@/components/CTAStripe";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -8,8 +8,11 @@ import { StatBlock } from "@/components/StatBlock";
 import { StoryCard } from "@/components/StoryCard";
 import {
   aboutQuickStats,
+  aboutStory,
+  missionStatement,
   organization,
   pillars,
+  vision,
 } from "@/data/content";
 import { getStories } from "@/lib/published-content";
 
@@ -36,6 +39,41 @@ export default async function AboutPage() {
         image="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&q=80"
         imageAlt="Humanity Worldwide team working with community members in East Africa"
       />
+
+      <section id="our-story" className="section-padding bg-white">
+        <div className="container-content grid gap-12 lg:grid-cols-12">
+          <Reveal className="lg:col-span-4">
+            <p className="eyebrow">Our Story</p>
+            <h2 className="font-display text-3xl font-semibold text-navy md:text-4xl">
+              Since 2013, working for dignity and resilience
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1} className="space-y-5 text-base leading-relaxed text-ink/75 lg:col-span-8">
+            {aboutStory.map((paragraph) => (
+              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+            ))}
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section-padding bg-sand">
+        <div className="container-content grid gap-6 md:grid-cols-2">
+          {[
+            { title: "Our Vision", text: vision, icon: <Eye className="h-6 w-6" /> },
+            { title: "Our Mission", text: missionStatement, icon: <Compass className="h-6 w-6" /> },
+          ].map((item, index) => (
+            <Reveal key={item.title} delay={index * 0.12} direction={index === 0 ? "left" : "right"}>
+              <div className="h-full rounded-2xl bg-white p-8 shadow-card md:p-10">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-soft text-teal-text">
+                  {item.icon}
+                </div>
+                <h3 className="mt-5 font-display text-2xl font-semibold text-navy">{item.title}</h3>
+                <p className="mt-3 text-lg leading-relaxed text-ink/75">{item.text}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
 
       <section className="section-padding bg-white">
         <div className="container-content">

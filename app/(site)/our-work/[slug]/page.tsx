@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/Button";
 import { CTAStripe } from "@/components/CTAStripe";
 import { Gallery } from "@/components/Gallery";
@@ -123,6 +123,47 @@ export default async function ProgramPage({ params }: Props) {
                     <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-teal" />
                     <p className="text-ink/80">{highlight}</p>
                   </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {program.priorities && program.priorities.length > 0 && (
+        <section id="priorities" className="section-padding border-t border-sand-deep/40 bg-white">
+          <div className="container-content">
+            <Reveal>
+              <p className="eyebrow">Our Programming Priorities</p>
+              <h2 className="font-display text-3xl font-semibold text-navy md:text-4xl">
+                How we build {program.title.toLowerCase()}
+              </h2>
+            </Reveal>
+            <div className="mt-12 grid gap-6 lg:grid-cols-2">
+              {program.priorities.map((priority, index) => (
+                <Reveal key={priority.title} delay={(index % 2) * 0.08} className="flex">
+                  <article className="flex w-full flex-col rounded-2xl bg-sand p-6 sm:p-8">
+                    <div className="flex items-start gap-4">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal text-sm font-semibold text-white">
+                        {index + 1}
+                      </span>
+                      <h3 className="pt-1.5 font-display text-xl font-semibold text-navy">{priority.title}</h3>
+                    </div>
+                    <div className="mt-4 space-y-3 text-sm leading-relaxed text-ink/75">
+                      {priority.intro.map((p) => <p key={p.slice(0, 40)}>{p}</p>)}
+                      {priority.lead && <p className="font-medium text-navy">{priority.lead}</p>}
+                    </div>
+                    {priority.items && priority.items.length > 0 && (
+                      <ul className="mt-4 grid gap-x-6 gap-y-2 text-sm text-ink/80 sm:grid-cols-2">
+                        {priority.items.map((item) => (
+                          <li key={item} className="flex items-start gap-2">
+                            <Check className="mt-0.5 h-4 w-4 shrink-0 text-teal-text" aria-hidden />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </article>
                 </Reveal>
               ))}
             </div>

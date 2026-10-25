@@ -8,7 +8,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="overflow-x-clip">{children}</main>
       <Footer />
     </>
   );

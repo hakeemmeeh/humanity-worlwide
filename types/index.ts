@@ -13,6 +13,19 @@ export interface Pillar {
   icon: string;
 }
 
+export interface ProgramPriority {
+  title: string;
+  intro: string[];      // one or more short paragraphs
+  lead?: string;        // line introducing the list, e.g. "Areas of focus include:"
+  items?: string[];
+}
+
+export interface Office {
+  label: string;        // e.g. "Headquarters" or "South Sudan Country Office"
+  city: string;
+  address: string;
+}
+
 export interface Program {
   slug: string;
   title: string;
@@ -24,6 +37,7 @@ export interface Program {
   highlights?: string[];
   approach?: string;
   gallery?: string[];
+  priorities?: ProgramPriority[];
 }
 
 export interface Region {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { organization } from "@/data/content";
+import { organization, socialLinks } from "@/data/content";
 import "./globals.css";
 
 // Fonts are stored in app/fonts (self-hosted), so builds never depend on Google Fonts.
@@ -61,8 +61,10 @@ const jsonLd = {
       slogan: organization.tagline,
       email: organization.contact.email,
       telephone: organization.contact.phone,
+      sameAs: socialLinks.map((s) => s.href),
       address: {
         "@type": "PostalAddress",
+        streetAddress: "2323 Independence Avenue",
         addressLocality: "Kansas City",
         addressRegion: "MO",
         postalCode: "64124",

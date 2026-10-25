@@ -7,6 +7,7 @@ import type {
   HeaderNavItem,
   HeroSlide,
   NavLink,
+  Office,
   Partner,
   Pillar,
   Program,
@@ -26,12 +27,33 @@ export const organization = {
   mission:
     "An international civil society organization dedicated to delivering integrated humanitarian and development solutions for crisis-affected and marginalized populations across South Sudan, Somalia, Sudan and Kenya.",
   contact: {
-    address: "Kansas City, MO 64124, USA",
+    address: "2323 Independence Avenue, Kansas City, Missouri, USA",
     email: "Info@humanity-worldwide.org",
     phone: "+1 (816) 208-2270",
   },
   url: "https://hww.xpeedium.com",
 };
+
+/** About page: "Our Story", vision and mission (text supplied by HWW, Oct 2026). */
+export const aboutStory: string[] = [
+  "Humanity Worldwide (HWW) is an international civil society organization, established in 2013, working with crisis-affected and marginalized populations to promote dignity, resilience and sustainable development. Over the years, HWW has placed a strong emphasis on humanitarian and crisis response, supporting communities affected by conflict, displacement, food insecurity and other emergencies through integrated humanitarian and development interventions.",
+  "It has delivered integrated programming across eight sectors: Education, Livelihoods, WASH, Protection, Nutrition, Shelter and Durable Solutions, serving refugees, internally displaced people, returnees and host communities. This work has included humanitarian response to conflict, displacement and food insecurity, as well as sector-specific interventions in water and sanitation, child protection, nutrition and emergency shelter.",
+  "As the needs of the communities continue to evolve, Humanity Worldwide is now strengthening its focus on livelihoods and economic resilience through skills development, financial inclusion and sustainable income-generating opportunities. In South Sudan, the program combines youth skills development and employment, enterprise development, agriculture and livelihoods support, capacity-strengthening for refugee-led organizations and cooperatives, peacebuilding, and transitional shelter. This will be implemented in Juba, Yambio and Bor. Through these interventions, HWW seeks to connect people to skills, markets, financial opportunities and local institutions that can strengthen household incomes, create employment and support longer-term community resilience.",
+];
+
+export const vision =
+  "A better world for every human — poverty-free, equitable, and dignified communities worldwide.";
+
+export const missionStatement =
+  "To foster holistic and integrated humanitarian and development programs that ensure equitable, fulfilled, peaceful, and dignified societies for crisis-affected and marginalized populations.";
+
+/** Offices shown on the Contact page (supplied by HWW, Oct 2026). */
+export const offices: Office[] = [
+  { label: "Headquarters", city: "Kansas City", address: "2323 Independence Avenue, Kansas City, Missouri, USA" },
+  { label: "South Sudan Country Office", city: "Juba", address: "Concord House 5th Floor, Hai Malakal, Juba - CES, South Sudan" },
+  { label: "Sudan", city: "Yabus", address: "Yabus Blue Nile Field Office, Inside NCDO Compound, Next to WFP Office, Yabus, Blue Nile, Sudan" },
+  { label: "Somalia", city: "Kismayo", address: "Airport Road, Farjano, Kismayo, Somalia" },
+];
 
 /** South Sudan states where HWW operates (state-level naming for public content). */
 export const southSudanStates = [
@@ -44,10 +66,10 @@ export const southSudanStates = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: "Facebook", href: "https://facebook.com" },
-  { label: "Twitter", href: "https://twitter.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Instagram", href: "https://instagram.com" },
+  { label: "Facebook", href: "https://web.facebook.com/profile.php?id=61594840062803" },
+  { label: "Instagram", href: "https://www.instagram.com/humanityworldwides_sudan/" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/humanity-worldwide-6703b7441/" },
+  { label: "X", href: "https://x.com/HWWSouthSudan" },
 ];
 
 export const navLinks: NavLink[] = [
@@ -251,6 +273,72 @@ export const programs: Program[] = [
       "/images/livelihoods-community-group.jpg",
       "/images/team-field-staff.jpg",
     ],
+    priorities: [
+      {
+        title: "Youth Skills and Employment",
+        intro: [
+          "Young people represent a significant source of energy, innovation and economic potential. HWW therefore equips young people with skills that translate into real economic opportunity and supports them to acquire practical skills, explore employment pathways, develop enterprises and participate meaningfully in their communities as workers, entrepreneurs, innovators, leaders and agents of change through:",
+        ],
+        items: ["Market-relevant training", "Employability skills", "Entrepreneurship training", "Job-readiness support", "Apprenticeships and mentorship", "Enterprise development", "Youth-led economic initiatives", "Linkages with employers and markets", "Youth participation in community development"],
+      },
+      {
+        title: "Enterprise Development",
+        intro: [
+          "Small businesses and entrepreneurs are critical to local economies, particularly in fragile and underserved communities.",
+          "HWW supports individuals and groups to strengthen their ability to establish, manage and grow sustainable enterprises and move from short-term assistance towards sustainable economic participation through:",
+        ],
+        items: ["Business skills", "Entrepreneurship training", "Business planning", "Financial literacy", "Mentorship", "Access to finance", "Enterprise strengthening", "Market linkages", "Value-chain participation", "Income-generating activities"],
+      },
+      {
+        title: "Agriculture and Livelihoods",
+        intro: [
+          "Agriculture is an important source of food, income and employment for many communities across fragile and rural settings.",
+          "HWW supports agricultural livelihoods and community-based economic activity by strengthening skills, production, organization and market opportunities.",
+        ],
+        lead: "Areas of focus include:",
+        items: ["Agricultural skills", "Farmer training", "Sustainable production", "Livelihood diversification", "Producer groups", "Cooperatives", "Agricultural enterprises", "Market access", "Value-chain development", "Income-generating activities"],
+      },
+      {
+        title: "Financial Inclusion",
+        intro: [
+          "People and enterprises need access to appropriate financial services and the knowledge to manage resources effectively.",
+        ],
+        lead: "HWW supports financial inclusion through approaches such as:",
+        items: ["Financial literacy", "Savings", "Access to appropriate financial services", "Microfinance-related support", "Enterprise finance", "Financial management", "Linkages to financial institutions", "Support to community-based financial mechanisms"],
+      },
+      {
+        title: "Refugee-Led Organisations",
+        intro: [
+          "People affected by displacement are not simply recipients of assistance. They possess knowledge, networks, leadership and solutions that can contribute to stronger communities.",
+          "HWW supports Refugee-Led Organizations (RLOs) to strengthen their capacity, participation and ability to contribute to solutions affecting their communities.",
+        ],
+        lead: "Our approach includes:",
+        items: ["Organizational capacity strengthening", "Leadership development", "Institutional development", "Community engagement", "Partnership opportunities", "Participation in programme design", "Linkages with humanitarian and development actors", "Support for locally led solutions"],
+      },
+      {
+        title: "Cooperatives and Collective Economic Action",
+        intro: [
+          "Cooperatives can provide communities with a platform to pool resources, improve production, strengthen bargaining power and access markets.",
+        ],
+        lead: "HWW supports cooperative development through:",
+        items: ["Cooperative governance", "Leadership and management", "Business development", "Financial management", "Skills development", "Production and productivity", "Market linkages", "Value-chain development", "Member capacity strengthening"],
+      },
+      {
+        title: "Peacebuilding and Social Cohesion",
+        intro: [
+          "HWW recognizes that communities facing conflict, displacement and economic exclusion require approaches that strengthen both livelihoods and social relationships.",
+        ],
+        lead: "HWW therefore integrates peacebuilding and social cohesion into appropriate programming, particularly through:",
+        items: ["Youth engagement", "Community dialogue", "Inclusive participation", "Conflict-sensitive programming", "Community structures", "Livelihood opportunities", "Local capacity strengthening", "Social cohesion initiatives"],
+      },
+      {
+        title: "Transitional Shelter and Community Resilience",
+        intro: [
+          "Safe and dignified shelter remains an essential component of humanitarian response.",
+          "HWW supports transitional shelter interventions for vulnerable and displaced populations while connecting shelter support to broader community resilience and recovery approaches.",
+        ],
+      },
+    ],
   },
   {
     slug: "protection",
@@ -343,7 +431,7 @@ export const regions: Region[] = [
       "South Sudan is the heart of our operations. Across Eastern Equatoria, Western Equatoria, Central Equatoria, Jonglei State, Northern Bahr el Ghazal, and Lakes State, we deliver integrated programs that address the interconnected needs of displaced and host communities — from classrooms and clean water to emergency shelter and economic recovery.",
     image: "/images/education-school-building.jpg",
     stats: [],
-    programs: ["Education", "WASH", "Livelihoods", "Shelter"],
+    programs: ["Livelihoods", "Education", "WASH", "Shelter"],
   },
   {
     slug: "somalia",
