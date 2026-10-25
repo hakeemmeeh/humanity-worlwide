@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useToast, useLeaveWarning } from "@/components/admin/Toast";
 
 export type InboxItem = {
   id: string;
@@ -33,15 +34,22 @@ export function InboxManager({
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [toast, showToast] = useToast();
+  const unsavedNotes = Object.entries(notes).some(([id, v]) => v !== (items.find((x) => x.id === id)?.notes ?? ""));
+  useLeaveWarning(unsavedNotes);
 
-  async function patch(id: string, body: Record<string, string>) {
+  async function patch(id: string, body: Record<string, string>, done: string) {
     setBusy(id); setError(null);
     try {
       const res = await fetch(`/api/${endpoint}/${id}`, {
         method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body),
       });
       if (!res.ok) setError((await res.json().catch(() => ({}))).error || "Update failed.");
-      else router.refresh();
+      else {
+        if ("notes" in body) setNotes((n) => { const c = { ...n }; delete c[id]; return c; });
+        showToast(done);
+        router.refresh();
+      }
     } catch { setError("Update failed."); }
     finally { setBusy(null); }
   }
@@ -98,7 +106,7 @@ export function InboxManager({
                         <label className="text-sm">
                           <span className="mb-1 block font-medium text-navy">Status</span>
                           <select value={i.status} disabled={busy === i.id}
-                            onChange={(e) => patch(i.id, { status: e.target.value })}
+                            onChange={(e) => patch(i.id, { status: e.target.value }, `Status changed to “${e.target.value}”`)}
                             className="w-full rounded-xl border border-sand-deep bg-white px-3 py-2 text-sm capitalize">
                             {statuses.map((s) => <option key={s} value={s}>{s}</option>)}
                           </select>
@@ -109,7 +117,7 @@ export function InboxManager({
                             onChange={(e) => setNotes({ ...notes, [i.id]: e.target.value })}
                             className="w-full rounded-xl border border-sand-deep bg-white px-3 py-2 text-sm" />
                           <button disabled={busy === i.id || notes[i.id] === undefined}
-                            onClick={() => patch(i.id, { notes: notes[i.id] ?? "" })}
+                            onClick={() => patch(i.id, { notes: notes[i.id] ?? "" }, "Notes saved")}
                             className="mt-2 rounded-full bg-navy px-4 py-1.5 text-xs font-semibold text-white disabled:opacity-40">
                             {busy === i.id ? "Saving…" : "Save notes"}
                           </button>
@@ -123,6 +131,7 @@ export function InboxManager({
           </ul>
         )}
       </div>
+      {toast}
     </div>
   );
 }

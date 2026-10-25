@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/Button";
 import { donationAmounts } from "@/data/content";
+import { PledgeDetails } from "@/components/PledgeDetails";
 
 export function DonationWidget({ compact = false }: { compact?: boolean }) {
   const [selected, setSelected] = useState(50);
@@ -11,20 +12,10 @@ export function DonationWidget({ compact = false }: { compact?: boolean }) {
 
   const amount = custom ? parseInt(custom, 10) || 0 : selected;
 
-  const handleDonate = () => {
-    // TODO: wire to email/API
-    setSubmitted(true);
-  };
-
   if (submitted) {
     return (
-      <div className="rounded-2xl bg-white p-5 text-center shadow-card sm:p-8">
-        <p className="font-display text-2xl font-semibold text-navy">
-          Thank you!
-        </p>
-        <p className="mt-2 text-ink/70">
-          Your generous donation of ${amount} will help transform lives.
-        </p>
+      <div className={`rounded-2xl bg-white shadow-card shadow-lg ${compact ? "p-5 sm:p-6" : "p-5 sm:p-8 md:p-10"}`}>
+        <PledgeDetails amount={amount} purpose="general support" onBack={() => setSubmitted(false)} />
       </div>
     );
   }
@@ -83,12 +74,15 @@ export function DonationWidget({ compact = false }: { compact?: boolean }) {
       </div>
 
       <Button
-        onClick={handleDonate}
+        onClick={() => setSubmitted(true)}
         disabled={amount <= 0}
         className="mt-6 w-full bg-amber-500 hover:bg-amber-600 text-white"
       >
-        Donate ${amount > 0 ? amount : "—"} Now
+        Pledge ${amount > 0 ? amount : "—"}
       </Button>
+      <p className="mt-3 text-center text-xs text-ink/50">
+        Online payment is coming soon. Pledge now and our team will contact you with how to give.
+      </p>
     </div>
   );
 }

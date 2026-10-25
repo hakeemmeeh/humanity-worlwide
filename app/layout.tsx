@@ -1,28 +1,29 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter, Caveat } from "next/font/google";
+import localFont from "next/font/local";
 import { organization } from "@/data/content";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
+// Fonts are stored in app/fonts (self-hosted), so builds never depend on Google Fonts.
+const fraunces = localFont({
+  src: "./fonts/fraunces.woff2",
   variable: "--font-fraunces",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: "100 900",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: "./fonts/inter.woff2",
   variable: "--font-inter",
   display: "swap",
-  weight: ["400", "500", "600"],
+  weight: "100 900",
 });
 
-const caveat = Caveat({
-  subsets: ["latin"],
+const caveat = localFont({
+  src: "./fonts/caveat.woff2",
   variable: "--font-caveat",
   display: "swap",
+  weight: "400 700",
 });
-
 
 export const metadata: Metadata = {
   metadataBase: new URL(organization.url),

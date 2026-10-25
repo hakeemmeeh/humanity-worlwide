@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Plus, Trash2, Pencil, ExternalLink, ImageIcon } from "lucide-react";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
+import { useToast, useLeaveWarning } from "@/components/admin/Toast";
 import { CONTENT_TYPES, slugify, type FieldDef } from "@/lib/admin/content-config";
 
 type Row = Record<string, unknown> & { id?: string; status?: string };
@@ -26,6 +27,16 @@ export function ContentManager({ type }: { type: string }) {
   const [editing, setEditing] = useState<Row | null>(null);
   const [slugTouched, setSlugTouched] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [original, setOriginal] = useState<string>("");
+  const [toast, showToast] = useToast();
+  const dirty = editing !== null && JSON.stringify(editing) !== original;
+  useLeaveWarning(dirty);
+
+  function open(row: Row) { setOriginal(JSON.stringify(row)); setEditing(row); }
+  function close(force = false) {
+    if (!force && dirty && !confirm("You have unsaved changes. Close without saving?")) return;
+    setEditing(null); setError(null);
+  }
 
   const load = useCallback(async () => {
     try {
@@ -44,7 +55,7 @@ export function ContentManager({ type }: { type: string }) {
     for (const f of cfg.fields) if (f.type === "lines" && Array.isArray(e[f.key])) e[f.key] = (e[f.key] as string[]).join("\n");
     for (const f of cfg.fields) if (e[f.key] === null || e[f.key] === undefined) e[f.key] = f.type === "checkbox" ? false : "";
     setSlugTouched(true);
-    setEditing(e);
+    open(e);
   }
 
   async function save() {
@@ -66,7 +77,12 @@ export function ContentManager({ type }: { type: string }) {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) setError(data.error || "Save failed.");
-      else { setEditing(null); await load(); }
+      else {
+        const draft = editing.status === "draft";
+        close(true);
+        showToast(draft ? `Saved as draft (hidden from the website)` : `${isNew ? "Published" : "Saved"}: live on the website`);
+        await load();
+      }
     } catch { setError("Save failed."); }
     finally { setSaving(false); }
   }
@@ -75,6 +91,7 @@ export function ContentManager({ type }: { type: string }) {
     if (!confirm(`Delete “${String(row[cfg.titleKey])}”? This cannot be undone.`)) return;
     const res = await fetch(`/api/content/${type}?id=${row.id}`, { method: "DELETE" });
     if (!res.ok) setError((await res.json().catch(() => ({}))).error || "Delete failed.");
+    else showToast(`Deleted “${String(row[cfg.titleKey])}”`);
     await load();
   }
 
@@ -84,6 +101,7 @@ export function ContentManager({ type }: { type: string }) {
       method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ status: next }),
     });
     if (!res.ok) setError((await res.json().catch(() => ({}))).error || "Update failed.");
+    else showToast(next === "draft" ? "Moved to drafts: hidden from the website" : "Published: live on the website");
     await load();
   }
 
@@ -101,7 +119,7 @@ export function ContentManager({ type }: { type: string }) {
     <div>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="font-display text-3xl font-semibold text-navy">{cfg.title}</h1>
-        <button onClick={() => { setSlugTouched(false); setEditing(blank(cfg.fields)); }}
+        <button onClick={() => { setSlugTouched(false); open(blank(cfg.fields)); }}
           className="flex items-center gap-1.5 rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-navy-soft">
           <Plus className="h-4 w-4" /> Add {cfg.singular}
         </button>
@@ -160,6 +178,7 @@ export function ContentManager({ type }: { type: string }) {
 
       {editing && (
         <div role="dialog" aria-modal="true" aria-label={`${editing.id ? "Edit" : "New"} ${cfg.singular}`}
+          onKeyDown={(e) => { if (e.key === "Escape") close(); }}
           className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-black/50 p-4">
           <div className="my-8 w-full max-w-2xl rounded-2xl bg-white p-6 shadow-card-hover">
             <h2 className="font-display text-xl font-semibold text-navy">{editing.id ? "Edit" : "New"} {cfg.singular}</h2>
@@ -219,8 +238,9 @@ export function ContentManager({ type }: { type: string }) {
 
             {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
 
-            <div className="mt-6 flex justify-end gap-3">
-              <button onClick={() => { setEditing(null); setError(null); }} className="rounded-full border border-sand-deep px-5 py-2 text-sm font-medium text-ink/70 hover:bg-sand">Cancel</button>
+            <div className="mt-6 flex flex-wrap items-center justify-end gap-3">
+              {dirty && <span className="mr-auto text-xs font-medium text-coral-dark">Unsaved changes</span>}
+              <button onClick={() => close()} className="rounded-full border border-sand-deep px-5 py-2 text-sm font-medium text-ink/70 hover:bg-sand">Cancel</button>
               <button onClick={save} disabled={saving} className="rounded-full bg-teal px-6 py-2 text-sm font-semibold text-white hover:bg-teal-text disabled:opacity-50">
                 {saving ? "Saving…" : "Save"}
               </button>
@@ -228,6 +248,7 @@ export function ContentManager({ type }: { type: string }) {
           </div>
         </div>
       )}
+      {toast}
     </div>
   );
 }

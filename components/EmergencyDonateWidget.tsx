@@ -6,6 +6,7 @@ import {
   donationAmounts,
   emergencyDonateCountries,
 } from "@/data/content";
+import { PledgeDetails } from "@/components/PledgeDetails";
 
 type EmergencyDonateCountrySlug =
   (typeof emergencyDonateCountries)[number]["slug"];
@@ -22,21 +23,10 @@ export function EmergencyDonateWidget() {
   const countryName =
     emergencyDonateCountries.find((c) => c.slug === country)?.name ?? country;
 
-  const handleDonate = () => {
-    // TODO: wire to email/API
-    setSubmitted(true);
-  };
-
   if (submitted) {
     return (
-      <div className="rounded-2xl bg-white p-5 text-center shadow-card sm:p-8 md:p-10">
-        <p className="font-display text-2xl font-semibold text-navy">
-          Thank you!
-        </p>
-        <p className="mt-2 text-ink/70">
-          Your generous donation of ${amount} will support emergency response
-          in {countryName}.
-        </p>
+      <div className="rounded-2xl bg-white p-5 shadow-card sm:p-8 md:p-10">
+        <PledgeDetails amount={amount} purpose={`emergency response in ${countryName}`} onBack={() => setSubmitted(false)} />
       </div>
     );
   }
@@ -112,15 +102,18 @@ export function EmergencyDonateWidget() {
       </div>
 
       <Button
-        onClick={handleDonate}
+        onClick={() => setSubmitted(true)}
         disabled={amount <= 0}
         className="mt-6 w-full bg-amber-500 px-4 text-sm leading-snug text-white hover:bg-amber-600 sm:text-base"
       >
-        <span className="sm:hidden">Donate ${amount > 0 ? amount : "—"}</span>
+        <span className="sm:hidden">Pledge ${amount > 0 ? amount : "—"}</span>
         <span className="hidden sm:inline">
-          Donate ${amount > 0 ? amount : "—"} for {countryName}
+          Pledge ${amount > 0 ? amount : "—"} for {countryName}
         </span>
       </Button>
+      <p className="mt-3 text-center text-xs text-ink/50">
+        Online payment is coming soon. Pledge now and our team will contact you with how to give.
+      </p>
     </div>
   );
 }
