@@ -23,6 +23,8 @@ export type ContentTypeConfig = {
   subtitleKey?: string;
   orderBy: { column: string; ascending: boolean }[];
   publicPaths: string[];  // revalidated after a write
+  viewPath: string;       // public page for one item; {slug} is replaced
+  imageKey?: string;      // column shown as the list thumbnail
   fields: FieldDef[];
 };
 
@@ -46,6 +48,8 @@ export const CONTENT_TYPES: Record<string, ContentTypeConfig> = {
     subtitleKey: "date",
     orderBy: [{ column: "date", ascending: false }],
     publicPaths: ["/", "/news"],
+    viewPath: "/news/{slug}",
+    imageKey: "image",
     fields: [
       { key: "title", label: "Headline", type: "text", required: true },
       { key: "slug", label: "Web address (slug)", type: "slug", required: true, help: "Lowercase words joined by dashes. Generated from the headline; it can't be changed once published." },
@@ -65,6 +69,8 @@ export const CONTENT_TYPES: Record<string, ContentTypeConfig> = {
     subtitleKey: "name",
     orderBy: [{ column: "sort_order", ascending: true }, { column: "created_at", ascending: false }],
     publicPaths: ["/", "/about", "/stories"],
+    viewPath: "/stories/{slug}",
+    imageKey: "image",
     fields: [
       { key: "title", label: "Story title", type: "text", required: true },
       { key: "slug", label: "Web address (slug)", type: "slug", required: true },
@@ -85,6 +91,8 @@ export const CONTENT_TYPES: Record<string, ContentTypeConfig> = {
     subtitleKey: "location",
     orderBy: [{ column: "sort_order", ascending: true }, { column: "created_at", ascending: false }],
     publicPaths: ["/", "/campaigns"],
+    viewPath: "/campaigns/{slug}",
+    imageKey: "image",
     fields: [
       { key: "title", label: "Title", type: "text", required: true },
       { key: "slug", label: "Web address (slug)", type: "slug", required: true },
@@ -107,6 +115,8 @@ export const CONTENT_TYPES: Record<string, ContentTypeConfig> = {
     subtitleKey: "location",
     orderBy: [{ column: "featured", ascending: false }, { column: "sort_order", ascending: true }, { column: "created_at", ascending: false }],
     publicPaths: ["/media"],
+    viewPath: "/media",
+    imageKey: "image",
     fields: [
       { key: "title", label: "Title", type: "text", required: true },
       { key: "slug", label: "Web address (slug)", type: "slug", required: true },

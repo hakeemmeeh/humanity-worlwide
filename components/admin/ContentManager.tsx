@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { Plus, Trash2, Pencil } from "lucide-react";
+import { Plus, Trash2, Pencil, ExternalLink, ImageIcon } from "lucide-react";
 import { ImageUploadField } from "@/components/admin/ImageUploadField";
 import { CONTENT_TYPES, slugify, type FieldDef } from "@/lib/admin/content-config";
 
@@ -120,19 +120,35 @@ export function ContentManager({ type }: { type: string }) {
         ) : (
           <ul className="divide-y divide-sand-deep">
             {rows.map((r) => (
-              <li key={String(r.id)} className="flex items-center justify-between gap-4 px-5 py-4">
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-medium text-navy">{String(r[cfg.titleKey])}</p>
-                  <p className="truncate text-xs text-ink/50">
-                    {cfg.subtitleKey ? String(r[cfg.subtitleKey] ?? "") : ""}
-                    <span className="ml-2 text-ink/40">/{String(r.slug)}</span>
-                  </p>
+              <li key={String(r.id)} className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5">
+                <div className="flex min-w-0 items-center gap-3">
+                  {cfg.imageKey && r[cfg.imageKey] ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={String(r[cfg.imageKey])} alt="" loading="lazy"
+                      className="h-12 w-16 shrink-0 rounded-lg border border-sand-deep bg-sand object-cover" />
+                  ) : (
+                    <span className="flex h-12 w-16 shrink-0 items-center justify-center rounded-lg border border-dashed border-sand-deep text-ink/30" aria-hidden>
+                      <ImageIcon className="h-4 w-4" />
+                    </span>
+                  )}
+                  <div className="min-w-0">
+                    <p className="line-clamp-2 text-sm font-medium text-navy sm:truncate">{String(r[cfg.titleKey])}</p>
+                    <p className="truncate text-xs text-ink/50">
+                      {cfg.subtitleKey ? String(r[cfg.subtitleKey] ?? "") : ""}
+                      <span className="ml-2 text-ink/40">/{String(r.slug)}</span>
+                    </p>
+                  </div>
                 </div>
-                <div className="flex shrink-0 items-center gap-2">
+                <div className="flex shrink-0 items-center gap-2 pl-[76px] sm:pl-0">
                   <button onClick={() => toggleStatus(r)} title="Click to switch between Published and Draft"
                     className={`rounded-full px-3 py-1 text-xs font-semibold ${r.status === "draft" ? "bg-sand-deep text-ink/70" : "bg-teal-soft text-teal-text"}`}>
                     {r.status === "draft" ? "Draft" : "Published"}
                   </button>
+                  {r.status !== "draft" && (
+                    <a href={cfg.viewPath.replace("{slug}", encodeURIComponent(String(r.slug)))} target="_blank" rel="noopener noreferrer"
+                      title="View on the website" aria-label={`View ${String(r[cfg.titleKey])} on the website`}
+                      className="rounded-lg border border-sand-deep p-2 text-teal-text hover:bg-sand"><ExternalLink className="h-4 w-4" /></a>
+                  )}
                   <button onClick={() => startEdit(r)} aria-label={`Edit ${String(r[cfg.titleKey])}`} className="rounded-lg border border-sand-deep p-2 text-navy hover:bg-sand"><Pencil className="h-4 w-4" /></button>
                   <button onClick={() => remove(r)} aria-label={`Delete ${String(r[cfg.titleKey])}`} className="rounded-lg border border-sand-deep p-2 text-red-600 hover:bg-red-50"><Trash2 className="h-4 w-4" /></button>
                 </div>
