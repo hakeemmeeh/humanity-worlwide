@@ -9,6 +9,7 @@ import { Reveal } from "@/components/Reveal";
 import { Testimonial } from "@/components/Testimonial";
 import { stories as builtInStories } from "@/data/content";
 import { getStory } from "@/lib/published-content";
+import { seoTitle, clip } from "@/lib/seo";
 
 interface Props {
   params: { slug: string };
@@ -22,11 +23,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const story = await getStory(params.slug);
   if (!story) return { title: "Story" };
   return {
-    title: story.title,
-    description: story.quote,
+    title: seoTitle(story.title),
+    alternates: { canonical: `/stories/${story.slug}` },
+    description: clip(story.quote),
     openGraph: {
       title: story.title,
-      description: story.quote,
+      description: clip(story.quote),
       images: [{ url: story.image }],
     },
   };

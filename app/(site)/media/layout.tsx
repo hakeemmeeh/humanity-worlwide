@@ -5,6 +5,7 @@ const mediaNav = navLinks.find((l) => l.href === "/media")!;
 
 export const metadata: Metadata = {
   title: mediaNav.label,
+  alternates: { canonical: "/media" },
   description:
     "Field documentaries and success stories from Humanity Worldwide teams across South Sudan, Somalia, Sudan, and Kenya.",
 };

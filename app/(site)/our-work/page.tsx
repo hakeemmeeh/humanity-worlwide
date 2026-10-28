@@ -6,7 +6,8 @@ import { Reveal } from "@/components/Reveal";
 import { programs } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Our Work",
+  title: "Our Work: Programs Across East Africa",
+  alternates: { canonical: "/our-work" },
   description:
     "Integrated humanitarian programs in education, WASH, and livelihoods across South Sudan, Somalia, and Sudan.",
 };

@@ -11,6 +11,7 @@ import { getCampaigns } from "@/lib/published-content";
 
 export const metadata: Metadata = {
   title: "Emergency Response",
+  alternates: { canonical: "/campaigns" },
   description:
     "Humanity Worldwide emergency response across South Sudan, Sudan, and Somalia — floods, displacement, drought, and conflict.",
 };

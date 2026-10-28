@@ -9,6 +9,7 @@ import { getInvolvedFaqs } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "Get Involved",
+  alternates: { canonical: "/get-involved" },
   description:
     "Donate, volunteer, or partner with Humanity Worldwide to support crisis-affected communities.",
 };

@@ -6,6 +6,7 @@ import { CTAStripe } from "@/components/CTAStripe";
 import { Reveal } from "@/components/Reveal";
 import { articles as builtInArticles } from "@/data/content";
 import { getArticle } from "@/lib/published-content";
+import { seoTitle, clip } from "@/lib/seo";
 
 interface Props {
   params: { slug: string };
@@ -27,11 +28,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = await getArticle(params.slug);
   if (!article) return { title: "Article" };
   return {
-    title: article.title,
-    description: article.excerpt,
+    title: seoTitle(article.title),
+    alternates: { canonical: `/news/${article.slug}` },
+    description: clip(article.excerpt),
     openGraph: {
       title: article.title,
-      description: article.excerpt,
+      description: clip(article.excerpt),
       images: [{ url: article.image }],
     },
   };

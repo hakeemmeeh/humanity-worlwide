@@ -9,7 +9,7 @@ import { ProgramsSection } from "@/components/home/ProgramsSection";
 import { StoriesSection } from "@/components/home/StoriesSection";
 import { WaysToGiveSection } from "@/components/home/WaysToGiveSection";
 import { WhereWeWorkSection } from "@/components/home/WhereWeWorkSection";
-import { heroSlides, organization } from "@/data/content";
+import { heroSlides, seoDescription } from "@/data/content";
 import { getArticles, getCampaigns, getStories } from "@/lib/published-content";
 
 import { WhatWeOfferSection } from "@/components/home/WhatWeOfferSection";
@@ -17,11 +17,12 @@ import { VisionSection } from "@/components/home/VisionSection";
 import { EventsSection } from "@/components/home/EventsSection";
 
 export const metadata: Metadata = {
-  title: "Home",
-  description: organization.mission,
+  title: { absolute: "Humanity Worldwide | Humanitarian NGO in East Africa" },
+  description: seoDescription,
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Humanity Worldwide — for a better world",
-    description: organization.mission,
+    description: seoDescription,
     images: [{ url: heroSlides[0].image }],
   },
 };

@@ -9,6 +9,7 @@ import { regions } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "Where We Work",
+  alternates: { canonical: "/where-we-work" },
   description:
     "Humanity Worldwide operates across South Sudan, Somalia, Sudan, and Kenya, delivering integrated humanitarian programs.",
 };

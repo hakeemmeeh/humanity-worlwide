@@ -6,7 +6,8 @@ import { Reveal } from "@/components/Reveal";
 import { getArticles } from "@/lib/published-content";
 
 export const metadata: Metadata = {
-  title: "News",
+  title: "News and Updates from the Field",
+  alternates: { canonical: "/news" },
   description:
     "Latest news and updates from Humanity Worldwide programs across South Sudan, Somalia, and Sudan.",
 };

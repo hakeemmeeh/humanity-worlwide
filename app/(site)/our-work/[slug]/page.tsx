@@ -10,6 +10,7 @@ import { Reveal } from "@/components/Reveal";
 import { Testimonial } from "@/components/Testimonial";
 import { getProgramBySlug, programs } from "@/data/content";
 import { getStories } from "@/lib/published-content";
+import { seoTitle, clip } from "@/lib/seo";
 
 interface Props {
   params: { slug: string };
@@ -23,11 +24,12 @@ export function generateMetadata({ params }: Props): Metadata {
   const program = getProgramBySlug(params.slug);
   if (!program) return { title: "Program" };
   return {
-    title: program.title,
-    description: program.description,
+    title: seoTitle(program.title),
+    alternates: { canonical: `/our-work/${program.slug}` },
+    description: clip(program.description),
     openGraph: {
       title: `${program.title} — ${program.tagline}`,
-      description: program.description,
+      description: clip(program.description),
       images: [{ url: program.image }],
     },
   };

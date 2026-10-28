@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { organization, socialLinks } from "@/data/content";
+import { organization, seoDescription, socialLinks } from "@/data/content";
 import "./globals.css";
 
 // Fonts are stored in app/fonts (self-hosted), so builds never depend on Google Fonts.
@@ -31,20 +31,20 @@ export const metadata: Metadata = {
     default: "Humanity Worldwide | for a better world",
     template: "%s | Humanity Worldwide",
   },
-  description: organization.mission,
+  description: seoDescription,
   openGraph: {
     type: "website",
     locale: "en_US",
     url: organization.url,
     siteName: organization.name,
     title: "Humanity Worldwide",
-    description: organization.mission,
+    description: seoDescription,
     images: [{ url: "/logo.png", width: 498, height: 154, alt: "Humanity Worldwide logo" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Humanity Worldwide",
-    description: organization.mission,
+    description: seoDescription,
   },
 };
 

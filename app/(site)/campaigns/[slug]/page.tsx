@@ -9,6 +9,7 @@ import { CTAStripe } from "@/components/CTAStripe";
 import { Reveal } from "@/components/Reveal";
 import { campaigns as builtInCampaigns } from "@/data/content";
 import { getCampaign } from "@/lib/published-content";
+import { seoTitle, clip } from "@/lib/seo";
 
 interface Props {
   params: { slug: string };
@@ -22,11 +23,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const campaign = await getCampaign(params.slug);
   if (!campaign) return { title: "Emergency Response" };
   return {
-    title: campaign.title,
-    description: campaign.description,
+    title: seoTitle(campaign.title),
+    alternates: { canonical: `/campaigns/${campaign.slug}` },
+    description: clip(campaign.description),
     openGraph: {
       title: campaign.title,
-      description: campaign.description,
+      description: clip(campaign.description),
       images: [{ url: campaign.image }],
     },
   };

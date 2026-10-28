@@ -7,8 +7,9 @@ import { Reveal } from "@/components/Reveal";
 import { offices, organization } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: `Get in touch with Humanity Worldwide. ${organization.contact.address}`,
+  title: "Contact Us and Our Offices",
+  alternates: { canonical: "/contact" },
+  description: "Contact Humanity Worldwide. Find our offices in Kansas City, Juba, Yabus and Kismayo, or send us a message about partnerships, volunteering or support.",
 };
 
 export default function ContactPage() {

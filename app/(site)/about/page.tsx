@@ -17,8 +17,10 @@ import {
 import { getStories } from "@/lib/published-content";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: organization.mission,
+  title: "About Us: Our Story, Vision and Mission",
+  description:
+    "Humanity Worldwide has worked since 2013 with crisis-affected communities in South Sudan, Somalia, Sudan and Kenya. Read our story, vision and mission.",
+  alternates: { canonical: "/about" },
 };
 
 const iconMap: Record<string, React.ReactNode> = {

@@ -34,6 +34,10 @@ export const organization = {
   url: "https://hww.xpeedium.com",
 };
 
+/** Search-engine description (Google shows ~155 characters; keep it under 160). */
+export const seoDescription =
+  "Humanity Worldwide is an international NGO delivering humanitarian aid, livelihoods, education and WASH programs in South Sudan, Somalia, Sudan and Kenya.";
+
 /** About page: "Our Story", vision and mission (text supplied by HWW, Oct 2026). */
 export const aboutStory: string[] = [
   "Humanity Worldwide (HWW) is an international civil society organization, established in 2013, working with crisis-affected and marginalized populations to promote dignity, resilience and sustainable development. Over the years, HWW has placed a strong emphasis on humanitarian and crisis response, supporting communities affected by conflict, displacement, food insecurity and other emergencies through integrated humanitarian and development interventions.",

@@ -8,9 +8,10 @@ import { Reveal } from "@/components/Reveal";
 import { organization, resourcesFaqs } from "@/data/content";
 
 export const metadata: Metadata = {
-  title: "Resources",
+  title: "Resources, Reports and Publications",
+  alternates: { canonical: "/resources" },
   description:
-    "Request reports and program information from Humanity Worldwide.",
+    "Request Humanity Worldwide reports, assessments and program information, and find answers to common questions about our work in East Africa.",
 };
 
 export default function ResourcesPage() {
