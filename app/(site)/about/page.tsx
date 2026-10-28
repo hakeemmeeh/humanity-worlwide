@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BarChart3, Compass, Eye, Layers, Shield, Users } from "lucide-react";
 import { CTAStripe } from "@/components/CTAStripe";
@@ -43,14 +44,37 @@ export default async function AboutPage() {
       />
 
       <section id="our-story" className="section-padding bg-white">
-        <div className="container-content grid gap-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-4">
-            <p className="eyebrow">Our Story</p>
-            <h2 className="font-display text-3xl font-semibold text-navy md:text-4xl">
-              Since 2013, working for dignity and resilience
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1} className="space-y-5 text-base leading-relaxed text-ink/75 lg:col-span-8">
+        <div className="container-content grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <Reveal>
+              <p className="eyebrow">Our Story</p>
+              <h2 className="font-display text-3xl font-semibold text-navy md:text-4xl">
+                Since 2013, working for dignity and resilience
+              </h2>
+            </Reveal>
+            {/* Two overlapping, slightly tilted photos, like prints laid on a table */}
+            <Reveal delay={0.15} direction="zoom" className="relative mx-auto mt-10 aspect-[5/6] w-full max-w-[420px] lg:mx-0">
+              <div className="absolute left-0 top-0 h-[78%] w-[74%] -rotate-3 overflow-hidden rounded-[1.75rem] shadow-card-hover">
+                <Image
+                  src="/images/team-field-staff.jpg"
+                  alt="Humanity Worldwide field staff in South Sudan"
+                  fill
+                  sizes="(max-width: 1024px) 70vw, 320px"
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute bottom-0 right-0 h-[55%] w-[56%] rotate-[4deg] overflow-hidden rounded-[1.5rem] border-[6px] border-white shadow-card-hover">
+                <Image
+                  src="/images/wash-water-distribution.jpg"
+                  alt="Families collecting clean water at a Humanity Worldwide water point"
+                  fill
+                  sizes="(max-width: 1024px) 55vw, 240px"
+                  className="object-cover"
+                />
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={0.1} className="space-y-5 text-base leading-relaxed text-ink/75 lg:col-span-7">
             {aboutStory.map((paragraph) => (
               <p key={paragraph.slice(0, 40)}>{paragraph}</p>
             ))}

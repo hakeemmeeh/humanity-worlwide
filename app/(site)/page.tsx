@@ -15,6 +15,7 @@ import { getArticles, getCampaigns, getStories } from "@/lib/published-content";
 import { WhatWeOfferSection } from "@/components/home/WhatWeOfferSection";
 import { VisionSection } from "@/components/home/VisionSection";
 import { EventsSection } from "@/components/home/EventsSection";
+import { HandsPhotoSection } from "@/components/home/HandsPhotoSection";
 
 export const metadata: Metadata = {
   title: { absolute: "Humanity Worldwide | Humanitarian NGO in East Africa" },
@@ -37,6 +38,7 @@ export default async function HomePage() {
       <ProgramsSection />
       <VisionSection />
       <WhatWeOfferSection />
+      <HandsPhotoSection />
       <WhereWeWorkSection />
       {campaigns[0] && (
         <section className="section-padding bg-white">
