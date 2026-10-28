@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight, MapPin, Play } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/Button";
-import { heroSlides } from "@/data/content";
+import { heroHeading, heroSlides } from "@/data/content";
 import { VideoLightbox } from "@/components/VideoLightbox";
 
 const fadeUp = {
@@ -67,6 +67,27 @@ export function HeroSection() {
             style={prefersReducedMotion ? undefined : { y: textY }}
             className="flex-1"
           >
+            {/* Fixed H1 so search engines always see who we are; the rotating slide headline is an H2. */}
+            <motion.div
+              initial={prefersReducedMotion ? false : "hidden"}
+              animate="visible"
+              variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+            >
+              <motion.p
+                variants={fadeUp}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="font-handwriting text-3xl text-teal/95 rotate-[-2deg] origin-left mb-3 block select-none"
+              >
+                Together we are stronger
+              </motion.p>
+              <motion.h1
+                variants={fadeUp}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="eyebrow max-w-4xl font-sans font-semibold leading-relaxed text-teal"
+              >
+                {heroHeading}
+              </motion.h1>
+            </motion.div>
             <motion.div
               key={slide.headline}
               initial={prefersReducedMotion ? false : "hidden"}
@@ -77,27 +98,13 @@ export function HeroSection() {
                 },
               }}
             >
-              <motion.p
-                variants={fadeUp}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="font-handwriting text-3xl text-teal/95 rotate-[-2deg] origin-left mb-3 block select-none"
-              >
-                Together we are stronger
-              </motion.p>
-              <motion.p
-                variants={fadeUp}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="eyebrow text-teal"
-              >
-                {slide.eyebrow}
-              </motion.p>
-              <motion.h1
+              <motion.h2
                 variants={fadeUp}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="max-w-3xl font-display text-[clamp(2.5rem,5.5vw,4rem)] font-light leading-[1.1] text-white"
               >
                 {slide.headline}
-              </motion.h1>
+              </motion.h2>
               <motion.p
                 variants={fadeUp}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}

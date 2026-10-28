@@ -120,6 +120,10 @@ export const headerNavigation: HeaderNavItem[] = [
   navByHref("/contact"),
 ];
 
+/** The home page H1: fixed, so search engines always see who HWW is and where it works. */
+export const heroHeading =
+  "Humanity Worldwide · Humanitarian aid in South Sudan, Somalia, Sudan and Kenya";
+
 export const heroSlides: HeroSlide[] = [
   {
     eyebrow: "South Sudan · Somalia · Sudan · Kenya",
