@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { organization } from "@/data/content";
+import { organization, programs } from "@/data/content";
 import { getArticles, getCampaigns, getStories } from "@/lib/published-content";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -9,9 +9,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "",
     "/about",
     "/our-work",
-    "/our-work/education",
-    "/our-work/wash",
-    "/our-work/livelihoods",
     "/where-we-work",
     "/campaigns",
     "/media",
@@ -21,12 +18,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/contact",
   ];
 
+  // Every programme page, taken from the same list the site uses
+  const programRoutes = programs.map((p) => `/our-work/${p.slug}`);
   const articleRoutes = articles.map((a) => `/news/${a.slug}`);
   const storyRoutes = stories.map((s) => `/stories/${s.slug}`);
   const campaignRoutes = campaigns.map((c) => `/campaigns/${c.slug}`);
 
   const allRoutes = [
     ...staticRoutes,
+    ...programRoutes,
     ...articleRoutes,
     ...storyRoutes,
     ...campaignRoutes,
