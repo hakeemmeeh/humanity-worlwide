@@ -15,7 +15,7 @@ function XLogo({ className }: { className?: string }) {
 import { HandsMark } from "@/components/HandsMark";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/Button";
-import { organization, navLinks, socialLinks } from "@/data/content";
+import { offices, organization, navLinks, socialLinks } from "@/data/content";
 
 const socialIcons: Record<string, React.ReactNode> = {
   Facebook: <Facebook className="h-4 w-4" />,
@@ -101,7 +101,17 @@ export function Footer() {
               Contact
             </h3>
             <address className="not-italic space-y-2 text-sm text-[#4A6B65]">
-              <p>{organization.contact.address}</p>
+              <ul className="space-y-3">
+                {offices.map((office) => (
+                  <li key={office.label}>
+                    <p className="font-semibold text-[#1B2A41]">
+                      {office.label}
+                      {office.label !== office.city && <span className="font-normal"> · {office.city}</span>}
+                    </p>
+                    <p className="text-xs leading-relaxed">{office.address}</p>
+                  </li>
+                ))}
+              </ul>
               <p>
                 <a
                   href={`mailto:${organization.contact.email}`}
