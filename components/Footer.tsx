@@ -112,14 +112,13 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-              <p>
-                <a
-                  href={`mailto:${organization.contact.email}`}
-                  className="transition-colors hover:text-[#2ac4ba]"
-                >
-                  {organization.contact.email}
-                </a>
-              </p>
+              {organization.contact.emails.map((email) => (
+                <p key={email}>
+                  <a href={`mailto:${email}`} className="transition-colors hover:text-[#2ac4ba]">
+                    {email}
+                  </a>
+                </p>
+              ))}
               <p>
                 <a
                   href={`tel:${organization.contact.phone.replace(/\s/g, "")}`}

@@ -76,14 +76,14 @@ export function HeroSection() {
               <motion.p
                 variants={fadeUp}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="font-handwriting text-3xl text-teal/95 rotate-[-2deg] origin-left mb-3 block select-none"
+                className="font-handwriting text-3xl text-teal/95 rotate-[-2deg] origin-left mb-3 block select-none [text-shadow:0_1px_3px_rgba(0,0,0,0.6)]"
               >
                 Together we are stronger
               </motion.p>
               <motion.h1
                 variants={fadeUp}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="eyebrow max-w-4xl font-sans font-semibold leading-relaxed text-teal"
+                className="eyebrow max-w-4xl font-sans font-semibold leading-relaxed text-white before:bg-white [text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_12px_rgba(0,0,0,0.35)]"
               >
                 {heroHeading}
               </motion.h1>

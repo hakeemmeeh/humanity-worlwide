@@ -28,7 +28,8 @@ export const organization = {
     "An international civil society organization dedicated to delivering integrated humanitarian and development solutions for crisis-affected and marginalized populations across South Sudan, Somalia, Sudan and Kenya.",
   contact: {
     address: "2323 Independence Avenue, Kansas City, Missouri, USA",
-    email: "Info@humanity-worldwide.org",
+    email: "Info@humanity-worldwide.org", // main address (used in search results)
+    emails: ["Info@humanity-worldwide.org", "cd@humanity-worldwide.org"],
     phone: "+1 (816) 208-2270",
   },
   url: "https://hww.xpeedium.com",
@@ -54,7 +55,7 @@ export const missionStatement =
 /** Offices shown on the Contact page (supplied by HWW, Oct 2026). */
 export const offices: Office[] = [
   { label: "Headquarters", city: "Kansas City", address: "2323 Independence Avenue, Kansas City, Missouri, USA" },
-  { label: "South Sudan Country Office", city: "Juba", address: "Concord House 5th Floor, Hai Malakal, Juba - CES, South Sudan" },
+  { label: "South Sudan Country Office", city: "Juba", address: "Concord House 3rd Floor, Hai Malakal, Juba - CES, South Sudan" },
   { label: "Sudan", city: "Yabus", address: "Yabus Blue Nile Field Office, Inside NCDO Compound, Next to WFP Office, Yabus, Blue Nile, Sudan" },
   { label: "Somalia", city: "Kismayo", address: "Airport Road, Farjano, Kismayo, Somalia" },
 ];
@@ -223,46 +224,6 @@ export const aboutQuickStats: Stat[] = [
 
 export const programs: Program[] = [
   {
-    slug: "education",
-    title: "Education",
-    tagline: "Building Futures",
-    description:
-      "Quality education, teacher training, school construction, and infrastructure development across Eastern Equatoria State, South Sudan.",
-    image: "/images/education-school-building.jpg",
-
-    regions: ["Eastern Equatoria"],
-    highlights: [
-      "Classrooms and infrastructure construction and rehabilitation in the greater equatoria and Jonglei states",
-    ],
-    approach:
-      "We believe education is the foundation of lasting peace and development. Our education programs combine infrastructure investment with teacher capacity building and community ownership, ensuring schools remain operational long after project completion.",
-    gallery: [
-      "/images/education-school-building.jpg",
-      "/images/livelihoods-community-group.jpg",
-      "/images/team-field-staff.jpg",
-    ],
-  },
-  {
-    slug: "wash",
-    title: "WASH & Environment",
-    tagline: "Clean Water, Healthy Communities",
-    description:
-      "Clean water, sanitation facilities, and hygiene education. Multiple water points rehabilitated across crisis-affected communities in South Sudan and Somalia.",
-    image: "/images/wash-water-distribution.jpg",
-
-    regions: ["South Sudan", "Somalia"],
-    highlights: [
-      "Water point rehabilitation and construction in the greater equatoria and Jonglei states",
-    ],
-    approach:
-      "Access to clean water and sanitation is a human right. Our WASH interventions follow a community-led model — training local water committees, promoting hygiene behavior change, and building infrastructure designed for long-term maintenance.",
-    gallery: [
-      "/images/wash-water-distribution.jpg",
-      "/images/team-field-staff.jpg",
-      "/images/livelihoods-community-group.jpg",
-    ],
-  },
-  {
     slug: "livelihoods",
     title: "Livelihoods",
     tagline: "Economic Independence",
@@ -346,6 +307,46 @@ export const programs: Program[] = [
           "HWW supports transitional shelter interventions for vulnerable and displaced populations while connecting shelter support to broader community resilience and recovery approaches.",
         ],
       },
+    ],
+  },
+  {
+    slug: "education",
+    title: "Education",
+    tagline: "Building Futures",
+    description:
+      "Quality education, teacher training, school construction, and infrastructure development across Eastern Equatoria State, South Sudan.",
+    image: "/images/education-school-building.jpg",
+
+    regions: ["Eastern Equatoria"],
+    highlights: [
+      "Classrooms and infrastructure construction and rehabilitation in the greater equatoria and Jonglei states",
+    ],
+    approach:
+      "We believe education is the foundation of lasting peace and development. Our education programs combine infrastructure investment with teacher capacity building and community ownership, ensuring schools remain operational long after project completion.",
+    gallery: [
+      "/images/education-school-building.jpg",
+      "/images/livelihoods-community-group.jpg",
+      "/images/team-field-staff.jpg",
+    ],
+  },
+  {
+    slug: "wash",
+    title: "WASH & Environment",
+    tagline: "Clean Water, Healthy Communities",
+    description:
+      "Clean water, sanitation facilities, and hygiene education. Multiple water points rehabilitated across crisis-affected communities in South Sudan and Somalia.",
+    image: "/images/wash-water-distribution.jpg",
+
+    regions: ["South Sudan", "Somalia"],
+    highlights: [
+      "Water point rehabilitation and construction in the greater equatoria and Jonglei states",
+    ],
+    approach:
+      "Access to clean water and sanitation is a human right. Our WASH interventions follow a community-led model — training local water committees, promoting hygiene behavior change, and building infrastructure designed for long-term maintenance.",
+    gallery: [
+      "/images/wash-water-distribution.jpg",
+      "/images/team-field-staff.jpg",
+      "/images/livelihoods-community-group.jpg",
     ],
   },
   {

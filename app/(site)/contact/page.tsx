@@ -59,12 +59,15 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-navy">Email</h3>
-                    <a
-                      href={`mailto:${organization.contact.email}`}
-                      className="mt-1 block text-sm text-teal-text transition-colors hover:text-teal"
-                    >
-                      {organization.contact.email}
-                    </a>
+                    {organization.contact.emails.map((email) => (
+                      <a
+                        key={email}
+                        href={`mailto:${email}`}
+                        className="mt-1 block text-sm text-teal-text transition-colors hover:text-teal"
+                      >
+                        {email}
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>

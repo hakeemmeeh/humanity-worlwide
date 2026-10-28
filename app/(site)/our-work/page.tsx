@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Our Work: Programs Across East Africa",
   alternates: { canonical: "/our-work" },
   description:
-    "Integrated humanitarian programs in education, WASH, and livelihoods across South Sudan, Somalia, and Sudan.",
+    "Humanity Worldwide programs in livelihoods, education, WASH, protection and shelter for crisis-affected communities in South Sudan, Somalia, Sudan and Kenya.",
 };
 
 export default function OurWorkPage() {
@@ -18,7 +18,7 @@ export default function OurWorkPage() {
       <PageHero
         eyebrow="Our Work"
         title="Programs that transform lives"
-        subtitle="Holistic support across education, water & sanitation, and economic development for crisis-affected communities."
+        subtitle="Holistic support across livelihoods, education, and water & sanitation for crisis-affected communities."
         image="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=1920&q=80"
       />
 
@@ -27,8 +27,8 @@ export default function OurWorkPage() {
           <Reveal>
             <p className="mx-auto max-w-2xl text-center text-lg leading-relaxed text-ink/70">
               Our integrated approach addresses the interconnected needs of
-              vulnerable populations — from classrooms and clean water to
-              livelihoods and shelter — ensuring sustainable, community-driven
+              vulnerable populations — from livelihoods and skills to
+              classrooms, clean water and shelter — ensuring sustainable, community-driven
               change.
             </p>
           </Reveal>

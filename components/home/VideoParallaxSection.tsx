@@ -16,7 +16,7 @@ const contactItems = [
   {
     icon: Mail,
     label: "Email Us",
-    value: organization.contact.email,
+    value: organization.contact.emails.join("\n"),
   },
   {
     icon: MapPin,
@@ -97,7 +97,7 @@ export function VideoParallaxSection() {
                 {item.label}
               </span>
               <span className="max-w-[200px] text-sm text-white/90">
-                {item.value}
+                <span className="whitespace-pre-line">{item.value}</span>
               </span>
             </motion.div>
           ))}

@@ -19,7 +19,7 @@ const contactItems = [
   {
     icon: Mail,
     label: "Email Us",
-    value: organization.contact.email,
+    value: organization.contact.emails.join("\n"),
   },
   {
     icon: MapPin,
@@ -189,7 +189,7 @@ export function StoriesSection({ stories }: { stories: Story[] }) {
                     {item.label}
                   </span>
                   <span className="break-words text-xs font-medium leading-tight text-white/80 sm:max-w-[130px] sm:break-all">
-                    {item.value}
+                    <span className="whitespace-pre-line">{item.value}</span>
                   </span>
                 </div>
               ))}
