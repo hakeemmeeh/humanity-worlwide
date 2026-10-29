@@ -88,10 +88,10 @@ export default async function CampaignsPage() {
                             className="border-t border-sand-deep pt-6 first:border-t-0 first:pt-0"
                           >
                             <div className="flex flex-wrap items-center gap-2">
-                              <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-coral">
+                              <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-coral-text">
                                 {crisis.crisisType}
                               </span>
-                              <span className="text-xs font-medium text-ink/50">
+                              <span className="text-xs font-medium text-ink/70">
                                 {crisis.area}
                               </span>
                             </div>
@@ -144,7 +144,7 @@ export default async function CampaignsPage() {
                     <Image src={c.image} unoptimized={!canOptimize(c.image)} alt={c.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
                   </div>
                   <div className="p-6">
-                    <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-coral">
+                    <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-coral-text">
                       <MapPin className="h-3.5 w-3.5" aria-hidden /> {c.location}
                     </p>
                     <h3 className="mt-2 font-display text-xl font-semibold text-navy">{c.title}</h3>
@@ -166,7 +166,7 @@ export default async function CampaignsPage() {
       >
         <div className="container-content grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal direction="left">
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-coral">
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#F08A57]">
               Support our response
             </p>
             <h2 className="mt-3 font-display text-3xl font-semibold text-white md:text-4xl">

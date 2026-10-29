@@ -72,7 +72,7 @@ export default function LeafletMap() {
             Interactive Operational Map
           </span>
         </div>
-        <div className="flex items-center gap-1 text-[10px] text-ink/50 bg-sand px-2 py-0.5 rounded-full">
+        <div className="flex items-center gap-1 text-[10px] text-ink/70 bg-sand px-2 py-0.5 rounded-full">
           <Info className="h-3 w-3 text-teal" />
           Click pins for details
         </div>
@@ -96,7 +96,7 @@ export default function LeafletMap() {
                   <h3 className="font-bold text-navy mb-1">{m.name}</h3>
                   <p className="text-xs text-ink/70 mb-1">{m.details}</p>
                   <p className="text-xs font-semibold text-teal mb-2">{m.stats}</p>
-                  <a href={m.href} className="text-coral text-xs hover:underline inline-block font-medium">Learn more &rarr;</a>
+                  <a href={m.href} className="text-coral-text text-xs hover:underline inline-block font-medium">Learn more &rarr;</a>
                 </div>
               </Popup>
             </Marker>

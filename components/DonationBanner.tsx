@@ -32,7 +32,7 @@ export function DonationBanner({
             />
           </div>
           <div className="flex flex-col justify-center p-8 md:p-12">
-            <span className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-coral">
+            <span className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-coral-text">
               Emergency Response
             </span>
             <h2 className="font-display text-3xl font-semibold text-navy md:text-4xl">

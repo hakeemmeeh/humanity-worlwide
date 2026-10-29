@@ -11,7 +11,7 @@ export function PartnersSection() {
           <h2 className="font-display text-3xl font-semibold text-navy md:text-4xl">
             Working together for change
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-ink/60">
+          <p className="mx-auto mt-3 max-w-xl text-sm text-ink/70">
             We collaborate with community organizations and local authorities to
             deliver humanitarian and development programs across East Africa.
           </p>

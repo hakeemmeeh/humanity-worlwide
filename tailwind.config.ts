@@ -16,12 +16,14 @@ const config: Config = {
         },
         teal: {
           DEFAULT: "#2CADA3",
-          text: "#1F8C84",
+          text: "#1A7A73", // darkened slightly so teal text passes contrast checks
+          deep: "#1A7A73", // buttons with white text (passes contrast checks)
           soft: "#E4F4F2",
         },
         coral: {
           DEFAULT: "#E1723C",
           dark: "#C85F2D",
+          text: "#B04F22", // orange text/labels that pass contrast checks
           soft: "#FBEDE4",
         },
         sand: {

@@ -42,7 +42,7 @@ export function VisionSection() {
       <div className="container-content">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <Reveal direction="zoom">
-            <span className="font-handwriting text-3xl text-coral block mb-3 rotate-[-2deg] select-none">
+            <span className="font-handwriting text-3xl text-coral-text block mb-3 rotate-[-2deg] select-none">
               How we work
             </span>
             <p className="eyebrow justify-center">Our Vision</p>
@@ -65,7 +65,7 @@ export function VisionSection() {
                 <div className="absolute top-0 left-0 right-0 h-[3px] bg-teal/60 scale-x-0 origin-center transition-transform duration-500 ease-out group-hover:scale-x-100" />
                 
                 <div>
-                  <span className="font-handwriting text-4xl font-bold text-coral block mb-4 rotate-[-4deg] transition-transform duration-500 group-hover:scale-110 select-none">
+                  <span className="font-handwriting text-4xl font-bold text-coral-text block mb-4 rotate-[-4deg] transition-transform duration-500 group-hover:scale-110 select-none">
                     {item.number}.
                   </span>
                   <h3 className="font-display text-lg font-semibold text-navy leading-snug mb-3">

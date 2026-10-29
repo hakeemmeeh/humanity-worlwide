@@ -57,10 +57,10 @@ export function ProgramsSection() {
             <Reveal key={box.title} delay={index * 0.12} direction="zoom">
               <div className="group relative rounded-2xl bg-white p-8 text-center border border-sand-deep/45 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-navy/5 hover:border-teal/20 overflow-hidden">
                 {/* Accent border line that expands outwards from center */}
-                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#6C9E6C]/80 scale-x-0 origin-center transition-transform duration-500 ease-out group-hover:scale-x-100" />
+                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#4E7A4E]/80 scale-x-0 origin-center transition-transform duration-500 ease-out group-hover:scale-x-100" />
                 
-                <span className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#6C9E6C]/10 transition-all duration-500 group-hover:bg-[#6C9E6C] group-hover:scale-110 shadow-sm">
-                  <box.icon className="h-7 w-7 text-[#6C9E6C] transition-all duration-500 group-hover:text-white group-hover:rotate-[8deg]" />
+                <span className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#4E7A4E]/10 transition-all duration-500 group-hover:bg-[#4E7A4E] group-hover:scale-110 shadow-sm">
+                  <box.icon className="h-7 w-7 text-[#4E7A4E] transition-all duration-500 group-hover:text-white group-hover:rotate-[8deg]" />
                 </span>
                 <h3 className="mb-3 font-display text-lg font-semibold text-navy transition-colors duration-300 group-hover:text-teal-text">
                   {box.title}
@@ -70,7 +70,7 @@ export function ProgramsSection() {
                 </p>
                 <Link
                   href={box.href}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#6C9E6C] transition-colors hover:text-[#5a8a5a]"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#4E7A4E] transition-colors hover:text-[#5a8a5a]"
                 >
                   <span>View More</span>
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1.5" />

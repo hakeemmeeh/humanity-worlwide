@@ -40,7 +40,7 @@ export default function ContactPage() {
                           <div>
                             <p className="font-medium text-navy">
                               {office.label}
-                              <span className="font-normal text-ink/60"> · {office.city}</span>
+                              <span className="font-normal text-ink/70"> · {office.city}</span>
                             </p>
                             <p className="mt-0.5 text-ink/70">{office.address}</p>
                           </div>

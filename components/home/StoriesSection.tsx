@@ -75,7 +75,7 @@ export function StoriesSection({ stories }: { stories: Story[] }) {
               <span className="font-handwriting text-3xl text-teal block mb-3 rotate-[-2deg] select-none">
                 Their own voices
               </span>
-              <p className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] mb-2">
+              <p className="text-[10px] font-bold text-white/60 uppercase tracking-[0.2em] mb-2">
                 Testimonials
               </p>
               <h2 className="font-display text-3xl font-semibold md:text-4xl text-white mb-10">
@@ -117,7 +117,7 @@ export function StoriesSection({ stories }: { stories: Story[] }) {
                             <p className="font-display text-base font-bold text-white transition-colors duration-300 group-hover:text-teal">
                               {story.name}
                             </p>
-                            <p className="text-xs font-semibold text-coral uppercase tracking-wider mt-0.5">
+                            <p className="text-xs font-semibold text-coral-text uppercase tracking-wider mt-0.5">
                               {story.role}
                             </p>
                           </div>
@@ -185,7 +185,7 @@ export function StoriesSection({ stories }: { stories: Story[] }) {
               {contactItems.map((item) => (
                 <div key={item.label} className="flex flex-col items-center text-center">
                   <span className="mb-2 flex h-10 w-10 items-center justify-center rounded-full bg-coral/20">
-                    <item.icon className="h-5 w-5 text-coral" />
+                    <item.icon className="h-5 w-5 text-coral-text" />
                   </span>
                   <span className="mb-1 text-[10px] font-bold uppercase tracking-widest text-white/50">
                     {item.label}

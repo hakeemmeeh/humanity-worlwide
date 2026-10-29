@@ -81,7 +81,7 @@ export default async function StoryDetailPage({ params }: Props) {
               </blockquote>
               <div className="mt-6">
                 <p className="font-semibold text-navy">{story.name}</p>
-                <p className="text-sm text-ink/60">{story.role}</p>
+                <p className="text-sm text-ink/70">{story.role}</p>
               </div>
               {story.programSlug && (
                 <Link

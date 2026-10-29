@@ -38,7 +38,7 @@ export function Testimonial({ story, variant = "light" }: TestimonialProps) {
           <p className={`font-semibold ${isDark ? "text-white" : "text-navy"}`}>
             {story.name}
           </p>
-          <p className={`text-sm ${isDark ? "text-white/60" : "text-ink/60"}`}>
+          <p className={`text-sm ${isDark ? "text-white/60" : "text-ink/70"}`}>
             {story.role}
           </p>
         </div>

@@ -79,7 +79,7 @@ export function PledgeDetails({
         <p>
           You&rsquo;re pledging <strong className="text-navy">${amount}</strong> for {purpose}.
         </p>
-        <p className="mt-1 text-ink/60">
+        <p className="mt-1 text-ink/70">
           Online payment isn&rsquo;t available yet. Leave your details and our team will contact you
           with how to give.
         </p>
@@ -105,7 +105,7 @@ export function PledgeDetails({
       </div>
       <div>
         <label htmlFor="pledge-note" className="mb-1.5 block text-sm font-medium text-navy">
-          Note <span className="font-normal text-ink/50">(optional)</span>
+          Note <span className="font-normal text-ink/70">(optional)</span>
         </label>
         <textarea id="pledge-note" name="note" rows={2} maxLength={1000} className={`${input} resize-none`} />
       </div>

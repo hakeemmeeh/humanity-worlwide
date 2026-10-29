@@ -17,7 +17,7 @@ export function Breadcrumbs({ items, variant = "dark" }: BreadcrumbsProps) {
     <nav aria-label="Breadcrumb" className="mb-8">
       <ol
         className={`flex flex-wrap items-center gap-2 text-sm ${
-          isLight ? "text-white/60" : "text-ink/50"
+          isLight ? "text-white/60" : "text-ink/70"
         }`}
       >
         {items.map((item, index) => (

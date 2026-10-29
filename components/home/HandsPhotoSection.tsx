@@ -39,7 +39,7 @@ export function HandsPhotoSection() {
         </Reveal>
 
         <Reveal delay={0.1} className="text-center lg:text-left">
-          <span className="mb-3 block rotate-[-2deg] select-none font-handwriting text-3xl text-coral">
+          <span className="mb-3 block rotate-[-2deg] select-none font-handwriting text-3xl text-coral-text">
             Together we are stronger
           </span>
           <p className="eyebrow justify-center lg:justify-start">Who we are</p>

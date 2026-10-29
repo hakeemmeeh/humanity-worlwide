@@ -29,7 +29,7 @@ export function MediaHub({ videos }: { videos: Video[] }) {
       <section className="section-padding bg-[#F6F9FC]">
         <div className="container-content">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="font-handwriting text-3xl text-coral block mb-3 rotate-[-2deg] select-none">
+            <span className="font-handwriting text-3xl text-coral-text block mb-3 rotate-[-2deg] select-none">
               Featured Documentary
             </span>
             <p className="eyebrow justify-center">Now Playing</p>
@@ -81,7 +81,7 @@ export function MediaHub({ videos }: { videos: Video[] }) {
 
             {/* Video description footer */}
             <div className="p-6 md:p-8 bg-white border-t border-sand-deep/40">
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-coral font-bold uppercase tracking-wider mb-2">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-coral-text font-bold uppercase tracking-wider mb-2">
                 <span className="flex items-center gap-1">
                   <MapPin className="h-3.5 w-3.5" />
                   {featuredVideo.location}
@@ -107,7 +107,7 @@ export function MediaHub({ videos }: { videos: Video[] }) {
             <h3 className="font-display text-2xl font-bold text-navy">
               More Documentaries & Successes
             </h3>
-            <p className="text-sm text-ink/50 mt-1">
+            <p className="text-sm text-ink/70 mt-1">
               Browse field films and program success stories from across our operations
             </p>
           </div>
@@ -155,7 +155,7 @@ export function MediaHub({ videos }: { videos: Video[] }) {
 
                 {/* Content */}
                 <div className="p-5 flex flex-col flex-1">
-                  <div className="flex items-center gap-1 text-[10px] font-bold text-coral uppercase tracking-wider mb-2">
+                  <div className="flex items-center gap-1 text-[10px] font-bold text-coral-text uppercase tracking-wider mb-2">
                     <MapPin className="h-3 w-3" />
                     {video.location}
                   </div>

@@ -79,7 +79,7 @@ export default function WhereWeWorkPage() {
                                 suffix={stat.suffix}
                               />
                             </span>
-                            <p className="text-sm text-ink/50">
+                            <p className="text-sm text-ink/70">
                               {stat.label}
                             </p>
                           </div>

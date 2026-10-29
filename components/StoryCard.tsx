@@ -56,7 +56,7 @@ export function StoryCard({ story }: StoryCardProps) {
             <p className="font-display text-base font-bold text-navy transition-colors duration-300 group-hover:text-teal">
               {story.name}
             </p>
-            <p className="mt-0.5 text-xs font-semibold uppercase tracking-wider text-coral">
+            <p className="mt-0.5 text-xs font-semibold uppercase tracking-wider text-coral-text">
               {story.role}
             </p>
           </div>
@@ -73,7 +73,7 @@ export function StoryCard({ story }: StoryCardProps) {
           {programHref && (
             <Link
               href={programHref}
-              className="inline-flex items-center justify-center gap-1.5 text-xs font-medium text-ink/50 transition-colors hover:text-navy"
+              className="inline-flex items-center justify-center gap-1.5 text-xs font-medium text-ink/70 transition-colors hover:text-navy"
             >
               View {story.program} project
               <ArrowRight className="h-3 w-3" />

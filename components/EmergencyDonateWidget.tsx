@@ -36,7 +36,7 @@ export function EmergencyDonateWidget() {
       <h3 className="font-display text-xl font-semibold text-navy sm:text-2xl">
         Donate to our emergency response
       </h3>
-      <p className="mt-2 text-sm text-ink/60">
+      <p className="mt-2 text-sm text-ink/70">
         Select a country, then choose an amount. Your gift supports rapid
         humanitarian action — not a single appeal.
       </p>
@@ -72,7 +72,7 @@ export function EmergencyDonateWidget() {
             }}
             className={`min-h-11 rounded-full py-3 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2 ${
               selected === amt && !custom
-                ? "border border-teal bg-teal text-white"
+                ? "border border-teal-deep bg-teal-deep text-white"
                 : "border border-sand-deep bg-white text-navy hover:border-teal hover:text-teal"
             }`}
           >
@@ -86,7 +86,7 @@ export function EmergencyDonateWidget() {
           Custom donation amount
         </label>
         <div className="relative">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-ink/40">
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-ink/70">
             $
           </span>
           <input
@@ -111,7 +111,7 @@ export function EmergencyDonateWidget() {
           Pledge ${amount > 0 ? amount : "—"} for {countryName}
         </span>
       </Button>
-      <p className="mt-3 text-center text-xs text-ink/50">
+      <p className="mt-3 text-center text-xs text-ink/70">
         Online payment is coming soon. Pledge now and our team will contact you with how to give.
       </p>
     </div>

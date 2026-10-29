@@ -119,10 +119,10 @@ export function WhatWeOfferSection() {
       <div className="container-content">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <Reveal direction="left">
-            <span className="mb-3 block rotate-[-1deg] select-none font-handwriting text-3xl text-coral">
+            <span className="mb-3 block rotate-[-1deg] select-none font-handwriting text-3xl text-coral-text">
               Our dedication
             </span>
-            <p className="text-[11px] font-extrabold uppercase tracking-widest text-navy/60">
+            <p className="text-[11px] font-extrabold uppercase tracking-widest text-navy/75">
               What We Offer
             </p>
             <h2 className="mt-2 max-w-2xl font-display text-3xl font-semibold leading-tight text-[#1C1C1C] md:text-4xl lg:text-5xl">
@@ -133,7 +133,7 @@ export function WhatWeOfferSection() {
             <div className="flex flex-wrap items-center gap-6">
               <Link
                 href="/about"
-                className="inline-block bg-[#6C8D98] hover:bg-[#5B7B86] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors rounded-none shadow-sm"
+                className="inline-block bg-[#56747F] hover:bg-[#47626C] text-white px-8 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors rounded-none shadow-sm"
               >
                 About
               </Link>
@@ -191,7 +191,7 @@ export function WhatWeOfferSection() {
                 
                 {/* Centered Icon */}
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="w-14 h-14 rounded-full bg-coral text-white flex items-center justify-center transform scale-100 lg:scale-0 transition-transform duration-500 delay-100 lg:group-hover:scale-100 shadow-lg">
+                  <div className="w-14 h-14 rounded-full bg-coral-text text-white flex items-center justify-center transform scale-100 lg:scale-0 transition-transform duration-500 delay-100 lg:group-hover:scale-100 shadow-lg">
                     <ArrowRight className="w-6 h-6" />
                   </div>
                 </div>

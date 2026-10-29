@@ -56,7 +56,7 @@ export function WhereWeWorkSection() {
                     <MapPin className="h-3.5 w-3.5" />
                     <span className="text-sm font-semibold">{region.name}</span>
                   </div>
-                  <p className="mt-1 line-clamp-2 text-sm text-ink/60">
+                  <p className="mt-1 line-clamp-2 text-sm text-ink/70">
                     {region.description}
                   </p>
                   <div className="mt-2 flex gap-4">
@@ -65,7 +65,7 @@ export function WhereWeWorkSection() {
                         <span className="font-display text-lg font-semibold text-navy">
                           <Counter value={stat.value} suffix={stat.suffix} />
                         </span>
-                        <span className="ml-1 text-xs text-ink/50">
+                        <span className="ml-1 text-xs text-ink/70">
                           {stat.label}
                         </span>
                       </div>

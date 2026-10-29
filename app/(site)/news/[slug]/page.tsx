@@ -64,7 +64,7 @@ export default async function NewsArticlePage({ params }: Props) {
             <h1 className="font-display text-3xl font-semibold leading-tight md:text-4xl lg:text-5xl">
               {article.title}
             </h1>
-            <p className="mt-4 text-sm text-ink/50">
+            <p className="mt-4 text-sm text-ink/70">
               {formatDate(article.date)} · {article.author}
             </p>
           </Reveal>

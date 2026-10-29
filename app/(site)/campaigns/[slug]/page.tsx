@@ -61,7 +61,7 @@ export default async function CampaignDetailPage({ params }: Props) {
             ]}
           />
           <Reveal>
-            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.15em] text-coral">
+            <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-[0.15em] text-[#F08A57]">
               {campaign.crisisType ?? "Emergency Response"}
               {campaign.country ? ` · ${campaign.country}` : ""}
             </span>
@@ -110,7 +110,7 @@ export default async function CampaignDetailPage({ params }: Props) {
                       key={need}
                       className="flex items-start gap-3 text-ink/80"
                     >
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-coral" />
+                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-coral-text" />
                       {need}
                     </li>
                   ))}
@@ -122,7 +122,7 @@ export default async function CampaignDetailPage({ params }: Props) {
           <div className="lg:col-span-2">
             <Reveal delay={0.15}>
               <div className="sticky top-28 rounded-2xl bg-sand p-6 shadow-card md:p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-coral">
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-coral-text">
                   Support emergency response
                 </p>
                 <h3 className="mt-3 font-display text-xl font-semibold text-navy">

@@ -37,7 +37,7 @@ export function NewsCard({ article }: NewsCardProps) {
           sizes="(max-width: 768px) 100vw, 33vw"
         />
         {article.category && (
-          <span className="absolute left-4 top-4 z-10 rounded-full bg-coral px-3.5 py-1.5 text-[10px] font-bold text-white uppercase tracking-wider shadow-sm">
+          <span className="absolute left-4 top-4 z-10 rounded-full bg-coral-text px-3.5 py-1.5 text-[10px] font-bold text-white uppercase tracking-wider shadow-sm">
             {article.category}
           </span>
         )}
@@ -45,7 +45,7 @@ export function NewsCard({ article }: NewsCardProps) {
 
       {/* Content */}
       <div className="p-6">
-        <p className="text-[11px] font-semibold text-ink/40 uppercase tracking-wider">
+        <p className="text-[11px] font-semibold text-ink/70 uppercase tracking-wider">
           {formatDate(article.date)} · {article.author}
         </p>
         <h3 className="mt-2.5 font-display text-lg font-semibold leading-snug text-navy transition-colors duration-300 group-hover:text-teal">

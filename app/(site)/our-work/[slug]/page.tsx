@@ -146,7 +146,7 @@ export default async function ProgramPage({ params }: Props) {
                 <Reveal key={priority.title} delay={(index % 2) * 0.08} className="flex">
                   <article className="flex w-full flex-col rounded-2xl bg-sand p-6 sm:p-8">
                     <div className="flex items-start gap-4">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal text-sm font-semibold text-white">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal-deep text-sm font-semibold text-white">
                         {index + 1}
                       </span>
                       <h3 className="pt-1.5 font-display text-xl font-semibold text-navy">{priority.title}</h3>
