@@ -20,6 +20,10 @@ import { ShapeDivider } from "@/components/ShapeDivider";
 export function HeroSection() {
   const prefersReducedMotion = useReducedMotion();
   const [activeIndex, setActiveIndex] = useState(0);
+  // The first slide shows straight away (no fade-in) so the page paints fast;
+  // slides that come after it fade in as before.
+  const [hasRotated, setHasRotated] = useState(false);
+  useEffect(() => { if (activeIndex !== 0) setHasRotated(true); }, [activeIndex]);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const slide = heroSlides[activeIndex];
 
@@ -71,7 +75,7 @@ export function HeroSection() {
           >
             {/* Fixed H1 so search engines always see who we are; the rotating slide headline is an H2. */}
             <motion.div
-              initial={prefersReducedMotion ? false : "hidden"}
+              initial={false}
               animate="visible"
               variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
             >
@@ -92,7 +96,7 @@ export function HeroSection() {
             </motion.div>
             <motion.div
               key={slide.headline}
-              initial={prefersReducedMotion ? false : "hidden"}
+              initial={prefersReducedMotion || !hasRotated ? false : "hidden"}
               animate="visible"
               variants={{
                 visible: {

@@ -23,6 +23,8 @@ const caveat = localFont({
   variable: "--font-caveat",
   display: "swap",
   weight: "400 700",
+  // Only used for small handwritten accents, so it shouldn't compete with the hero photo
+  preload: false,
 });
 
 export const metadata: Metadata = {

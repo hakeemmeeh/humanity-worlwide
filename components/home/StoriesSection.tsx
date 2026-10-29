@@ -117,7 +117,7 @@ export function StoriesSection({ stories }: { stories: Story[] }) {
                             <p className="font-display text-base font-bold text-white transition-colors duration-300 group-hover:text-teal">
                               {story.name}
                             </p>
-                            <p className="text-xs font-semibold text-coral-text uppercase tracking-wider mt-0.5">
+                            <p className="text-xs font-semibold text-[#F08A57] uppercase tracking-wider mt-0.5">
                               {story.role}
                             </p>
                           </div>

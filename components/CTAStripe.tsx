@@ -28,7 +28,6 @@ export function CTAStripe({
           fill
           className="object-cover"
           sizes="100vw"
-          priority
         />
         <div className={`absolute inset-0 ${isCoral ? "bg-coral/95" : "bg-[#12304F]/95"}`} />
       </>
