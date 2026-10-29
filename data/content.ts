@@ -20,6 +20,9 @@ import type {
   TimelineEvent,
 } from "@/types";
 
+/** Google Analytics 4 Measurement ID (G-…). Leave empty to switch tracking off. */
+export const googleAnalyticsId = "G-JJDLL7V4FW";
+
 export const organization = {
   name: "Humanity Worldwide",
   shortName: "HWW",
