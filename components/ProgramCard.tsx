@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Program } from "@/types";
@@ -19,6 +20,7 @@ export function ProgramCard({ program }: ProgramCardProps) {
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={program.image}
+          unoptimized={!canOptimize(program.image)}
           alt={program.title}
           fill
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"

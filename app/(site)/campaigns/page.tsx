@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { CTAStripe } from "@/components/CTAStripe";
@@ -59,6 +60,7 @@ export default async function CampaignsPage() {
                     <div className="relative aspect-[16/10] lg:col-span-2 lg:aspect-auto lg:min-h-[320px]">
                       <Image
                         src={country.image}
+                        unoptimized={!canOptimize(country.image)}
                         alt={`Emergency response in ${country.name}`}
                         fill
                         className="object-cover"
@@ -102,7 +104,7 @@ export default async function CampaignsPage() {
                             <div className="mt-3 flex flex-wrap items-center gap-4">
                               {crisis.familiesReached != null && (
                                 <p className="text-sm font-semibold text-teal-text">
-                                  {crisis.familiesReached.toLocaleString()}{" "}
+                                  {crisis.familiesReached.toLocaleString("en-US")}{" "}
                                   families reached
                                 </p>
                               )}
@@ -139,7 +141,7 @@ export default async function CampaignsPage() {
               {moreCases.map((c) => (
                 <li key={c.slug} className="overflow-hidden rounded-2xl bg-white shadow-card">
                   <div className="relative aspect-[16/10]">
-                    <Image src={c.image} alt={c.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
+                    <Image src={c.image} unoptimized={!canOptimize(c.image)} alt={c.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 33vw" />
                   </div>
                   <div className="p-6">
                     <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-coral">

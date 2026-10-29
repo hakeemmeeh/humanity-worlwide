@@ -79,7 +79,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#2ac4ba]">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#1A7A73]">
               Explore
             </h3>
             <ul className="space-y-2">
@@ -97,7 +97,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#2ac4ba]">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#1A7A73]">
               Contact
             </h3>
             <address className="not-italic space-y-2 text-sm text-[#4A6B65]">
@@ -131,11 +131,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#2ac4ba]">
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#1A7A73]">
               Newsletter
             </h3>
             {submitted ? (
-              <p className="text-sm text-[#2ac4ba]">Thank you for subscribing!</p>
+              <p className="text-sm text-[#1A7A73]">Thank you for subscribing!</p>
             ) : (
               <form onSubmit={handleNewsletter} className="space-y-3">
                 <label htmlFor="newsletter-email" className="sr-only">

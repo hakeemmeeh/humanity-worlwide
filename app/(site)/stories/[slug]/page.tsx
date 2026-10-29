@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
@@ -53,6 +54,7 @@ export default async function StoryDetailPage({ params }: Props) {
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-card">
                 <Image
                   src={story.image}
+                  unoptimized={!canOptimize(story.image)}
                   alt={story.name}
                   fill
                   className="object-cover"

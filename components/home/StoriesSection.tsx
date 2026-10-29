@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import { ChevronLeft, ChevronRight, Quote, Play, Phone, Mail, MapPin } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
@@ -105,6 +106,7 @@ export function StoriesSection({ stories }: { stories: Story[] }) {
                           <div className="relative h-14 w-14 overflow-hidden rounded-full ring-2 ring-white/10 transition-all duration-500 group-hover:ring-teal/50">
                             <Image
                               src={story.image}
+                              unoptimized={!canOptimize(story.image)}
                               alt={story.name}
                               fill
                               className="object-cover"

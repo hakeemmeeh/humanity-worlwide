@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import { MapPin } from "lucide-react";
 import { CTAStripe } from "@/components/CTAStripe";
 import { Counter } from "@/components/Counter";
@@ -48,6 +49,7 @@ export default function WhereWeWorkPage() {
                     <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-[400px]">
                       <Image
                         src={region.image}
+                        unoptimized={!canOptimize(region.image)}
                         alt={`Humanity Worldwide operations in ${region.name}`}
                         fill
                         className="object-cover"

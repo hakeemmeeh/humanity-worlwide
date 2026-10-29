@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import { Reveal } from "@/components/Reveal";
 import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
@@ -36,6 +37,7 @@ export function PageHero({
         <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
           <Image
             src={image}
+            unoptimized={!canOptimize(image)}
             alt={alt}
             fill
             priority

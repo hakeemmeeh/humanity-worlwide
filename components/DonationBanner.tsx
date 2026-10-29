@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/Button";
@@ -23,6 +24,7 @@ export function DonationBanner({
           <div className="relative aspect-[16/10] lg:aspect-auto lg:min-h-[400px]">
             <Image
               src={campaign.image}
+              unoptimized={!canOptimize(campaign.image)}
               alt={campaign.title}
               fill
               className="object-cover"
@@ -41,7 +43,7 @@ export function DonationBanner({
             </p>
             {campaign.familiesReached && (
               <p className="mt-3 text-sm font-semibold text-teal-text">
-                {campaign.familiesReached.toLocaleString()} families reached ·{" "}
+                {campaign.familiesReached.toLocaleString("en-US")} families reached ·{" "}
                 {campaign.location}
               </p>
             )}

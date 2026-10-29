@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import { Play, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
@@ -52,6 +53,7 @@ export function MediaHub({ videos }: { videos: Video[] }) {
                 <>
                   <Image
                     src={featuredVideo.image}
+                    unoptimized={!canOptimize(featuredVideo.image)}
                     alt={featuredVideo.title}
                     fill
                     className="object-cover opacity-90 transition-transform duration-700 hover:scale-102"
@@ -120,6 +122,7 @@ export function MediaHub({ videos }: { videos: Video[] }) {
                 <div className="relative aspect-video overflow-hidden bg-navy-deep">
                   <Image
                     src={video.image}
+                    unoptimized={!canOptimize(video.image)}
                     alt={video.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-103"

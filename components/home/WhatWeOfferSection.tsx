@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
@@ -178,6 +179,7 @@ export function WhatWeOfferSection() {
               >
                 <Image
                   src={item.image}
+                  unoptimized={!canOptimize(item.image)}
                   alt={item.alt}
                   fill
                   draggable={false}

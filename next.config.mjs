@@ -7,7 +7,8 @@ const nextConfig = {
   // NOTE: the site is no longer a static export. The admin (login, API routes,
   // middleware) needs a server runtime — deploy on Vercel or any Node host.
   images: {
-    unoptimized: true,
+    // Next.js resizes photos per screen and serves WebP/AVIF (see lib/image-src.ts)
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
       ...(supabaseHost ? [{ protocol: "https", hostname: supabaseHost }] : []),

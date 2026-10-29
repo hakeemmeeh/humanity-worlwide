@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CTAStripe } from "@/components/CTAStripe";
@@ -14,6 +15,7 @@ interface Props {
 
 function formatDate(dateStr: string): string {
   return new Date(dateStr).toLocaleDateString("en-US", {
+    timeZone: "UTC", // same date on the server and in every visitor's browser
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -74,6 +76,7 @@ export default async function NewsArticlePage({ params }: Props) {
           <div className="relative -mt-8 aspect-[16/9] overflow-hidden rounded-2xl shadow-card">
             <Image
               src={article.image}
+              unoptimized={!canOptimize(article.image)}
               alt={article.title}
               fill
               className="object-cover"

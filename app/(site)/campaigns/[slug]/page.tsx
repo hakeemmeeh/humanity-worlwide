@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
@@ -43,6 +44,7 @@ export default async function CampaignDetailPage({ params }: Props) {
       <section className="relative flex min-h-[60vh] items-end">
         <Image
           src={campaign.image}
+          unoptimized={!canOptimize(campaign.image)}
           alt={campaign.title}
           fill
           priority
@@ -69,7 +71,7 @@ export default async function CampaignDetailPage({ params }: Props) {
             <p className="mt-4 max-w-2xl text-lg text-white/80">
               {campaign.location}
               {campaign.familiesReached &&
-                ` · ${campaign.familiesReached.toLocaleString()} families reached`}
+                ` · ${campaign.familiesReached.toLocaleString("en-US")} families reached`}
             </p>
           </Reveal>
         </div>

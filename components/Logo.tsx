@@ -40,7 +40,7 @@ export function Logo({
         </span>
         <span
           className={`block text-[10px] lowercase tracking-wide ${
-            onDark ? "text-white/60" : "text-ink/50"
+            onDark ? "text-white/60" : "text-ink/70"
           }`}
         >
           {organization.tagline}

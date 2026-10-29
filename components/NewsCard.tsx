@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Article } from "@/types";
@@ -9,6 +10,7 @@ interface NewsCardProps {
 
 function formatDate(dateStr: string): string {
   return new Date(dateStr).toLocaleDateString("en-US", {
+    timeZone: "UTC", // same date on the server and in every visitor's browser
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -28,6 +30,7 @@ export function NewsCard({ article }: NewsCardProps) {
       <div className="relative aspect-[16/10] overflow-hidden">
         <Image
           src={article.image}
+          unoptimized={!canOptimize(article.image)}
           alt={article.title}
           fill
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"

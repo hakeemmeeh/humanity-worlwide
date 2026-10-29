@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";
 import { Counter } from "@/components/Counter";
@@ -43,6 +44,7 @@ export function WhereWeWorkSection() {
                 <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl">
                   <Image
                     src={region.image}
+                    unoptimized={!canOptimize(region.image)}
                     alt={region.name}
                     fill
                     className="object-cover"

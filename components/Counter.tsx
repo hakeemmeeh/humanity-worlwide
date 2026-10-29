@@ -59,7 +59,7 @@ export function Counter({
     return () => cancelAnimationFrame(rafId);
   }, [isInView, value, duration, prefersReducedMotion, isMounted]);
 
-  const formatted = display.toLocaleString();
+  const formatted = display.toLocaleString("en-US");
 
   return (
     <motion.span ref={ref} className={className}>

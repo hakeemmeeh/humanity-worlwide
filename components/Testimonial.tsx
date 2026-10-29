@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import type { Story } from "@/types";
 
 interface TestimonialProps {
@@ -26,6 +27,7 @@ export function Testimonial({ story, variant = "light" }: TestimonialProps) {
         <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full">
           <Image
             src={story.image}
+            unoptimized={!canOptimize(story.image)}
             alt={story.name}
             fill
             className="object-cover"

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 
 interface GalleryProps {
   images: string[];
@@ -17,6 +18,7 @@ export function Gallery({ images, altPrefix }: GalleryProps) {
         >
           <Image
             src={src}
+            unoptimized={!canOptimize(src)}
             alt={`${altPrefix} — photo ${index + 1}`}
             fill
             className="object-cover transition-transform duration-500 hover:scale-105"

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, MapPin, Play } from "lucide-react";
@@ -48,6 +49,7 @@ export function HeroSection() {
           <Image
             key={s.headline}
             src={s.image}
+            unoptimized={!canOptimize(s.image)}
             alt={s.imageAlt}
             fill
             priority={i === 0}

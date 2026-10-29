@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { canOptimize } from "@/lib/image-src";
 import type { TeamMember } from "@/types";
 
 interface TeamProfileProps {
@@ -11,6 +12,7 @@ export function TeamProfile({ member }: TeamProfileProps) {
       <div className="relative aspect-[4/5] overflow-hidden">
         <Image
           src={member.image}
+          unoptimized={!canOptimize(member.image)}
           alt={member.name}
           fill
           className="object-cover"
