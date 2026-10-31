@@ -54,6 +54,13 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      // Tells Google the site's name, shown above each search result
+      "@type": "WebSite",
+      name: organization.name,
+      alternateName: [organization.shortName, "Humanity Worldwide (HWW)"],
+      url: `${organization.url}/`,
+    },
+    {
       "@type": "Organization",
       name: organization.name,
       alternateName: organization.shortName,
