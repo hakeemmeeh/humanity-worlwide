@@ -35,7 +35,8 @@ export const organization = {
     emails: ["Info@humanity-worldwide.org", "cd@humanity-worldwide.org"],
     phone: "+1 (816) 208-2270",
   },
-  url: "https://hww.xpeedium.com",
+  // The site's main address. Canonicals, sitemap, robots and Google data all follow it.
+  url: "https://www.humanity-worldwide.org",
 };
 
 /** Search-engine description (Google shows ~155 characters; keep it under 160). */

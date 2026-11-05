@@ -25,7 +25,7 @@ export default function GetInvolvedPage() {
         imageAlt="Volunteers and community members working together on humanitarian programs"
       />
 
-      <section className="section-padding bg-white">
+      <section id="donate" className="section-padding bg-white scroll-mt-28">
         <div className="container-content grid gap-12 lg:grid-cols-2">
           <Reveal direction="left">
             <DonationWidget />
